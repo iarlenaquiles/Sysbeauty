@@ -1,0 +1,170 @@
+//menu total
+nav ul li.active {
+    background-color: rgba(0, 0, 0, 0.0) !important;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+//menu index
+.barras-menu-home{
+    a{
+        position: relative;
+    }
+    hr{
+        width:0px;
+        height:28px;
+        background-color:white;
+        margin-top: -46%;
+        margin-right: 0%;
+        
+        left:26%;
+        z-index:10;
+    }
+    li:nth-child(2){
+        hr{
+            margin-top: -37%;
+        }
+    }
+    li:nth-child(3){
+        hr{
+            margin-top: -66%;
+        }
+    }
+    li:nth-child(4){
+        hr{
+            margin-top: -66%;
+        }
+    }
+}
+//menu-prof
+.barras-menu-prof{
+    
+    hr{
+        width:1px;
+        height:28px;
+        background-color:white;
+        margin-top: -64%;
+        margin-right: 0%;
+        
+        left:26%;
+        z-index:10;
+    }
+    li:nth-child(2){
+        hr{
+            margin-top: -70%;
+        }
+    }
+    li:nth-child(3){
+        hr{
+            margin-top: -73%;
+        }
+    }
+    li:nth-child(4){
+        hr{
+            margin-top: -43%;
+        }
+    }
+    li:nth-child(5){
+        hr{
+            margin-top: -35%;
+        }
+    }
+    li:nth-child(6){
+        hr{
+            margin-top: -61%;
+        }
+    }
+    li:nth-child(7){
+        hr{
+            margin-top: -38%;
+        }
+    }
+    li:nth-child(8){
+        hr{
+            margin-top: -39%;
+        }
+    }
+    li:nth-child(9){
+        hr{
+            margin-top: -67%;
+        }
+    }
+
+}
+
+
+//menu-Adm
+.barras-menu-adm{
+    hr{
+        width:1px;
+        height:28px;
+        background-color:white;
+        margin-top: -65%;
+        margin-right: 0%;
+        
+        left:26%;
+        z-index:10;
+    }
+    li:nth-child(2){
+        hr{
+            margin-top: -56%;
+        }
+    }
+    li:nth-child(3){
+            position: relative;
+        hr{
+            margin-top: -40%;
+        }
+    }
+    li:nth-child(4){
+        hr{
+            margin-top: -37%;
+        }
+    }
+}
+//menu cliente
+.barras-menu-cliente{
+    hr{
+        width:1px;
+        height:28px;
+        background-color:white;
+        margin-top: -39%;
+        margin-right: 0%;
+        box-sizing: border-box;
+        left:26%;
+        z-index:10;
+    }
+    li:nth-child(2){
+        hr{
+            margin-top: -70%;
+        }
+    }
+    li:nth-child(3){
+        hr{
+            margin-top: -72%;
+        }
+    }
+    li:nth-child(4){
+        hr{
+            margin-top: -41%;
+        }
+    }
+    li:nth-child(5){
+        hr{
+            margin-top: -37%;
+        }
+    }
+    li:nth-child(6){
+        hr{
+            margin-top: -36%;
+        }
+    }
+    li:nth-child(7){
+        hr{
+            margin-top: -64%;
+        }
+    }
+}
+.padding{
+    padding-left: 30px;
+    padding-right: 30px;
+}

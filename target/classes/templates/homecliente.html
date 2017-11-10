@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta name="viewport" content="width=320, initial-scale=1"/>
+        <meta charset="UTF-8"/>
+        <title>Home</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" href="estilos-css/materialize.css"/>
+        <link rel="stylesheet" href="estilos-css/containers.css"/>
+        <script src="js/jquery-3.2.1.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/efeitos.js"></script>
+        <script src="js/controllerView/pagView.js"></script>
+        <script src="js/controllerView/crud.js"></script>
+        
+
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper cor-padrao padding">
+                <a href="homecliente.html" class="brand-logo"><img src="img/logo.png" width="64px" height="64px" class="responsive-img" alt="logo do site"/></a>
+                <a href="#" data-activates="menu-mobile" class="button-collapse">
+                    <i class="material-icons">menu</i>
+                </a>
+
+                <ul id="nav-mobile" class="right hide-on-med-and-down barras-menu-cliente">
+                    <li class="active"><a href="homecliente.html">Profissionais</a><hr/></li>
+                    <li><a href="perfil-cliente.html" th:href="@{/listUser}">Perfil</a><hr/></li>
+                    <li><a href="chat.html">Chat</a><hr/></li>
+                    <li><a href="transacoes.html">Transações</a><hr/></li>
+                    <li><a href="qualificacao.html">Qualificação</a><hr/></li>
+                    <li><a href="#modal-fale-conosco">Fale Conosco</a><hr/></li>
+                    <li><a href="ajuda.html">Ajuda</a><hr/></li>
+                    <li><a href="index.html">Sair</a></li>
+                </ul>
+
+                <ul id="menu-mobile" class="side-nav">
+                    <li class="active"><a href="homecliente.html">Profissionais</a></li>
+                    <li><a href="perfil-cliente.html">Perfil</a></li>
+                    <li><a href="chat.html">Chat</a></li>
+                    <li><a href="transacoes.html">Transações</a></li>
+                    <li><a href="#modal-fale-conosco">Fale Conosco</a></li>
+                    <li><a href="ajuda.html">Ajuda</a></li>
+                    <li><a href="index.html">Sair</a></li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <main class="row container">
+            <div class="col s12 m12 l12">
+                <p>Filtar Busca</p>
+            </div>
+<!-- 	<button type="submit" id="btn-action" -->
+<!-- 		class="waves-effect waves-light btn botao-padrao " onclick="perfil()">Teste</button> -->
+	<form th:action="@{/teste}" method="get">
+		<button class="btn btn-md btn-danger btn-block" name="registration"
+			type="Submit">tetes</button>
+	</form>
+	<div class="row">
+
+                <div class=" col s3 m3 l3 form" >
+                    <label for="tiposervico">Serviços</label>
+                    <select name="tiposervico">
+                        <option value="todos">Todos</option>
+                        <option value="pe">Pé</option>
+                        <option value="mao">Mão</option>
+                        <option value="limpezapele">Limpeza de pele</option>
+                        <option value="sombrancelha">Sombrancelha</option>
+                    </select>
+                </div>
+
+                <div class="col s3 m3 l3 form">
+                    <label for="distancia">Distância</label>
+                    <select>
+                        <option value="500">500m</option>
+                        <option value="1">1km</option>
+                        <option value="2">2km</option>
+                        <option value="5">5km</option>
+                    </select>
+                </div>
+
+                <div class="col s3 m3 l3 form">
+                    <label for="promo">promoções</label>
+                    <select>
+                        <option value="-">---</option>
+                        <option value="-">---</option>
+                        <option value="-">---</option>
+                        <option value="-">---</option>
+                    </select>
+                </div>
+
+                <div class="col s3 m3 l3 botao-pesquisar">
+                    <a class="waves-effect waves-light btn botao-padrao2">Pesquisar</a>
+                </div>
+
+            </div>
+
+            <div class="row cont-flex">
+                <div class="col s12 m6 l6 mapCliente" id="googleMap">
+
+                </div>
+
+                <div class="col s12 m6 l6">
+                    <div class="row">
+                        <div class="col l4">
+                            <img src="img/0-61.png" style="width: 100%;" alt="video de qualificação"/> 				
+                            
+                        </div>
+                        <div class="col l8">
+                            <div class="col l1 qualificacoes">
+                                <i class="material-icons amarelo">grade</i>
+                            </div>
+                            <div class="col l5 qualificacoes">
+						<label >Profissional: </label> 
+						<label ID="labe1"></label>
+
+						<p>4,5<br/>(20 qualificações)</p>
+                            </div>
+                            <div class="col l1 qualificacoes">
+                                <i class="material-icons disponivel">fiber_manual_record</i>
+                            </div>
+                            <div class="col l5 qualificacoes">
+                                <p>Disponível</p>
+                            </div>
+                        </div>
+                        <div class="col l8 comentarios">
+                            <p>" Quai Quai Quai Quai Quai Quai Quai Quai</p>
+                            <p>09/08/2016 cliente232</p>
+                        </div>
+                    </div>
+
+                    <div class="col l6 sem-padding conquistas">
+                        <div class="col l3">
+                            <img src="img/0-98.png" alt="conquista profissional"/>
+                        </div>
+                        <div class="col l9">
+                            <p>Profissional Style</p>
+                            <p>30 atendimentos personalizados</p>
+                        </div>
+                    </div>
+                    <div class="col l6 conquistas">
+                        <div class="col l3">
+                            <img src="img/0-97.png" alt="conquista profissional"/>
+                        </div>
+                        <div class="col l9">
+                            <p>Profissional Atencioso</p>
+                            <p>180 atendimento completados</p>
+                        </div>
+                    </div>
+                    <div class="col l12 sem-padding">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Obcaecati cumque consequatur, eaque non magni doloribus,
+                        assumenda iure numquam sit iusto incidunt corporis,
+                        quod maiores excepturi sint dolorem vero nulla itaque!
+                        </p>
+                    </div>
+
+                    <div class="col l12 caixa-de-botoes sem-padding texto-botao">
+                        <div class="col s12 m5 l5 sem-padding"><a class="waves-effect waves-light btn botao-padrao" href="#modal-agendar">Agendar atendimento</a></div>
+                        <div class="col s12 m4 l4"><a class="waves-effect waves-light btn" href="chat.html">iniciar chat</a></div>
+                        <div class="col s12 m3 l3"><a class="waves-effect waves-light btn" href="#modal-portifolio">portfolio</a></div>
+                    </div>
+
+                    <div id="modal-agendar" class="modal">
+                        <div class="modal-content">
+                            <h5>Agendar um atendimento</h5>
+                            <div class="form">
+                                <label for="data">Escolha uma data</label>
+                                <input type="date"/>
+                                <table class="alinha-tabela" id="table">
+<!--                                     <tr> -->
+<!--                                         <td> -->
+<!--                                             <input type="checkbox" id="escova" name="escova" class="filled-in"/> -->
+<!--                                             <label for="escova">Escova</label> -->
+<!--                                         </td> -->
+<!--                                         <td>50,00</td> -->
+<!--                                     </tr>  -->
+                                    
+<!--                                      <tr> -->
+<!--                                         <td> -->
+<!--                                             <input type="checkbox" id="escova" name="escova" class="filled-in"/> -->
+<!--                                             <label for="escova">Escova</label> -->
+<!--                                         </td> -->
+<!--                                         <td>50,00</td> -->
+<!--                                     </tr> -->
+
+<!--                                     <tr> -->
+<!--                                         <td> -->
+<!--                                             <input type="checkbox" id="mao" name="mao" class="filled-in"/> -->
+<!--                                             <label for="mao">Mão</label> -->
+<!--                                         </td> -->
+<!--                                         <td>50,00</td> -->
+<!--                                     </tr> -->
+
+<!--                                     <tr> -->
+<!--                                         <td> -->
+<!--                                             <input type="checkbox" id="pe" name="pe" class="filled-in"/> -->
+<!--                                             <label for="pe">Pé</label> -->
+<!--                                         </td> -->
+<!--                                         <td>50,00</td> -->
+<!--                                     </tr> -->
+                                </table>
+                                <label for="horario">Escolha um Horário</label>
+                                <input type="time"/>
+                            </div>
+                            <div class="col l4 offset-l4">
+                                <a href="#modal-confirmacao" class="modal-action modal-close waves-effect btn botao-padrao2">Próxima</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="modal-confirmacao" class="modal">
+                        <div class="modal-content">
+                            <h5>Confirmação de agendamento</h5>
+                            <p>dia: 08/08/0888   Horário:12:30</p>
+                            <p>Serviços:</p>
+                            <table class="alinha-tabela">
+                                <tr>
+                                    <td>
+                                        Escova
+                                    </td>
+                                    <td>R$50,00</td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Progressiva
+                                    </td>
+                                    <td>R$50,00</td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Mão e Pé
+                                    </td>
+                                    <td>R$50,00</td>
+                                </tr>
+                            </table>
+                            <p id="valor-total">Total: 00,0</p>
+
+                            <p>É necessário confimação do profissional .<br/>
+                                Assim que seu atendimento for confirmado
+                                você receberá uma notificação para efetuar o pagamento!
+                            </p>
+                            <div class="col2 offset-l5">
+                                <div class="col l6">
+                                    <a href="#modal-cancela-atendimento" class="modal-action modal-close waves-effect waves-green btn cancelar-agendamento">
+                                        Cancelar
+                                    </a>
+                                </div>
+                                <div class="col l6">
+                                    <a href="#modal-confirma-atendimento" class="modal-action modal-close waves-effect waves-green btn botao-padrao">
+                                        Confirmar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="modal-cancela-atendimento" class="modal">
+                        <div class="modal-content">
+                            <h5>Cancelamento de Joana</h5>
+                            <p>Dia: xx/xx/xxxx  Horário: 15:30 h</p>
+                            <p>Serviços:</p>
+                            <table>
+                                <tr>
+                                    <td>Nome do serviço</td>
+                                    <td>R$ 00,00</td>
+                                </tr>
+                                <tr>
+                                    <td>Nome do serviço</td>
+                                    <td>R$ 00,00</td>
+                                </tr>
+
+                            </table>
+                            <p>Total: 00,00</p>
+
+                            <div class="input-field col s12 area-texto">
+                                <textarea id="motivo-cancelamento" class="materialize-textarea input-field"></textarea>
+                                <label for="motivo-cancelamento">Motivo do Cancelamento:</label>
+                            </div>
+                            <p>
+                                Lamentamos pelo cancelamento de seu atendimento !:´(
+                                Atenção: Não se preocupe, nenhum valor será cobrado!
+
+                            </p>
+
+                        </div>
+                        <div class="modal-footer col l8 offset-l2">
+                            <a href="#!" class="modal-action modal-close waves-effect waves-green btn botao-padrao">Iniciar chat com Profissional</a>
+                        </div>
+                        <div class="modal-footer col l8 offset-l2">
+                            <a href="#!" class="modal-action modal-close waves-effect waves-green btn cancelar-agendamento">Procurar outro Profissional</a>
+                        </div>
+                    </div>
+
+                    <div id="modal-confirma-atendimento" class="modal">
+                        <div class="modal-content">
+                            <h5>Confirmado com "xxxxx"</h5>
+                            <p>Dia: 15/15/1515 horario: 12:12h</p>
+
+                            <p>Serviços:</p>
+                            <table class="alinha-tabela">
+                                <tr>
+                                    <td>Nome do serviço</td>
+                                    <td>R$ 00,00</td>
+                                </tr>
+                            </table>
+                            <p>Total: 00,00</p>
+                            <p>O profissional confirmou seu agendamento.Por favor faça o pagamento!</p>
+                        </div>
+                        <div class="modal-footer col l6 offset-l3">
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn botao-padrao2">Efetuar o pagamento</a>
+                        </div>
+                    </div>
+
+                    <div id="modal-portifolio" class="modal">
+                        <div class="modal-content row">
+                            <div class="col m5 l4">
+                                <p class="negrito">Apresentação</p>
+                                <div class="col l12" id="foto-profissional">
+                                    <img src="img/0-62.png" alt="Foto da profissional"/>
+                                </div>
+                                <div class="col l12 sem-padding conquistas">
+                                    <div class="col l2">
+                                        <img  src="img/0-98.png" alt="conquista profissional"/>
+                                    </div>
+                                    <div class="col l9">
+                                        <p>Profissional Style</p>
+                                        <p>30 atendimentos personalizados</p>
+                                    </div>
+                                </div>
+                                <div class="col l12 conquistas sem-padding">
+                                    <div class="col l2">
+                                        <img src="img/0-97.png" alt="conquista profissional"/>
+                                    </div>
+                                    <div class="col l9">
+                                        <p>Profissional Atencioso</p>
+                                        <p>180 atendimento completados</p>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                            <div id="slider"  class="col m5 l6 sem-padding">
+                                <a href="#" class="control_next">&rarr;</a>
+		                        <a href="#" class="control_prev">&larr;</a>
+                                <ul>
+                                    <li><img src="img/slider1.png" alt=""/></li>
+                                    <li><img src="img/slider2.png" alt=""/></li>
+                                    <li><img src="img/slider3.png" alt=""/></li>
+                                    <li><img src="img/slider4.png" alt=""/></li>
+                                    <li><img src="img/slider5.png" alt=""/></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m12 l12" id="anuncio-pago">
+                        <p>
+                            promocoes
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col l12">
+                <h5>Serviços prestados</h5>
+            </div>
+            <div class="col l12">
+                <div class="col l10 selecao-servicos">
+                    <table id="table2">
+<!--                         <tr> -->
+<!--                             <td> -->
+<!--                                 <input name="maope" type="checkbox" id="maope" class="filled-in"/> -->
+<!--                                 <label for="maope">Mão e Pé</label> -->
+<!--                             </td> -->
+<!--                             <td> -->
+<!--                                 <img src="img/cesta.png" alt="cesta de comprar"/> -->
+<!--                             </td> -->
+<!--                             <td> -->
+<!--                                 65,00 -->
+<!--                             </td> -->
+<!--                         </tr> -->
+<!--                         <tr> -->
+<!--                             <td> -->
+<!--                                 <input name="servico1" type="checkbox" id="servico1" class="filled-in"/> -->
+<!--                                 <label for="servico1">Mão</label> -->
+<!--                             </td> -->
+<!--                             <td> -->
+<!--                                 <img src="img/cesta.png" alt="cesta de comprar"/> -->
+<!--                             </td> -->
+<!--                             <td> -->
+<!--                                  30,00 -->
+<!--                             </td> -->
+<!--                         </tr> -->
+<!--                         <tr> -->
+<!--                             <td> -->
+<!--                                 <input name="servico6" type="checkbox" id="servico6" class="filled-in"/> -->
+<!--                                 <label for="servico6">Pé</label> -->
+<!--                             </td> -->
+<!--                             <td> -->
+<!--                                 <img src="img/cesta.png" alt="cesta de comprar"/> -->
+<!--                             </td> -->
+<!--                             <td> -->
+<!--                                  20,00 -->
+<!--                             </td> -->
+<!--                         </tr> -->
+<!--                         <tr> -->
+<!--                             <td> -->
+<!--                                 <input name="servico2" type="checkbox" id="servico2" class="filled-in"/> -->
+<!--                                 <label for="servico2">Corte</label> -->
+<!--                             </td> -->
+<!--                             <td> -->
+<!--                                 <img src="img/cesta.png" alt="cesta de comprar"/> -->
+<!--                             </td> -->
+<!--                             <td> -->
+<!--                                  80,00 -->
+<!--                             </td> -->
+<!--                         </tr> -->
+<!--                         <tr> -->
+<!--                             <td> -->
+<!--                                 <input name="servico3" type="checkbox" id="servico3" class="filled-in"/> -->
+<!--                                 <label for="servico3">Progressiva</label> -->
+<!--                             </td> -->
+<!--                             <td> -->
+<!--                                 <img src="img/cesta.png" alt="cesta de comprar"/> -->
+<!--                             </td> -->
+<!--                             <td> -->
+<!--                                  120,00 -->
+<!--                             </td> -->
+<!--                         </tr> -->
+<!--                         <tr> -->
+<!--                             <td> -->
+<!--                                 <input name="servico4" type="checkbox" id="servico4" class="filled-in"/> -->
+<!--                                 <label for="servico4">Penteados</label> -->
+<!--                             </td> -->
+<!--                             <td> -->
+<!--                                 <img src="img/cesta.png" alt="cesta de comprar"/> -->
+<!--                             </td> -->
+<!--                             <td> -->
+<!--                                  50,00 -->
+<!--                             </td> -->
+<!--                         </tr> -->
+                    </table>
+
+                </div>
+                <div class="col l2">
+                    <a class="waves-effect waves-light btn botao-padrao">Agendar Selecionados</a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+
+        </footer>
+        <div id="modal-fale-conosco" class="modal">
+            <iframe src="FaleConosco.html" class=" iframe-contato"></iframe>
+        </div>
+       <script src="js/map.js"></script>
+       <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBpYNwVckqNrHiVZhVPKmvUE2XwDXjjlH8&callback=myMapCliente"></script>
+    </body>
+</html>

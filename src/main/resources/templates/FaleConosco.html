@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no"/>
+        <title>Fale Conosco</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" href="estilos-css/materialize.css"/>
+        <link rel="stylesheet" href="estilos-css/containers.css"/>
+        <script src="js/jquery-3.2.1.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/efeitos.js"></script>
+        <script src="js/controllerView/pagView.js"></script>
+    </head>
+    <body>
+        <div id="modal-fale-conosco" class="iframe-contato contato">
+            <div class="row">
+                <p class="negrito">Deixe sua Mensagem, responderemos em breve pelo e-mail informado.</p>
+                
+                <div class="input-field col s6 l6">
+                    <label for="nome-fc">Nome Completo</label>
+                    <input type="text" id="nome-fc"/>
+                </div>
+                <div class="input-field col s6 l6">
+                    <label for="email-fc">E-mail</label>
+                    <input type="text" id="email-fc"/>
+                </div>
+                <div class="input-field col s12 l12">
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea rows="1" cols="10"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer row">
+                
+                    <div class="col s3 l3 offset-l6 offset-s6">
+                        <a href="#!" class="modal-action modal-close waves-effectn btn cancelar-agendamento fecha-modal">Não Enviar</a>
+                    </div>
+
+                    <div class="col s3 l3">
+                        <a href="#!"  class="modal-action modal-close waves-effect btn botao-padrao fecha-modal">Enviar</a>
+                    </div>
+                
+            </div>
+        </div>
+    </body>
+    <script>
+
+        $(".fecha-modal").click(function(){
+            window.parent.fecharModal();
+        });
+    </script>
+</html>

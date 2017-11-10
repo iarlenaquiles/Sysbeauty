@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no"/>
+        <title>Qualificação</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" href="estilos-css/materialize.css"/>
+        <link rel="stylesheet" href="estilos-css/containers.css"/>
+        <script src="js/jquery-3.2.1.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/efeitos.js"></script>
+        <script src="js/controllerView/pagView.js"></script>
+        
+
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper cor-padrao padding">
+                <a href="homecliente.html" class="brand-logo"><img src="img/logo.png" width="64px" height="64px" class="responsive-img" alt="logo do site"/></a>
+                <a href="#" data-activates="menu-mobile" class="button-collapse">
+                    <i class="material-icons">menu</i>
+                </a>
+
+                <ul id="nav-mobile" class="right hide-on-med-and-down barras-menu-cliente">
+                    <li class="active"><a href="homecliente.html">Profissionais</a><hr/></li>
+                    <li><a href="perfil-cliente.html">Perfil</a><hr/></li>
+                    <li><a href="chat.html">Chat</a><hr/></li>
+                    <li><a href="transacoes.html">Transações</a><hr/></li>
+                    <li><a href="qualificacao.html">Qualificação</a><hr/></li>
+                    <li><a href="#modal-fale-conosco">Fale Conosco</a><hr/></li>
+                    <li><a href="ajuda.html">Ajuda</a><hr/></li>
+                    <li><a href="index.html">Sair</a></li>
+                </ul>
+
+                <ul id="menu-mobile" class="side-nav">
+                    <li class="active"><a href="homecliente.html">Profissionais</a></li>
+                    <li><a href="perfil-cliente.html">Perfil</a></li>
+                    <li><a href="chat.html">Chat</a></li>
+                    <li><a href="transacoes.html">Transações</a></li>
+                    <li><a href="#modal-fale-conosco">Fale Conosco</a></li>
+                    <li><a href="ajuda.html">Ajuda</a></li>
+                    <li><a href="index.html">Sair</a></li>
+                </ul>
+
+            </div>
+        </nav>
+        <main class="row pad-transacoes">
+
+            <div class="col s12 m12 l12">
+                <h4>Qualificações</h4>
+            </div>
+
+            <div style="margin-bottom: 5%;" class="col s12 m12 l5 trans-usuario">
+                <div class="col l5">
+                    <img src="img/0-71.png" alt=""/>
+                </div>
+                <div class="col l6">
+                    <p>Leticia aisjaisj</p>
+                    <p>(50 transações)</p>
+                </div>
+
+                <div class="col l12 form">
+                    <label for="filtro">Filtrar por:</label>
+                    <select>
+                        <option value="todos" class="red">todos</option>
+                        <option value="efetuados">Pagamentos efetuados</option>
+                        <option value="pendentes">pagamentos pendentes</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col l5"> 
+
+                <div class="row avaliacao">
+                    <div class="col l3">
+                        <img src="img/0-62.png" alt=""/>
+                    </div>
+                    <div class="col l9">
+                        <p>Profissional: Mariama</p>
+                        <p>Dia: 15/04/2017</p>
+                        <p>Local: Rua asas lklk,185</p>
+                    </div>
+                    <dic class="col l12">
+                        <p>Você pode avaliar ao final do atendimento!</p>
+                        <a href="#modal-avalia" class="waves-effect waves-light btn botao-padrao">Avaliar</a>
+                    </dic>
+                </div>
+
+            </div>
+        </main>
+
+
+        <div id="modal-avalia" class="modal">
+            <div class="modal-content row">
+                <div class="col l12 cliente-cancelamento">
+                
+                </div>
+                <div class="col l12">
+                    <p class="negrito">Mariana</p>
+                    <p>Informou que concluiu os serviços</p>
+                
+                    <p>Por favor nos conte como foi seu atendimento</p>
+                    
+                    <img src="img/0-53.png" width="100px" alt=""/>
+                </div>
+                <div class="input-field form col s12 l12">
+                    <label for="cancel">Deixe um comentario sobre o atendimento:</label>
+                    <textarea rows="1" cols="10"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer row">
+                <div class="col l5 offset-l3">
+                    <a href="#modal-cancela-confirma" class="modal-action modal-close waves-effect waves-green btn botao-padrao">Confirmar Avaliação</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-fale-conosco" class="modal">
+            <iframe src="FaleConosco.html" class=" iframe-contato"></iframe>
+        </div>
+    </body>
+ </html>

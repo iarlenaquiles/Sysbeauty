@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <title>Home</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="../estilos-css/containers.css">
+        <link rel="stylesheet" href="../estilos-css/materialize.css">
+        <script src="../js/jquery-3.2.1.js"></script>
+        <script src="../js/materialize.js"></script>
+        <script src="../js/efeitos.js"></script>
+         
+        
+    </head>
+
+    <body>
+        <nav>
+            <div class="nav-wrapper cor-padrao padding">
+                <a href="home-prof.html" class="brand-logo"><img src="../img/logo.png" width="64px" height="64px" class="responsive-img" alt="logo do site"></a>
+                <a href="#" data-activates="menu-mobile" class="button-collapse">
+                    <i class="material-icons">menu</i>
+                </a>
+
+                <ul id="nav-mobile" class="right hide-on-med-and-down barras-menu-prof">
+                    <li  class="active"><a href="home-prof.html">Home</a><hr></li>
+                    <li><a href="perfil-prof.html">Perfil</a><hr></li>
+                    <li><a href="chat-prof.html">Chat</a><hr></li>
+                    <li><a href="transacoes-prof.html">Transações</a><hr></li>
+                    <li><a href="agendamentos.html">Agendamentos</a><hr></li>
+                    <li><a href="planos.html">Planos</a><hr></li>
+                    <li><a href="qualificacoes.html">Qualificações</a><hr></li>
+                    <li><a href="#modal-fale-conosco">Fale Conosco</a><hr></li>
+                    <li><a href="ajuda-prof.html">Ajuda</a><hr></li>
+                    <li><a href="../index.html">Sair</a></li>
+                </ul>
+
+                <ul id="menu-mobile" class="side-nav">
+                    <li class="active"><a href="home-prof.html">Home</a></li>
+                    <li><a href="#!">Perfil</a></li>
+                    <li><a href="chat-prof.html">Chat</a></li>
+                    <li><a href="transacoes-prof.html">Transações</a></li>
+                    <li><a href="agendamentos.html">Agendamentos</a></li>
+                    <li><a href="planos.html">Planos</a></li>
+                    <li><a href="qualificacoes.html">Qualificações</a></li>
+                    <li><a href="#modal-fale-conosco">Fale Conosco</a></li>
+                    <li><a href="ajuda-prof.html">Ajuda</a></li>
+                    <li><a href="../index.html">Sair</a></li>
+                </ul>
+
+            </div>
+        </nav>
+
+
+        <main class="container">
+            <div class="row margem-do-topo">
+                <div class="col s6 m6 l3">
+                    <a class="waves-effect waves-light btn botao-padrao2">Iniciar atendimento</a>
+                </div>
+                <div class="col col s6 m6 l3">
+                    <a class="waves-effect waves-light btn botao-padrao2">Encerrar o dia</a>
+                </div>
+                <div class="col col s12 m12 l5">
+                    <div class="col l4 cor-padrao sem-padding espaco-botao">
+                        <a class="waves-effect waves-light btn botoes-juntos">
+                           <i class="material-icons">insert_invitation</i>Agenda
+                        </a>
+                    </div>
+                    <div class="col col s4 m4 l4 cor-padrao sem-padding">
+                        <a class="waves-effect waves-light btn botoes-juntos">
+                           <i class="material-icons">comment</i> MENSAGENS
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m6 l6 servico-atual">
+                    <p class="negrito">Atendimento Atual</p>
+                    <div class="map col s12 m12 l5" id="googleMap2">
+                       
+                    </div>
+                    <div class="info col l7 info-atendimento">
+                        <p>Nome cliente</p>
+                        <p>Serviços</p>
+                        <p>s1,s2,s3</p>
+                        <p>Dia:xx/xx/xxxx Horário:15h</p>
+                        <a class="waves-effect waves-light btn botao-padrao">Finalizar atendimento</a>
+                    </div>
+                    <div class="col l12">    
+                        <p>Endereço completo aqui</p>
+                    </div>
+                </div>
+                
+
+                <div class="col s12 m6 l6 proximo-servico">
+                    <p class="negrito">Próximo Atendimento</p>
+                    <div class="map col s12 m12 l5" id="googleMap3">
+                    </div>
+                    <div class="info col l7 info-atendimento">
+                        <p>Nome cliente</p>
+                        <p>Serviços</p>
+                        <p>s1,s2,s3</p>
+                        <p>Dia:xx/xx/xxxx Horário:15h</p>
+                        <div class="col s5 m5 l5">
+                            <a class="waves-effect waves-light btn botao-padrao2">Iniciar</a>
+                        </div>
+                        <div class="col s5 m5 l6">
+                            <a class="waves-effect waves-light btn cancelar-agendamento2"> Desmarcar</a>
+                        </div>
+                    </div>
+                    <div class="col l12">    
+                        <p>Endereço completo aqui</p>
+                    </div>
+                </div>
+                <div class="co l3 proximo-servico">
+
+                </div>
+            </div>
+        </main>
+        <div id="modal-fale-conosco" class="modal">
+            <iframe src="../FaleConosco.html" class=" iframe-contato"></iframe>
+        </div>
+       
+        <script src="../js/map.js"></script>
+		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBpYNwVckqNrHiVZhVPKmvUE2XwDXjjlH8&callback=myMapProf"></script>
+    </body>
+</html>

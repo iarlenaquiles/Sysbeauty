@@ -1,0 +1,83 @@
+.botoes-juntos{
+  background-color: $corPadrao !important;
+  color: white !important;
+  box-shadow: none !important;
+  border-radius: 0px !important;
+  font-weight: bold !important;
+  margin: auto !important;
+  width: 100% ;
+  a{
+      width: 100%;
+      vertical-align: top !important;
+      margin-bottom: 1%;
+      text-align: top !important;
+  }
+  i{
+      vertical-align: bottom;
+      margin-right: 0.1em;
+  }
+  font-size: 0.8em !important;
+  //refer btn materialize
+  text-decoration: none;
+  text-align: left !important;
+  letter-spacing: 0px;
+  transition: .2s ease-out;
+  padding: 0px 0px 0px 0px !important;
+  cursor: pointer;
+}
+.espaco-botao{
+    a{
+        padding-left: 0.5em !important;
+    }
+}
+.map{
+    border: 1px solid;
+    height: 200px;
+}
+.mapCliente{
+    margin-left: 1% !important;
+}
+.titulo-atendimento{
+    color: gray;
+    font-weight: bold;
+}
+.info-atendimento{
+    padding-left: 0.5em;
+    color: gray;
+    font-size: 1em;
+}
+.margem-bot{
+    margin-bottom: 1em;
+}
+.planos{
+    border: 1px solid;
+    height: 300px;
+    padding-top: 20% !important;
+}
+.comentario{
+    color: gray;
+    margin-top: 1.5em;
+    border-bottom: 0.5px solid lightgray;
+    padding-bottom: 1.5em !important;
+    p{
+        margin: 0px;
+    }
+    p:nth-child(1){
+        
+    }
+    p:nth-child(2){
+        float: left;
+    }
+    p:nth-child(3){
+       padding-left: 9em;
+    }
+    p:nth-child(4){
+        
+    }
+    p:nth-child(5){
+        padding-top: .5em!important;
+    }
+    p:nth-child(6){
+        
+    }
+}

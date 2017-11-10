@@ -1,0 +1,296 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <title>Perfil</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="../estilos-css/materialize.css">
+        <link rel="stylesheet" href="../estilos-css/containers.css">
+        <script src="../js/jquery-3.2.1.js"></script>
+        <script src="../js/materialize.js"></script>
+        <script src="../js/efeitos.js"></script>
+    
+    </head>
+
+    <body>
+        <nav>
+            <div class="nav-wrapper cor-padrao padding">
+                <a href="index.html" class="brand-logo"><img src="../img/logo.png" width="64px" height="64px" class="responsive-img" alt="logo do site"></a>
+                <a href="#" data-activates="menu-mobile" class="button-collapse">
+                    <i class="large material-icons">menu</i>
+                </a>
+
+                <ul id="nav-mobile" class="right hide-on-med-and-down barras-menu-prof">
+                    <li><a href="home-prof.html">Home</a><hr></li>
+                    <li class="active"><a href="perfil-prof.html">Perfil</a><hr></li>
+                    <li><a href="chat-prof.html">Chat</a><hr></li>
+                    <li><a href="transacoes-prof.html">Transações</a><hr></li>
+                    <li><a href="agendamentos.html">Agendamentos</a><hr></li>
+                    <li><a href="planos.html">Planos</a><hr></li>
+                    <li><a href="qualificacoes.html">Qualificações</a><hr></li>
+                    <li><a href="#modal-fale-conosco">Fale Conosco</a><hr></li>
+                    <li><a href="ajuda-prof.html">Ajuda</a><hr></li>
+                    <li><a href="../index.html">Sair</a></li>
+                </ul>
+
+                <ul id="menu-mobile" class="side-nav">
+                    <li><a href="home-prof.html">Home</a></li>
+                    <li class="active"><a href="#!">Perfil</a></li>
+                    <li><a href="chat-prof.html">Chat</a></li>
+                    <li><a href="transacoes-prof.html">Transações</a></li>
+                    <li><a href="agendamentos.html">Agendamentos</a></li>
+                    <li><a href="planos.html">Planos</a></li>
+                    <li><a href="qualificacoes.html">Qualificações</a></li>
+                    <li><a href="#modal-fale-conosco">Fale Conosco</a></li>
+                    <li><a href="ajuda-prof.html">Ajuda</a></li>
+                    <li><a href="../index.html">Sair</a></li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <main class="container row">
+             
+             <ul id="tabs-swipe-demo" class="tabs botoes-cadastro">
+                <li class="tab col l2"><a class="ativo" href="#swipe-2">Profissional</a></li>
+            </ul>
+            
+            <div  class="col l12">
+                <div class="row caixa-cadastro">
+                    <div class="col l12 imagem">
+                                
+                    </div>
+                    <div class="col l10">
+                        <div class="col l6 form">
+                            
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" name="nome">
+                            
+                            <label for="cpf">CPF</label>
+                            <input type="text" name="cpf">
+
+                            <label for="cep">CEP</label>
+                            <input type="text" name="cep">
+
+                            <div class="col l8 metade1">
+                                <label for="cidade">Cidade</label>
+                                <input type="text" name="cidade">
+                            </div>
+
+                            <div class="col l4 metade2">
+                                <label for="estado">Estado</label>
+                                <input type="text" name="estado">
+                            </div>
+
+                            <div class="col l8 metade1">
+                                <label for="endereco">Endereço</label>
+                                <input type="text" name="endereco">
+                            </div>
+
+                            <div class="col l4 metade2">
+                                <label for="numero">Numero</label>
+                                <input type="text" name="numero">
+                            </div>
+
+                        </div>
+                        <div class="col l6 form">
+                            
+                            <label for="email">E-mail</label>
+                            <input type="email" name="email">
+                            
+                            <label for="senha">Senha</label>
+                            <input type="password" name="senha">
+
+                            <label for="confsenha">Confirmar Senha</label>
+                            <input type="password" name="conf">
+
+                            <div class="col l8 metade1">
+                                <label for="telefone">Telefone</label>
+                                <input type="text" name="telefone">
+                            </div>
+
+                            <div class="col l4 metade2">
+                                <label for="celular">Celular</label>
+                                <input type="text" name="celular">
+                            </div>
+                            <div class="col l12 form">
+                                <label for="como">Como descobriu o Disque Beleza</label>
+                                <select name="como" id="como">
+                                    <option value="1">Facebook</option>
+                                    <option value="2">Instagram</option>
+                                    <option value="3">Tv</option>
+                                    <option value="4">Outros sites</option>
+                                    <option value="5">Com os amigas(os)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="col l12 form">
+                            <label for="atendimento">Forma de Atendimento</label>
+                            <select name="atendimento" id="como">
+                                <option value="1">?</option>
+                                <option value="2">?</option>
+                                <option value="3">?</option>
+                                <option value="4">?</option>
+                                <option value="5">?</option>
+                            </select>
+                        </div>
+
+                        <div class="col l6">
+                            <div class="col l8 form">
+                                <label for="">Escolha o Serviço</label>
+                                <select name="m" id="">
+                                    <option value="1">?</option>
+                                    <option value="2">?</option>
+                                    <option value="3">?</option>
+                                    <option value="4">?</option>
+                                    <option value="5">?</option>
+                                </select>
+
+                                <select name="a" id="">
+                                    <option value="1">?</option>
+                                    <option value="2">?</option>
+                                    <option value="3">?</option>
+                                    <option value="4">?</option>
+                                    <option value="5">?</option>
+                                </select>
+
+                                <select name="o" id="">
+                                    <option value="1">?</option>
+                                    <option value="2">?</option>
+                                    <option value="3">?</option>
+                                    <option value="4">?</option>
+                                    <option value="5">?</option>
+                                </select>
+
+                                <select name="i" id="">
+                                    <option value="1">?</option>
+                                    <option value="2">?</option>
+                                    <option value="3">?</option>
+                                    <option value="4">?</option>
+                                    <option value="5">?</option>
+                                </select>
+                            </div>
+                            <div class="col l4 form">
+                                <label for="valor">Valor</label>
+                                <input type="text">
+
+                                <input type="text">
+
+                                <input type="text">
+
+                                <input type="text">
+                            </div>
+
+                            <div class="col l12 adiciona-servicos">
+                                <a href=""> <i class="material-icons">add</i>Adicionar Serviços </a>
+                            </div>
+
+                        </div>
+                        <div class="col l6 form">
+                            <div class="col l8">
+                               <label for="promocoes">Promoções</label>
+                                <input type="text">
+
+                                <input type="text">
+
+                                <input type="text">
+
+                                <input type="text"> 
+                            </div>
+                            <div class="col l4 form">
+                                <label for="valor-promo">Valor</label>
+                                <input type="text">
+
+                                <input type="text">
+
+                                <input type="text">
+
+                                <input type="text">
+                            </div>
+                            <div class="col l12 adiciona-servicos">
+                            <a href=""> <i class="material-icons">add</i>Adicionar Serviços </a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+                        
+                        <div class="col l12" style="padding-left: 5%">
+                            <p>Insira fotos dos seus trabalhos</p>
+                        </div>
+                        <div class="col l12" >
+                            <div class="col l12 img-servicos">
+                                <div class="col l1" id="img1"></div>
+                                <div class="col l1" id="img2"></div>
+                                <div class="col l1" id="img3"></div>
+                                <div class="col l1" id="img4"></div>
+                                <div class="col l1" id="img5"></div>
+                                <div class="col l1" id="img6"></div>
+                                <div class="col l1" id="img7"></div>
+                                <div class="col l1" id="img8"></div>
+                                <div class="col l1" id="img9"></div>
+                                <div class="col l1" id="img10"></div>
+                            </div>
+                            <div class="col l12 adiciona-servicos" style="padding-left: 3%">
+                                <a href=""> <i class="material-icons">add</i>Adicionar Mais Fotos</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col l12 right cadastra-profissional">
+                        <div class="col l2 offset-l10">
+                            <a class="waves-effect waves-light btn botao-padrao" href="#modal-cadastro-prof">Concluir Cadastro</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="modal-cadastro-reprovado" class="modal ajustar-altura modal-cadastro-prof modal-escuro">
+                <div class="modal-content texto-centralizado">
+                <img src="img/logo.png" alt="logo do Site Disque Beleza">
+                <p class="negrito ">Consiga mais cliente de forma eficiente</p>
+                <p class="negrito">Cadastro Reprovado</p>
+                <p>Infelizmente seu perfil não foi aprovado pela equipe Disque Beleza</p>
+                <p>Entre em cantato agora mesmo pelo botão abaixo"Fale Conosco", ou via Whatsapp pelo número:</p>
+                
+                <p>(11)977682878 - Falar com Wesley Nunes - Será uma honra em poder te ajudar.</p>
+                <p>Precisa de ajuda?</p>
+                </div>
+                <div class="modal-footer row">
+                    <div class="col l5 offset-l1">
+                        <a href="#modal-fale-conosco" class="modal-action modal-close waves-effect waves-green btn botao-padrao">Fale Conosco</a>
+                    </div>
+                    <div class="col l5 offset-l1">    
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn botao-padrao">Perguntas Frequentes</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="modal-cadastro-aprovado" class="modal ajustar-altura modal-cadastro-prof overlay-fundo modal-escuro">
+                <div class="modal-content texto-centralizado">
+                <img src="img/logo.png" alt="logo do Site Disque Beleza">
+                <p class="negrito">Consiga mais cliente de forma eficiente</p>
+                <h2>Aprovado</h2>
+                <p>Que bom ter você em nossa equipe!</p>
+                <p>Agora vamos dar algumas dicas que te ajudarão a adquirir mais clientes.</p>
+                
+                <p>Vamos lá</p>
+                </div>
+                
+            </div>
+
+
+            
+        </main>
+        
+        <div id="modal-fale-conosco" class="modal">
+            <iframe src="FaleConosco.html" class=" iframe-contato"></iframe>
+        </div>
+
+    <footer>
+
+    </footer>
+     <script src="js/login.js"></script>
+    </body>
