@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,8 +16,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
@@ -76,13 +75,11 @@ public class Profissional implements Serializable {
 	@Column(name = "pro_active")
 	private Boolean active;
 
-	@ManyToOne
-	@Cascade(CascadeType.ALL)
+	@ManyToOne (cascade = CascadeType.ALL)
 	@JoinColumn
 	private Login login;
 
-	@OneToMany(mappedBy = "profissional", fetch = FetchType.LAZY)
-	@Cascade(CascadeType.ALL)
+	@OneToMany(mappedBy = "profissional",  targetEntity = Servico.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Servico> servico = new ArrayList<Servico>();
 
 	//////////////// GET SET /////////////////////

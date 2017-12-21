@@ -1,7 +1,10 @@
 package br.com.beleza.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,10 +12,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 public class Servico implements Serializable {
@@ -30,12 +32,23 @@ public class Servico implements Serializable {
 	@Column(name = "servico_valor")
 	private long valor;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn
 	@JsonIgnore
 	private Profissional profissional;
+	
+	@OneToMany (mappedBy = "servico", targetEntity = Promocao.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<Promocao> promocao = new ArrayList<Promocao>();
 
 	//////////////// GET SET ////////////////
+
+	public List<Promocao> getPromocao() {
+		return promocao;
+	}
+
+	public void setPromocao(List<Promocao> promocoes) {
+		this.promocao = promocoes;
+	}
 
 	public Integer getId() {
 		return id;

@@ -1,7 +1,6 @@
 package br.com.beleza.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,14 +19,23 @@ public class Agendamento implements Serializable {
 	@Column(name = "agendamento_id")
 	private Integer id;
 
-	@Column(name = "ag_dataFim")
-	private String dataAgenda;
+	@Column(name = "ag_dataServico")
+	private String dataServico;
+	
+	@Column(name = "ag_horarioTermino")
+	private String horarioTermino;
 
 	@Column(name = "ag_local")
-	private String local;
+	private int local;
 
 	@Column(name = "ag_status")
 	private boolean status;
+	
+	@Column(name = "ag_qualificacao")
+	private Integer qualificacao;
+	
+	@Column(name = "ag_observacoes")
+	private String observacoes;
 
 	@ManyToOne
 	@JoinColumn
@@ -36,7 +44,6 @@ public class Agendamento implements Serializable {
 	@ManyToOne
 	@JoinColumn
 	private Usuario usuario;
-
 	
 	@ManyToOne
 	@JoinColumn
@@ -51,19 +58,27 @@ public class Agendamento implements Serializable {
 		this.id = id;
 	}
 
-	public String getDataAgenda() {
-		return dataAgenda;
+	public String getDataServico() {
+		return dataServico;
+	}
+	
+	public void setDataServico(String dataServico) {
+		this.dataServico = dataServico;
+	}
+	
+	public String getHorarioTermino() {
+		return horarioTermino;
+	}
+	
+	public void setHorarioTermino(String horarioTermino) {
+		this.horarioTermino = horarioTermino;
 	}
 
-	public void setDataAgenda(String dataAgenda) {
-		this.dataAgenda = dataAgenda;
-	}
-
-	public String getLocal() {
+	public int getLocal() {
 		return local;
 	}
-
-	public void setLocal(String local) {
+	
+	public void setLocal(int local) {
 		this.local = local;
 	}
 
@@ -73,6 +88,22 @@ public class Agendamento implements Serializable {
 
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+	
+	public Integer getQualificacao() {
+		return qualificacao;
+	}
+	
+	public void setQualificacao(Integer qualificacao) {
+		this.qualificacao = qualificacao;
+	}
+	
+	public String getObservacoes() {
+		return observacoes;
+	}
+	
+	public void setObservacoes(String observacoes) {
+		this.observacoes = observacoes;
 	}
 
 	public Servico getServico() {

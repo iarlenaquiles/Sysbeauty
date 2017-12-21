@@ -74,7 +74,14 @@ public class UsuarioController {
 	@CrossOrigin
 	@PostMapping(value = "/createAgendamento", produces = "application/json", consumes = "application/json")
 	public ResponseEntity<List<Agendamento>> createAgendamento(@RequestBody List<Agendamento> ag) {
-		agendamentoRepository.save(ag);
+		
+		System.out.println("\n\n");
+		
+		for (Agendamento agendamento : ag) {
+			System.out.println(agendamento);
+		}
+		
+		//agendamentoRepository.save(ag);
 		return new ResponseEntity<List<Agendamento>>(ag, HttpStatus.CREATED);
 	}
 
@@ -88,9 +95,10 @@ public class UsuarioController {
 	////////////// Login Apk (Ok) /////////////
 	@GetMapping(value = "/login/{email}/{passwd}", produces = "application/json")
 	public ResponseEntity<Usuario> doLogin(@PathVariable String email, @PathVariable String passwd) {
-		System.out.println(email + " / " + passwd);
 		Usuario usuario = new Usuario();
 		usuario = iusuario.doLoginQuery(email, passwd);
+		
+		System.out.println(usuario);
 		if (usuario != null) {
 			return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 		} else {
