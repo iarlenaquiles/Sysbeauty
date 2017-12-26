@@ -73,16 +73,16 @@ public class UsuarioController {
 	/// Cadastro de Cliente ///
 	@CrossOrigin
 	@PostMapping(value = "/createAgendamento", produces = "application/json", consumes = "application/json")
-	public ResponseEntity<List<Agendamento>> createAgendamento(@RequestBody List<Agendamento> ag) {
+	public ResponseEntity<Agendamento> createAgendamento(@RequestBody Agendamento ag) {
 		
 		System.out.println("\n\n");
 		
-		for (Agendamento agendamento : ag) {
-			System.out.println(agendamento);
-		}
+//		for (Agendamento agendamento : ag) {
+//			System.out.println(agendamento);
+//		}
 		
-		//agendamentoRepository.save(ag);
-		return new ResponseEntity<List<Agendamento>>(ag, HttpStatus.CREATED);
+		agendamentoRepository.save(ag);
+		return new ResponseEntity<Agendamento>(ag, HttpStatus.CREATED);
 	}
 
 	@PostMapping(value = "/updateUser", produces = { "application/json" }, consumes = "application/json")
