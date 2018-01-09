@@ -22,6 +22,13 @@ public class AgendamentoController {
 	private AgendamentoRepository agendamentoRepository;
 
 	
+	/*
+	 * 0 solicitado agendamento(cliente) 
+	 * 1 aprovado(pro.) 
+	 * 2 encerrado 
+	 * 3 cancelado
+	 */
+	
 	@CrossOrigin
 	@PostMapping(value = "/statusAgendamento", produces = "application/json", consumes = "application/json")
 	public ResponseEntity<Agendamento> statusAgendamento(@RequestBody Agendamento ag) {			
@@ -32,6 +39,12 @@ public class AgendamentoController {
 	@GetMapping(value = "/agAprovacao/{id}", produces = "application/json")
 	public ResponseEntity<List<Agendamento>> agAprovacao(@PathVariable Integer id) {
 		List<Agendamento> ag = (List<Agendamento>) agendamentoRepository.agAprovacao(id);
+		return new ResponseEntity<List<Agendamento>>(ag, HttpStatus.ACCEPTED);
+	}
+	
+	@GetMapping(value = "/agHome/{id}", produces = "application/json")
+	public ResponseEntity<List<Agendamento>> agHome(@PathVariable Integer id) {
+		List<Agendamento> ag = (List<Agendamento>) agendamentoRepository.agHome(id);
 		return new ResponseEntity<List<Agendamento>>(ag, HttpStatus.ACCEPTED);
 	}
 }
