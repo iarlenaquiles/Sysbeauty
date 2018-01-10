@@ -33,7 +33,7 @@ public class Agendamento implements Serializable {
 	private int local;
 
 	@Column(name = "ag_status")
-	private int status;
+	private Integer status;
 
 	@Column(name = "ag_qualificacao")
 	private Integer qualificacao;
@@ -91,11 +91,11 @@ public class Agendamento implements Serializable {
 		this.local = local;
 	}
 
-	public int getStatus() {
+	public Integer getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
 
