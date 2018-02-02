@@ -75,6 +75,13 @@ public class UsuarioController {
 	@PostMapping(value = "/createAgendamento", produces = "application/json", consumes = "application/json")
 	public ResponseEntity<Agendamento> createAgendamento(@RequestBody Agendamento ag) {
 		
+		Agendamento agendamento = new Agendamento();
+		agendamento = ag;
+		
+		int horario = Integer.parseInt(ag.getDataServico().substring(11, 13));
+		horario++;
+		agendamento.setHorarioTermino("" + horario);
+		
 		System.out.println("\n\n");
 		
 //		for (Agendamento agendamento : ag) {

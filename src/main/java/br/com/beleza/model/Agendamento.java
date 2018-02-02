@@ -31,7 +31,13 @@ public class Agendamento implements Serializable {
 
 	@Column(name = "ag_local")
 	private int local;
-
+	
+	/* Referente a variável status
+	 *
+	 * 0 solicitado agendamento(cliente)
+	 * 1 aprovado(pro.)
+	 * 2 encerrado
+	 * 3 cancelado	*/
 	@Column(name = "ag_status")
 	private Integer status;
 
@@ -40,11 +46,14 @@ public class Agendamento implements Serializable {
 
 	@Column(name = "ag_observacoes")
 	private String observacoes;
+	
+	@Column(name = "ag_allDay")
+	private Boolean allDay = false;
 
 	// @ManyToOne
 	// @JoinColumn
 	// private Servico servico;
-
+	
 	@ManyToOne
 	@JoinColumn
 	private Usuario usuario;
@@ -113,6 +122,14 @@ public class Agendamento implements Serializable {
 
 	public void setObservacoes(String observacoes) {
 		this.observacoes = observacoes;
+	}
+	
+	public Boolean getAllDay() {
+		return allDay;
+	}
+
+	public void setAllDay(Boolean allDay) {
+		this.allDay = allDay;
 	}
 
 	public Set<Servico> getServico() {

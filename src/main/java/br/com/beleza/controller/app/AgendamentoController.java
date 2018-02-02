@@ -53,4 +53,10 @@ public class AgendamentoController {
 		List<Agendamento> ag = (List<Agendamento>) agendamentoRepository.agPro(id);
 		return new ResponseEntity<List<Agendamento>>(ag, HttpStatus.ACCEPTED);
 	}
+	
+	@GetMapping(value = "/agEventos/{id}", produces = "application/json")
+	public ResponseEntity<List<Agendamento>> agEventos(@PathVariable Integer id) {
+		List<Agendamento> ag = (List<Agendamento>) agendamentoRepository.agEventos(id);
+		return new ResponseEntity<List<Agendamento>>(ag, HttpStatus.ACCEPTED);
+	}
 }

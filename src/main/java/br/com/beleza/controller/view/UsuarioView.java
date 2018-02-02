@@ -104,6 +104,7 @@ public class UsuarioView {
 		} else {
 
 			/* SALVANDO AS INFORMAÇÕES ALTERADAS DO USUÁRIO */
+			usuarioModel.setActive(true);
 			iusuario.save(usuarioModel);
 
 		}
