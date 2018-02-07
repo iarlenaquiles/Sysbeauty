@@ -1,4 +1,4 @@
-<html>
+<html ng-app="service">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no">
@@ -6,13 +6,18 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="../estilos-css/materialize.css">
         <link rel="stylesheet" href="../estilos-css/containers.css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+        <script src="../js/controllerAngular/service.js"></script>
+        <script src="../js/controllerAngular/update-profissional-controller.js"></script>
+        
         <script src="../js/jquery-3.2.1.js"></script>
         <script src="../js/materialize.js"></script>
         <script src="../js/efeitos.js"></script>
     
     </head>
 
-    <body>
+    <body ng-controller="updateProfissional">
         <nav>
             <div class="nav-wrapper cor-padrao padding">
                 <a href="index.html" class="brand-logo"><img src="../img/logo.png" width="64px" height="64px" class="responsive-img" alt="logo do site"></a>
@@ -64,58 +69,58 @@
                         <div class="col l6 form">
                             
                             <label for="nome">Nome Completo</label>
-                            <input type="text" name="nome">
+                            <input type="text" name="nome" ng-model="profissionalLogado.nome">
                             
                             <label for="cpf">CPF</label>
-                            <input type="text" name="cpf">
+                            <input type="text" name="cpf" ng-model="profissionalLogado.cpf">
 
                             <label for="cep">CEP</label>
-                            <input type="text" name="cep">
+                            <input type="text" name="cep" ng-model="profissionalLogado.cep">
 
                             <div class="col l8 metade1">
                                 <label for="cidade">Cidade</label>
-                                <input type="text" name="cidade">
+                                <input type="text" name="cidade" ng-model="profissionalLogado.cidade">
                             </div>
 
                             <div class="col l4 metade2">
                                 <label for="estado">Estado</label>
-                                <input type="text" name="estado">
+                                <input type="text" name="estado" ng-model="profissionalLogado.estado">
                             </div>
 
                             <div class="col l8 metade1">
                                 <label for="endereco">Endereço</label>
-                                <input type="text" name="endereco">
+                                <input type="text" name="endereco" ng-model="profissionalLogado.endereco">
                             </div>
 
                             <div class="col l4 metade2">
                                 <label for="numero">Numero</label>
-                                <input type="text" name="numero">
+                                <input type="text" name="numero" ng-model="profissionalLogado.num">
                             </div>
 
                         </div>
                         <div class="col l6 form">
                             
                             <label for="email">E-mail</label>
-                            <input type="email" name="email">
+                            <input type="email" name="email" ng-model="profissionalLogado.email">
                             
                             <label for="senha">Senha</label>
-                            <input type="password" name="senha">
+                            <input type="password" name="senha" ng-model="profissionalLogado.senha">
 
                             <label for="confsenha">Confirmar Senha</label>
                             <input type="password" name="conf">
 
                             <div class="col l8 metade1">
                                 <label for="telefone">Telefone</label>
-                                <input type="text" name="telefone">
+                                <input type="text" name="telefone" ng-model="profissionalLogado.telefone">
                             </div>
 
                             <div class="col l4 metade2">
                                 <label for="celular">Celular</label>
-                                <input type="text" name="celular">
+                                <input type="text" name="celular" ng-model="profissionalLogado.celular">
                             </div>
                             <div class="col l12 form">
                                 <label for="como">Como descobriu o Disque Beleza</label>
-                                <select name="como" id="como">
+                                <select name="como" id="como" ng-model="profissionalLogado.descobriu">
                                     <option value="1">Facebook</option>
                                     <option value="2">Instagram</option>
                                     <option value="3">Tv</option>
@@ -240,7 +245,7 @@
                     </div>
                     <div class="col l12 right cadastra-profissional">
                         <div class="col l2 offset-l10">
-                            <a class="waves-effect waves-light btn botao-padrao" href="#modal-cadastro-prof">Concluir Cadastro</a>
+                            <a class="waves-effect waves-light btn botao-padrao" ng-click="salvar()" >Concluir Cadastro</a>
                         </div>
                     </div>
                 </div>

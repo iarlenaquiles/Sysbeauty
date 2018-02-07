@@ -1,20 +1,26 @@
 package br.com.beleza.controller.view;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.beleza.Repository.IUsuario;
+import br.com.beleza.Repository.ProfissionalRepository;
+import br.com.beleza.model.Profissional;
 import br.com.beleza.model.Usuario;
 
 @Controller
@@ -23,6 +29,12 @@ public class PagView {
 
 	@Autowired
 	IUsuario iusuario;
+	
+	@Autowired
+	ProfissionalRepository profissionalRepository;
+	
+	@Autowired
+	Log log;
 
 	/////////// Perfil Cliente //////////////
 	@RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
@@ -32,11 +44,13 @@ public class PagView {
 
 	///////// DIRECIONAMENTO DE PERFIL /////////////
 	@RequestMapping("/default")
-	public String defaultAfterLogin(HttpServletRequest request) {
+	public String defaultAfterLogin(HttpServletRequest request, HttpSession session) {
 		String email = request.getUserPrincipal().getName();
 		String perfil = iusuario.perfil(email);
 		String ADM = "ADMIN";
 		String PROF = "PROF";
+		
+		session.setAttribute("usuarioLogado", email);
 
 		if (perfil.equals(ADM)) {
 			return "Adm-pages/homeadm";
@@ -135,5 +149,27 @@ public class PagView {
 	@GetMapping("/prof-pages/home-prof")
 	public String profhome() {
 		return "prof-pages/home-prof";
+	}
+	
+	@GetMapping("/prof-pages/perfil-prof")
+	public String perfilProf() {
+		return "/prof-pages/perfil-prof";
+	}
+	
+	@PostMapping("/prof-pages/perfil-prof")
+	public ResponseEntity<Profissional> perfilProfCarregar(HttpSession session) {
+		
+		Profissional profissional = profissionalRepository.perfilPorEmail(session.getAttribute("usuarioLogado").toString());
+		
+		System.out.println(session.getAttribute("usuarioLogado"));
+		return new ResponseEntity<Profissional>(profissional, HttpStatus.OK);
+	}
+	
+	@PostMapping(value = "/alterarProfissional", produces = "application/json", consumes = "application/json")
+	public ResponseEntity<Profissional> alterarProfissional(@RequestBody Profissional profissional) {
+		
+		profissionalRepository.save(profissional);
+		
+		return new ResponseEntity<Profissional>(profissional, HttpStatus.OK);
 	}
 }

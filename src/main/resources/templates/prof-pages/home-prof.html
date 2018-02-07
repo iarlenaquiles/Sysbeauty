@@ -1,4 +1,4 @@
-<html>
+<html ng-app="service">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no">
@@ -6,6 +6,12 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="../estilos-css/containers.css">
         <link rel="stylesheet" href="../estilos-css/materialize.css">
+        
+        <!-- AngularJs -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+        <script src="../js/controllerAngular/service.js"></script>
+        <script src="../js/controllerAngular/home-prof-controller.js"></script>
+        
         <script src="../js/jquery-3.2.1.js"></script>
         <script src="../js/materialize.js"></script>
         <script src="../js/efeitos.js"></script>
@@ -13,7 +19,7 @@
         
     </head>
 
-    <body>
+    <body ng-controller="homeProfissional">
         <nav>
             <div class="nav-wrapper cor-padrao padding">
                 <a href="home-prof.html" class="brand-logo"><img src="../img/logo.png" width="64px" height="64px" class="responsive-img" alt="logo do site"></a>
@@ -23,7 +29,7 @@
 
                 <ul id="nav-mobile" class="right hide-on-med-and-down barras-menu-prof">
                     <li  class="active"><a href="home-prof.html">Home</a><hr></li>
-                    <li><a href="perfil-prof.html">Perfil</a><hr></li>
+                    <li><a href="/prof-pages/perfil-prof.html" >Perfil</a><hr></li>
                     <li><a href="chat-prof.html">Chat</a><hr></li>
                     <li><a href="transacoes-prof.html">Transações</a><hr></li>
                     <li><a href="agendamentos.html">Agendamentos</a><hr></li>

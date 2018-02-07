@@ -13,6 +13,7 @@ import org.springframework.web.context.annotation.SessionScope;
 
 import br.com.beleza.Repository.IUsuario;
 import br.com.beleza.model.Usuario;
+
 @SessionScope
 @RestController(value = "/log")
 @CrossOrigin()
