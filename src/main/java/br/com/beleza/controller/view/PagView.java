@@ -2,6 +2,7 @@ package br.com.beleza.controller.view;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,6 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,8 +20,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.beleza.Repository.FaleConoscoRepository;
 import br.com.beleza.Repository.IUsuario;
 import br.com.beleza.Repository.ProfissionalRepository;
+import br.com.beleza.model.FaleConosco;
 import br.com.beleza.model.Profissional;
 import br.com.beleza.model.Usuario;
 
@@ -35,6 +39,9 @@ public class PagView {
 	
 	@Autowired
 	Log log;
+	
+	@Autowired
+	private FaleConoscoRepository faleconoscoRepository;
 
 	/////////// Perfil Cliente //////////////
 	@RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
@@ -121,6 +128,14 @@ public class PagView {
 	public String FaleConosco() {
 		return "FaleConosco";
 	}
+	
+	@PostMapping("/FaleConosco")
+	public ModelAndView save(@Valid FaleConosco fale, BindingResult bindingResult) {
+		
+		faleconoscoRepository.save(fale);
+		return new ModelAndView("/");
+	}
+
 
 	@RequestMapping("/ajudahome")
 	public String ajudahome() {
