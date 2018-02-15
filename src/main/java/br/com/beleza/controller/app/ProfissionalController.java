@@ -118,11 +118,11 @@ public class ProfissionalController {
 		return new ResponseEntity<List<Profissional>>(usuarios, HttpStatus.ACCEPTED);
 	}
 
-	@GetMapping(value = "/servicos/{id}", produces = "application/json")
+	/*@GetMapping(value = "/servicos/{id}", produces = "application/json")
 	public ResponseEntity<List<Servico>> servicosPro(@PathVariable Integer id) {
 		List<Servico> servi = (List<Servico>) servicoRepository.servicos(id);
 		return new ResponseEntity<List<Servico>>(servi, HttpStatus.ACCEPTED);
-	}
+	}*/
 
 	////////////// Login Apk (Ok) /////////////
 	@GetMapping(value = "/loginPro/{email}/{passwd}", produces = "application/json")

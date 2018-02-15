@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html ng-app="service" >
     <head>
         <meta name="viewport" content="width=320, initial-scale=1"/>
         <meta charset="UTF-8"/>
@@ -8,6 +7,11 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         <link rel="stylesheet" href="estilos-css/materialize.css"/>
         <link rel="stylesheet" href="estilos-css/containers.css"/>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+        <script src="js/controllerAngular/service.js"></script>
+        <script src="js/controllerAngular/home-cliente-controller.js"></script>
+        
         <script src="js/jquery-3.2.1.js"></script>
         <script src="js/materialize.js"></script>
         <script src="js/efeitos.js"></script>
@@ -16,7 +20,7 @@
         
 
     </head>
-    <body>
+    <body ng-controller="homeCliente">
         <nav>
             <div class="nav-wrapper cor-padrao padding">
                 <a href="homecliente.html" class="brand-logo"><img src="img/logo.png" width="64px" height="64px" class="responsive-img" alt="logo do site"/></a>
@@ -59,7 +63,7 @@
 			type="Submit">tetes</button>
 	</form>
 	<div class="row">
-
+				
                 <div class=" col s3 m3 l3 form" >
                     <label for="tiposervico">Serviços</label>
                     <select name="tiposervico">
@@ -98,9 +102,14 @@
             </div>
 
             <div class="row cont-flex">
+                <!--  
                 <div class="col s12 m6 l6 mapCliente" id="googleMap">
-
                 </div>
+                -->
+                <div id="dvMap" class="col s12 m6 l6 mapCliente" style="height: 400px">
+         		</div>
+
+                
 
                 <div class="col s12 m6 l6">
                     <div class="row">
@@ -126,7 +135,7 @@
                             </div>
                         </div>
                         <div class="col l8 comentarios">
-                            <p>" Quai Quai Quai Quai Quai Quai Quai Quai</p>
+                            <p>" Quai Quai Quai Quai Quai Quai Quai Quai "</p>
                             <p>09/08/2016 cliente232</p>
                         </div>
                     </div>
@@ -169,39 +178,19 @@
                             <div class="form">
                                 <label for="data">Escolha uma data</label>
                                 <input type="date" name="ag-data" />
-                                <table class="alinha-tabela" id="table" th:field="*{}">
-<!--                                     <tr> -->
-<!--                                         <td> -->
-<!--                                             <input type="checkbox" id="escova" name="escova" class="filled-in"/> -->
-<!--                                             <label for="escova">Escova</label> -->
-<!--                                         </td> -->
-<!--                                         <td>50,00</td> -->
-<!--                                     </tr>  -->
-                                    
-<!--                                      <tr> -->
-<!--                                         <td> -->
-<!--                                             <input type="checkbox" id="escova" name="escova" class="filled-in"/> -->
-<!--                                             <label for="escova">Escova</label> -->
-<!--                                         </td> -->
-<!--                                         <td>50,00</td> -->
-<!--                                     </tr> -->
-
-<!--                                     <tr> -->
-<!--                                         <td> -->
-<!--                                             <input type="checkbox" id="mao" name="mao" class="filled-in"/> -->
-<!--                                             <label for="mao">Mão</label> -->
-<!--                                         </td> -->
-<!--                                         <td>50,00</td> -->
-<!--                                     </tr> -->
-
-<!--                                     <tr> -->
-<!--                                         <td> -->
-<!--                                             <input type="checkbox" id="pe" name="pe" class="filled-in"/> -->
-<!--                                             <label for="pe">Pé</label> -->
-<!--                                         </td> -->
-<!--                                         <td>50,00</td> -->
-<!--                                     </tr> -->
+                                
+                                <table class="alinha-tabela" ng-repeat="servico in servicos">
+									<tr>
+										<td>
+											<input type="radio" ng-model="teste" value="servico" />
+											<label>{{servico.servico}}</label>
+										</td>
+										<td>
+											<label>{{servico.valor}},00</label>
+										</td>
+									</tr>
                                 </table>
+                                
                                 <label for="horario">Escolha um Horário</label>
                                 <input type="time" name="ag-horario" />
                             </div>
@@ -296,7 +285,7 @@
                             <a href="#!" class="modal-action modal-close waves-effect waves-green btn cancelar-agendamento">Procurar outro Profissional</a>
                         </div>
                     </div>
-
+					<!-- 
                     <div id="modal-confirma-atendimento" class="modal">
                         <div class="modal-content">
                             <h5>Confirmado com "xxxxx"</h5>
@@ -316,6 +305,7 @@
                         <a href="#!" class="modal-action modal-close waves-effect waves-green btn botao-padrao2">Efetuar o pagamento</a>
                         </div>
                     </div>
+                     -->
 
                     <div id="modal-portifolio" class="modal">
                         <div class="modal-content row">
@@ -372,84 +362,31 @@
             </div>
             <div class="col l12">
                 <div class="col l10 selecao-servicos">
-                    <table id="table2">
-<!--                         <tr> -->
-<!--                             <td> -->
-<!--                                 <input name="maope" type="checkbox" id="maope" class="filled-in"/> -->
-<!--                                 <label for="maope">Mão e Pé</label> -->
-<!--                             </td> -->
-<!--                             <td> -->
-<!--                                 <img src="img/cesta.png" alt="cesta de comprar"/> -->
-<!--                             </td> -->
-<!--                             <td> -->
-<!--                                 65,00 -->
-<!--                             </td> -->
-<!--                         </tr> -->
-<!--                         <tr> -->
-<!--                             <td> -->
-<!--                                 <input name="servico1" type="checkbox" id="servico1" class="filled-in"/> -->
-<!--                                 <label for="servico1">Mão</label> -->
-<!--                             </td> -->
-<!--                             <td> -->
-<!--                                 <img src="img/cesta.png" alt="cesta de comprar"/> -->
-<!--                             </td> -->
-<!--                             <td> -->
-<!--                                  30,00 -->
-<!--                             </td> -->
-<!--                         </tr> -->
-<!--                         <tr> -->
-<!--                             <td> -->
-<!--                                 <input name="servico6" type="checkbox" id="servico6" class="filled-in"/> -->
-<!--                                 <label for="servico6">Pé</label> -->
-<!--                             </td> -->
-<!--                             <td> -->
-<!--                                 <img src="img/cesta.png" alt="cesta de comprar"/> -->
-<!--                             </td> -->
-<!--                             <td> -->
-<!--                                  20,00 -->
-<!--                             </td> -->
-<!--                         </tr> -->
-<!--                         <tr> -->
-<!--                             <td> -->
-<!--                                 <input name="servico2" type="checkbox" id="servico2" class="filled-in"/> -->
-<!--                                 <label for="servico2">Corte</label> -->
-<!--                             </td> -->
-<!--                             <td> -->
-<!--                                 <img src="img/cesta.png" alt="cesta de comprar"/> -->
-<!--                             </td> -->
-<!--                             <td> -->
-<!--                                  80,00 -->
-<!--                             </td> -->
-<!--                         </tr> -->
-<!--                         <tr> -->
-<!--                             <td> -->
-<!--                                 <input name="servico3" type="checkbox" id="servico3" class="filled-in"/> -->
-<!--                                 <label for="servico3">Progressiva</label> -->
-<!--                             </td> -->
-<!--                             <td> -->
-<!--                                 <img src="img/cesta.png" alt="cesta de comprar"/> -->
-<!--                             </td> -->
-<!--                             <td> -->
-<!--                                  120,00 -->
-<!--                             </td> -->
-<!--                         </tr> -->
-<!--                         <tr> -->
-<!--                             <td> -->
-<!--                                 <input name="servico4" type="checkbox" id="servico4" class="filled-in"/> -->
-<!--                                 <label for="servico4">Penteados</label> -->
-<!--                             </td> -->
-<!--                             <td> -->
-<!--                                 <img src="img/cesta.png" alt="cesta de comprar"/> -->
-<!--                             </td> -->
-<!--                             <td> -->
-<!--                                  50,00 -->
-<!--                             </td> -->
-<!--                         </tr> -->
-                    </table>
-
+                	<table>
+                		<tr ng-repeat="servico in servicos">
+                			<td>
+                				<input type="checkbox" class="filled-in" id="{{servico.servico}}" ng-checked="servico.checked" />
+                				<label for="{{servico.servico}}" >{{ servico.servico }}</label>
+                			</td>
+                			
+                			<td>
+                				<img src='img/cesta.png' alt='cesta de comprar'/>
+                			</td>
+                			
+                			<td>
+                				<label>{{ servico.valor }}</label>
+                			</td>
+                		</tr>
+                	</table>
+                	
+                	
+                	<!-- <form>
+	                	<input type="checkbox" class="filled-in" name="servico" id="servico" />
+	                	<label for="servico">Qualquer coisa</label>
+                    </form> -->
                 </div>
                 <div class="col l2">
-                    <a class="waves-effect waves-light btn botao-padrao">Agendar Selecionados</a>
+                    <a class="waves-effect waves-light btn botao-padrao" href="#modal-agendar" ng-click="btnAgendar()" >Agendar Selecionados</a>
                 </div>
             </div>
         </main>
@@ -460,7 +397,7 @@
         <div id="modal-fale-conosco" class="modal">
             <iframe src="FaleConosco.html" class=" iframe-contato"></iframe>
         </div>
-       <script src="js/map.js"></script>
+       
        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBpYNwVckqNrHiVZhVPKmvUE2XwDXjjlH8&callback=myMapCliente"></script>
     </body>
 </html>

@@ -1,6 +1,10 @@
+
+
   var map;
   var api = 'http://127.0.0.1:8080/';
   var pro = [];
+  
+  profissionalSelecionado = {};
   
 function myMapCliente() {
 	var longitude;
@@ -82,7 +86,8 @@ function perfilPro(pro){
 	    success: function(json){
 	    	var labe1= document.getElementById('labe1');
 	        labe1.innerHTML  = json.nome;
-	        console.log(json)
+	        profissionalSelecionado = pro;
+	        console.log(json);
 	        // /Serviços prestado pelo profissional
 	        servicos(pro);        
 	      return true;
@@ -96,27 +101,24 @@ function perfilPro(pro){
 function servicos(pro){
 	var txt = "";
 	var txt2 = "";
-    $.post({ datatype: 'json',
-  	    type:'GET',
-  	    url: api+'servicos/'+pro.id,
-  	    success: function(json){
-	    	txt += "<table>";
-	    	txt2 += "<table>";
-      	        for(let servicos of json) {
-      	        	txt +=  "<tr><td><input type='checkbox' id='"+servicos.servico+"' name='"+servicos.servico+"' class='filled-in'/><label for='"+servicos.servico+"'>"+servicos.servico+"</label></td><td>"+servicos.valor+",00</td></tr>";
-      	        	txt2 +=  "<tr><td><input type='checkbox' id='"+servicos.servico+"1' name='"+servicos.servico+"' class='filled-in'/><label for='"+servicos.servico+"1'>"+servicos.servico+"</label></td><td><img src='img/cesta.png' alt='cesta de comprar'/></td><td>"+servicos.valor+",00</td></tr>";
-      	        }
-		    	txt += "</table>";
-			    txt2 += "</table>";
-			    console.log(txt2);
-			    document.getElementById("table").innerHTML = txt;
-		    	document.getElementById("table2").innerHTML = txt2;
-  	      return true;
-  	    }
-  	    ,error: function(json){
-  	      console.log(json);
-  	    }
-  	  });
+	
+	json = pro.servico;
+	console.log(json);
+	txt += "<table>";
+	txt2 += "<table>";
+	
+    for(let servicos of json) {
+    	txt +=  "<tr><td><input type='checkbox' id='"+servicos.servico+"' name='"+servicos.servico+"' class='filled-in'/><label for='"+servicos.servico+"'>"+servicos.servico+"</label></td><td>"+servicos.valor+",00</td></tr>";
+    	txt2 +=  "<tr><td><input type='checkbox' id='"+servicos.servico+"1' name='"+servicos.servico+"' class='filled-in'/><label for='"+servicos.servico+"1'>"+servicos.servico+"</label></td><td><img src='img/cesta.png' alt='cesta de comprar'/></td><td>"+servicos.valor+",00</td></tr>";
+    }
+    
+	txt += "</table>";
+    txt2 += "</table>";
+    console.log(txt2);
+    document.getElementById("table").innerHTML = txt;
+	document.getElementById("table2").innerHTML = txt2;
+	
+	return true;
 }
 
 function myMapProf() {
@@ -155,3 +157,15 @@ function myMapProf() {
 // }
 // });
 // }
+
+function btnAgendarAtendimento() {
+	servicos = [];
+	for (let servico of profissionalSelecionado.servico) {
+		if(!document.getElementById(servico.servico+"1").setAttribute(value, "")) { 
+			servicos.add(servico);
+			console.log(servico);
+		}
+	}
+	
+	console.log(servicos.toString());
+}
