@@ -40,11 +40,45 @@
             </div>
         </nav>
 
-      
+      <form th:action="@{/FaleConosco}" method="POST">
+        
+        <div id="modal-fale-conosco" class="modal contato">
+            <div class="row">
+                <p class="negrito">Deixe sua Mensagem, responderemos em breve pelo e-mail informado.</p>
+                
+                <div class="input-field col s6 l6">
+                    <label for="nome-fc">Nome Completo</label>
+                    <input type="text" id="nome-fc"/>
+                </div>
+                <div class="input-field col s6 l6">
+                    <label for="email-fc">E-mail</label>
+                    <input type="text" id="email-fc"/>
+                </div>
+                <div class="input-field col s12 l12">
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea rows="1" cols="10"></textarea>
+                </div>
+            </div>
+            
 
-        <div id="modal-fale-conosco" class="modal">
-            <iframe src="FaleConosco.html" class=" iframe-contato"></iframe>
+            <div class="modal-footer row">
+                
+                    <div class="col s3 l3 offset-l6 offset-s6">
+                        <a href="#!" class="modal-action modal-close waves-effectn btn cancelar-agendamento fecha-modal">Não Enviar</a>
+                    </div>
+
+                    <div class="col s3 l3">
+                        <a href="#!"  class="modal-action modal-close waves-effect btn botao-padrao fecha-modal">Enviar</a>
+                    </div>
+                
+            </div>
         </div>
+	</form>
+	
+	
+
+        
+        
       <form th:action="@{/index}" method="POST" class="form-signin">
         
         <div id="modalLogin" class="modal modal-login">
@@ -183,9 +217,7 @@
           </div>
         </footer>
 
-        <div id="modal-fale-conosco" class="modal">
-            <iframe src="FaleConosco.html" class=" iframe-contato"></iframe>
-        </div>
+        
         <script src="js/login.js"></script>
     </body>
 
