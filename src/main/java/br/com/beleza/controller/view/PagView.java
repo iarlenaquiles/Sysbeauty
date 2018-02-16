@@ -33,19 +33,20 @@ public class PagView {
 
 	@Autowired
 	IUsuario iusuario;
-	
+
 	@Autowired
 	ProfissionalRepository profissionalRepository;
-	
+
 	@Autowired
 	Log log;
-	
+
 	@Autowired
 	private FaleConoscoRepository faleconoscoRepository;
 
 	/////////// Perfil Cliente //////////////
 	@RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
-	public String index() {
+	public String index(Model model) {
+		model.addAttribute("faleConosco", new FaleConosco());
 		return "index";
 	}
 
@@ -56,7 +57,7 @@ public class PagView {
 		String perfil = iusuario.perfil(email);
 		String ADM = "ADMIN";
 		String PROF = "PROF";
-		
+
 		session.setAttribute("usuarioLogado", email);
 
 		if (perfil.equals(ADM)) {
@@ -128,14 +129,13 @@ public class PagView {
 	public String FaleConosco() {
 		return "FaleConosco";
 	}
-	
+
 	@PostMapping("/FaleConosco")
-	public ModelAndView save(@Valid FaleConosco fale, BindingResult bindingResult) {
+	public ModelAndView save(@Valid FaleConosco faleConosco, BindingResult bindingResult) {
 		
-		faleconoscoRepository.save(fale);
+		faleconoscoRepository.save(faleConosco);
 		return new ModelAndView("/");
 	}
-
 
 	@RequestMapping("/ajudahome")
 	public String ajudahome() {
@@ -165,26 +165,27 @@ public class PagView {
 	public String profhome() {
 		return "prof-pages/home-prof";
 	}
-	
+
 	@GetMapping("/prof-pages/perfil-prof")
 	public String perfilProf() {
 		return "/prof-pages/perfil-prof";
 	}
-	
+
 	@PostMapping("/prof-pages/perfil-prof")
 	public ResponseEntity<Profissional> perfilProfCarregar(HttpSession session) {
-		
-		Profissional profissional = profissionalRepository.perfilPorEmail(session.getAttribute("usuarioLogado").toString());
-		
+
+		Profissional profissional = profissionalRepository
+				.perfilPorEmail(session.getAttribute("usuarioLogado").toString());
+
 		System.out.println(session.getAttribute("usuarioLogado"));
 		return new ResponseEntity<Profissional>(profissional, HttpStatus.OK);
 	}
-	
+
 	@PostMapping(value = "/alterarProfissional", produces = "application/json", consumes = "application/json")
 	public ResponseEntity<Profissional> alterarProfissional(@RequestBody Profissional profissional) {
-		
+
 		profissionalRepository.save(profissional);
-		
+
 		return new ResponseEntity<Profissional>(profissional, HttpStatus.OK);
 	}
 }
