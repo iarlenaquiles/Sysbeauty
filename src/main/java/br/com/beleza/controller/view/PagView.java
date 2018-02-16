@@ -117,8 +117,9 @@ public class PagView {
 		return "homecliente";
 	}
 
-	@RequestMapping("/chat")
-	public String chat() {
+	@RequestMapping(value = "/chat", method = RequestMethod.GET)
+	public String chat(Model model) {
+		model.addAttribute("faleConosco", new FaleConosco());
 		return "chat";
 	}
 
