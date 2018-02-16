@@ -116,8 +116,9 @@ public class PagView {
 		return "chat";
 	}
 
-	@RequestMapping("/sobre")
-	public String sobre() {
+	@RequestMapping(value="/sobre", method = RequestMethod.GET)
+	public String sobre(Model model) {
+		model.addAttribute("faleConosco", new FaleConosco());
 		return "sobre";
 	}
 
