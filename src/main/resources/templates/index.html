@@ -1,226 +1,251 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.springframework.org/schema/mvc">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, user-scalable=no"/>
-        <title>Home</title>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-        <link rel="stylesheet" href="estilos-css/materialize.css"/>
-        <link rel="stylesheet" href="estilos-css/containers.css"/>
-        <script src="js/jquery-3.2.1.js"></script>
-        <script src="js/materialize.js"></script>
-        <script src="js/efeitos.js"></script>
-        <script src="js/controllerView/pagView.js"></script>
-        
-    </head>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no" />
+<title>Home</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<link rel="stylesheet" href="estilos-css/materialize.css" />
+<link rel="stylesheet" href="estilos-css/containers.css" />
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/efeitos.js"></script>
+<script src="js/controllerView/pagView.js"></script>
 
-    <body class="home">
-        <nav>
-            <div class="nav-wrapper cor-padrao padding">
-                <a href="index.html" class="brand-logo"><img src="img/logo.png" width="64px" height="64px" class="responsive-img" alt="logo do site"/></a>
-                <a href="#" data-activates="menu-mobile" class="button-collapse">
-                    <i class="material-icons">menu</i>
-                </a>
+</head>
 
-                <ul id="nav-mobile" class="right hide-on-med-and-down barras-menu-home">
-                    <li><a href="cadastro.html">Cadastrar</a><hr/></li>
-                    <li><a href="#modal-fale-conosco">Fale Conosco</a><hr/></li>
-                    <li><a href="sobre.html">Sobre</a><hr/></li>
-                    <li><a href="ajudahome.html">Ajuda</a><hr/></li>
-                    <li><a href="#modalLogin" class="modal-trigger">Login</a></li>
-                </ul>
+<body class="home">
+	<nav>
+		<div class="nav-wrapper cor-padrao padding">
+			<a href="index.html" class="brand-logo"><img src="img/logo.png"
+				width="64px" height="64px" class="responsive-img" alt="logo do site" /></a>
+			<a href="#" data-activates="menu-mobile" class="button-collapse">
+				<i class="material-icons">menu</i>
+			</a>
 
-                <ul id="menu-mobile" class="side-nav">
-                    <li><a href="cadastro.html">Cadastrar</a></li>
-                    <li><a href="#modal-fale-conosco">Fale Conosco</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="ajuda.html">Ajuda</a></li>
-                    <li><a href="#modalLogin" class="modal-trigger">Login</a></li>
-                </ul>
-            </div>
-        </nav>
+			<ul id="nav-mobile"
+				class="right hide-on-med-and-down barras-menu-home">
+				<li><a href="cadastro.html">Cadastrar</a>
+					<hr /></li>
+				<li><a href="#modal-fale-conosco">Fale Conosco</a>
+					<hr /></li>
+				<li><a href="sobre.html">Sobre</a>
+					<hr /></li>
+				<li><a href="ajudahome.html">Ajuda</a>
+					<hr /></li>
+				<li><a href="#modalLogin" class="modal-trigger">Login</a></li>
+			</ul>
 
-      <form th:action="@{/FaleConosco}" th:object="${faleConosco}" method="POST">
-        
-        <div id="modal-fale-conosco" class="modal contato">
-            <div class="row">
-                <p class="negrito">Deixe sua Mensagem, responderemos em breve pelo e-mail informado.</p>
-                
-                <div class="input-field col s6 l6">
-                    <label for="nome-fc">Nome Completo</label>
-                    <input type="text" id="nome-fc" th:field="*{nome}" />
-                </div>
-                <div class="input-field col s6 l6">
-                    <label for="email-fc">E-mail</label>
-                    <input type="text" id="email-fc" th:field="*{email}" />
-                </div>
-                <div class="input-field col s12 l12">
-                    <label for="mensagem">Mensagem:</label>
-                    <textarea rows="1" cols="10" th:field="*{mensagem}"></textarea>
-                </div>
-            </div>
-            
+			<ul id="menu-mobile" class="side-nav">
+				<li><a href="cadastro.html">Cadastrar</a></li>
+				<li><a href="#modal-fale-conosco">Fale Conosco</a></li>
+				<li><a href="sobre.html">Sobre</a></li>
+				<li><a href="ajuda.html">Ajuda</a></li>
+				<li><a href="#modalLogin" class="modal-trigger">Login</a></li>
+			</ul>
+		</div>
+	</nav>
 
-            <div class="modal-footer row">
-                
-                    <div class="col s3 l3 offset-l6 offset-s6">
-                        <a href="#!" class="modal-action modal-close waves-effectn btn cancelar-agendamento fecha-modal">Não Enviar</a>
-                    </div>
 
-                    <div class="col s3 l3">
-                        <a href="#!"  class="modal-action modal-close waves-effect btn botao-padrao" id="enviarFaleConosco">Enviar</a>
-                        <button type="submit" class="waves-effect btn botao-padrao">Salvar</button>
-                    </div>
-                
-            </div>
-            <script src="js/faleconosco.js"></script>
-        </div>
-	</form>
-	
-	
+	<form th:action="@{/FaleConosco}" th:object="${faleConosco}"
+		method="POST">
 
-        
-        
-      <form th:action="@{/index}" method="POST" class="form-signin">
-        
-        <div id="modalLogin" class="modal modal-login">
-            <div class="row fundo-branco form">
-                <div class="col s4 m4 l4 botoes-modal-login ">
-                    <a class="waves-effect waves-light btn ativo-login">Cliente</a>
-                </div>
-                <div class="col s4 m4 l4 botoes-modal-login">
-                    <a class="waves-effect waves-light btn inativo-login">Profissional</a>
-                </div>
-                <div class="col s4 m4 l4 botoes-modal-login">
-                    <a class="waves-effect waves-light btn inativo-login">Moderador</a>
-                </div>
+		<div id="modal-fale-conosco" class="modal contato">
+			<div class="row">
+				<p class="negrito">Deixe sua Mensagem, responderemos em breve
+					pelo e-mail informado.</p>
 
-                <div class="col l12">
-                    <div class="col l8 offset-l2">
-                        <label for="email">Email</label>
-<!--                         <input type="text" id="email" name="email"/> -->
-                        			<input type="text" id="login_email" name="login_email"  th:placeholder="Email"
-				class="form-control" />
-                    </div>
-                    <div class="col l8 offset-l2">
-                        <label for="senha">Senha</label>
-<!--                         <input type="password" id="passwd" name="passwd"/> -->
-                        <input type="password" id="login_senha" name="login_senha" th:placeholder="Password"
-				 class="form-control" />
-                    </div>
-                </div>
-
-                <div class="col l10 offset-l2">
-                    <div class="col l6">
-                       	<button class="waves-effect waves-light btn botao-padrao" name="Submit" value="Login" type="Submit" th:text="Login"></button>
-                    
-<!--                         <a id="logar" class="waves-effect waves-light btn botao-padrao">Entrar</a> -->
-                    </div>
-                    <div class="col l6 radio-login">
-                        <p>
-                            <input type="checkbox" id="conectado" class="filled-in"/>
-                            <label for="conectado">Manter Conectado</label>
-                        </p>
-                        
-                            <div align="center" th:if="${param.error}">
-				<p style="font-size: 20; color: #FF1C19;">Email ou senha invalida, por favor verifique dados</p>
+				<div class="input-field col s6 l6">
+					<label for="nome-fc">Nome Completo</label> <input type="text"
+						id="nome-fc" th:field="*{nome}" />
+				</div>
+				<div class="input-field col s6 l6">
+					<label for="email-fc">E-mail</label> <input type="text"
+						id="email-fc" th:field="*{email}" />
+				</div>
+				<div class="input-field col s12 l12">
+					<label for="mensagem">Mensagem:</label>
+					<textarea rows="1" cols="10" th:field="*{mensagem}"></textarea>
+				</div>
 			</div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="topo-botao"></div>
-            <div class="rodape-modal">
-                <a href="cadastro.html" class="modal-action modal-close waves-effect waves-green btn-flat">Cadastrar</a>
-            </div>
-            <script src="js/login.js"></script>
-        </div>
+
+			<div class="modal-footer row">
+
+				<div class="col s3 l3 offset-l6 offset-s6">
+					<a href="#!"
+						class="modal-action modal-close waves-effectn btn cancelar-agendamento fecha-modal">Não
+						Enviar</a>
+				</div>
+
+				<div class="col s3 l3">
+					<a href="#!"
+						class="modal-action modal-close waves-effect btn botao-padrao"
+						id="enviarFaleConosco">Enviar</a>
+					<button type="submit" class="waves-effect btn botao-padrao">Salvar</button>
+				</div>
+
+			</div>
+		</div>
 	</form>
-     <div class="row linha-2"> 
-        <div class="box-flutuante right cor-padrao hide-on-med-and-down">
-            <p>Encontre as profissionais de beleza</p><p> próximas a você em questão de segundos!</p>
-        </div>
-      </div>
-      <main class="row main">
-          <div class="col l6 borda">
-            <h5>Clientes</h5>
-            <p>Encontre profissionais de beleza próximos a você em questão de segundos. Veja os comentarios de quem já desfruta da ferramenta.</p>
-            <table class="coment-cliente">
-                    <tr>
-                        <td><img src="img/0-71.png" class="circle" alt="Avatar do usuario que comentou."/></td>
-                        <td>Facilitou minha vida, nunca foi tão facil ficar linda.<br/><i>Mirian-Sp</i></td>
-                    </tr>
-            </table>
-          </div>
-          <div class="col l6">
-            <h5>Profissionais</h5>
-            <p>Divulgue seu serviços e aumente sua renda mensal. Seu portfólio estará sempre visível e os clientes encontrarão seus serviços de forma fácil.Veja os destacados:</p>
-            
-            <table class="prof-home">
-                    <tr>
-                        <td><img src="img/0-71.png" class="circle" alt="Avatar do usuario que comentou."/></td>
-                        <td><img src="img/0-71.png" class="circle" alt="Avatar do usuario que comentou."/></td>
-                        <td><img src="img/0-71.png" class="circle" alt="Avatar do usuario que comentou."/></td>
-                        <td><img src="img/0-71.png" class="circle" alt="Avatar do usuario que comentou."/></td>
-                    </tr>
-                    <tr>
-                        <td>Joana</td>
-                        <td>Maria</td>
-                        <td>Joaquina</td>
-                        <td>Mara</td>
-                    </tr>
-            </table>
-          </div>
 
-          <div class="col l12 down-app">
-            <h5 class="col l12">Disque Beleza sempre perto</h5>
 
-            <div class="col l12 left  space">
-                <img src="img/google.png" alt="Logo google play"/>
-                <img src="img/apple.png" alt="Logo Apple store"/>
-            </div>
-        </div>
 
-        <div class="col l6 recomendacoes">
-            <div class="col l6">
-                <p>Você está em um ambiente seguro. O site não terá acesso aos seus dados de cartão ou bancário</p>
-            </div>
-            <div class="col l6">
-                <p>Por isso é necessario ter uma conta no PagSeguro para efetuar as transações!</p>
-            </div>
-        </div>
-        <div class="col l6 cartoes">
-            <img src="img/cartoes.png" alt="cartoes aceitos pelo pagseguro"/>
-        </div>
-      </main>
+	<form th:action="@{/index}" method="POST" class="form-signin">
 
-    
-      <footer class="page-footer cor-padrao">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Equipe Disque Beleza</h5>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="sobre.html">Quem Somos</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#modal-fale-conosco">Fale Conosco</a></li>
-                  <li><a class="grey-text text-lighten-3" href="Ajuda.html">Ajuda</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2017 Todos os direitos reservados
-            
-            </div>
-          </div>
-        </footer>
+		<div id="modalLogin" class="modal modal-login">
+			<div class="row fundo-branco form">
+				<div class="col s4 m4 l4 botoes-modal-login ">
+					<a class="waves-effect waves-light btn ativo-login">Cliente</a>
+				</div>
+				<div class="col s4 m4 l4 botoes-modal-login">
+					<a class="waves-effect waves-light btn inativo-login">Profissional</a>
+				</div>
+				<div class="col s4 m4 l4 botoes-modal-login">
+					<a class="waves-effect waves-light btn inativo-login">Moderador</a>
+				</div>
 
-        
-        <script src="js/login.js"></script>
-    </body>
+				<div class="col l12">
+					<div class="col l8 offset-l2">
+						<label for="email">Email</label>
+						<!--                         <input type="text" id="email" name="email"/> -->
+						<input type="text" id="login_email" name="login_email"
+							th:placeholder="Email" class="form-control" />
+					</div>
+					<div class="col l8 offset-l2">
+						<label for="senha">Senha</label>
+						<!--                         <input type="password" id="passwd" name="passwd"/> -->
+						<input type="password" id="login_senha" name="login_senha"
+							th:placeholder="Password" class="form-control" />
+					</div>
+				</div>
+
+				<div class="col l10 offset-l2">
+					<div class="col l6">
+						<button class="waves-effect waves-light btn botao-padrao"
+							name="Submit" value="Login" type="Submit" th:text="Login"></button>
+
+						<!--                         <a id="logar" class="waves-effect waves-light btn botao-padrao">Entrar</a> -->
+					</div>
+					<div class="col l6 radio-login">
+						<p>
+							<input type="checkbox" id="conectado" class="filled-in" /> <label
+								for="conectado">Manter Conectado</label>
+						</p>
+
+						<div align="center" th:if="${param.error}">
+							<p style="font-size: 20; color: #FF1C19;">Email ou senha
+								invalida, por favor verifique dados</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="topo-botao"></div>
+			<div class="rodape-modal">
+				<a href="cadastro.html"
+					class="modal-action modal-close waves-effect waves-green btn-flat">Cadastrar</a>
+			</div>
+			<script src="js/login.js"></script>
+		</div>
+	</form>
+	<div class="row linha-2">
+		<div class="box-flutuante right cor-padrao hide-on-med-and-down">
+			<p>Encontre as profissionais de beleza</p>
+			<p>próximas a você em questão de segundos!</p>
+		</div>
+	</div>
+	<main class="row main">
+	<div class="col l6 borda">
+		<h5>Clientes</h5>
+		<p>Encontre profissionais de beleza próximos a você em questão de
+			segundos. Veja os comentarios de quem já desfruta da ferramenta.</p>
+		<table class="coment-cliente">
+			<tr>
+				<td><img src="img/0-71.png" class="circle"
+					alt="Avatar do usuario que comentou." /></td>
+				<td>Facilitou minha vida, nunca foi tão facil ficar linda.<br />
+				<i>Mirian-Sp</i></td>
+			</tr>
+		</table>
+	</div>
+	<div class="col l6">
+		<h5>Profissionais</h5>
+		<p>Divulgue seu serviços e aumente sua renda mensal. Seu portfólio
+			estará sempre visível e os clientes encontrarão seus serviços de
+			forma fácil.Veja os destacados:</p>
+
+		<table class="prof-home">
+			<tr>
+				<td><img src="img/0-71.png" class="circle"
+					alt="Avatar do usuario que comentou." /></td>
+				<td><img src="img/0-71.png" class="circle"
+					alt="Avatar do usuario que comentou." /></td>
+				<td><img src="img/0-71.png" class="circle"
+					alt="Avatar do usuario que comentou." /></td>
+				<td><img src="img/0-71.png" class="circle"
+					alt="Avatar do usuario que comentou." /></td>
+			</tr>
+			<tr>
+				<td>Joana</td>
+				<td>Maria</td>
+				<td>Joaquina</td>
+				<td>Mara</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="col l12 down-app">
+		<h5 class="col l12">Disque Beleza sempre perto</h5>
+
+		<div class="col l12 left  space">
+			<img src="img/google.png" alt="Logo google play" /> <img
+				src="img/apple.png" alt="Logo Apple store" />
+		</div>
+	</div>
+
+	<div class="col l6 recomendacoes">
+		<div class="col l6">
+			<p>Você está em um ambiente seguro. O site não terá acesso aos
+				seus dados de cartão ou bancário</p>
+		</div>
+		<div class="col l6">
+			<p>Por isso é necessario ter uma conta no PagSeguro para efetuar
+				as transações!</p>
+		</div>
+	</div>
+	<div class="col l6 cartoes">
+		<img src="img/cartoes.png" alt="cartoes aceitos pelo pagseguro" />
+	</div>
+	</main>
+
+
+	<footer class="page-footer cor-padrao">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">Equipe Disque Beleza</h5>
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="white-text">Links</h5>
+					<ul>
+						<li><a class="grey-text text-lighten-3" href="sobre.html">Quem
+								Somos</a></li>
+						<li><a class="grey-text text-lighten-3"
+							href="#modal-fale-conosco">Fale Conosco</a></li>
+						<li><a class="grey-text text-lighten-3" href="Ajuda.html">Ajuda</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">© 2017 Todos os direitos reservados</div>
+		</div>
+	</footer>
+
+
+	<script src="js/login.js"></script>
+</body>
 
 </html>
