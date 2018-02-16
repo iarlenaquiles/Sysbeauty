@@ -131,10 +131,10 @@ public class PagView {
 	}
 
 	@PostMapping("/FaleConosco")
-	public ModelAndView save(@Valid FaleConosco faleConosco, BindingResult bindingResult) {
+	public String save(@Valid FaleConosco faleConosco, BindingResult bindingResult) {
 		
 		faleconoscoRepository.save(faleConosco);
-		return new ModelAndView("/");
+		return "index";
 	}
 
 	@RequestMapping("/ajudahome")
