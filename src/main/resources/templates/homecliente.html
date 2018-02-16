@@ -172,7 +172,7 @@
                         <div class="col s12 m3 l3"><a class="waves-effect waves-light btn" href="#modal-portifolio">portfolio</a></div>
                     </div>
 
-                    <div id="modal-agendar" class="modal">
+                    <div id="modal-agendar" class="modal" ng-controller="agendamentoProfissional">
                         <div class="modal-content">
                             <h5>Agendar um atendimento</h5>
                             <div class="form">
@@ -195,7 +195,7 @@
                                 <input type="time" name="ag-horario" />
                             </div>
                             <div class="col l4 offset-l4">
-                                <a href="#modal-confirmacao" class="modal-action modal-close waves-effect btn botao-padrao2">Próxima</a>
+                                <a href="#modal-confirmacao" class="modal-action modal-close waves-effect btn botao-padrao2" ng-click="btnProximo">Próxima</a>
                             </div>
                         </div>
                     </div>
