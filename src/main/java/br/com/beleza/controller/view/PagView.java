@@ -117,7 +117,7 @@ public class PagView {
 		return "homecliente";
 	}
 
-	@RequestMapping(value = "/chat", method = RequestMethod.GET)
+	@RequestMapping(value="/chat", method = RequestMethod.GET)
 	public String chat(Model model) {
 		model.addAttribute("faleConosco", new FaleConosco());
 		return "chat";
@@ -129,8 +129,9 @@ public class PagView {
 		return "sobre";
 	}
 
-	@RequestMapping("/transacoes")
-	public String transacoes() {
+	@RequestMapping(value="/transacoes", method = RequestMethod.GET)
+	public String transacoes(Model model) {
+		model.addAttribute("faleConosco", new FaleConosco());
 		return "transacoes";
 	}
 
