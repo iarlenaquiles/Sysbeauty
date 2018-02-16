@@ -3,6 +3,8 @@ service.controller('homeCliente', function homeCliente($scope, $http) {
 	
 	$scope.Markers = [];
 	
+	$scope.dataAgendamento;
+	$scope.horaAgendamento;
 	$scope.profissionalSelecionado;
 	$scope.servicos = [];
 	$scope.servicosSelecionados = [

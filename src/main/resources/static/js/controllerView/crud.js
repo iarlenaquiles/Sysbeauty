@@ -74,6 +74,21 @@ function cadastroCliente() {
       }).presentDefault();
 }
 
+function cadastrarAgenda() {
+	$.ajax({
+		datatypi: 'json',
+		type: 'POST',
+		url: 'http://127.0.0.1:8080/agenda/add',
+		data: $('#formAgenda').serialize(),
+		success: function(response) {
+			console.log(response);
+		},
+		error: function(erro) {
+			console.log(erro);
+		}
+	}).preventDefault();
+}
+
 function perfil(){
 	  $.get({ datatype: 'json',
 	  type:'GET',
