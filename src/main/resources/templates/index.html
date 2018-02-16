@@ -40,7 +40,7 @@
             </div>
         </nav>
 
-      <form th:action="@{/FaleConosco}" method="POST">
+      <form th:action="@{/FaleConosco}" th:object="${faleConosco}" method="POST">
         
         <div id="modal-fale-conosco" class="modal contato">
             <div class="row">
@@ -48,15 +48,15 @@
                 
                 <div class="input-field col s6 l6">
                     <label for="nome-fc">Nome Completo</label>
-                    <input type="text" id="nome-fc"/>
+                    <input type="text" id="nome-fc" th:field="*{nome}" />
                 </div>
                 <div class="input-field col s6 l6">
                     <label for="email-fc">E-mail</label>
-                    <input type="text" id="email-fc"/>
+                    <input type="text" id="email-fc" th:field="*{email}" />
                 </div>
                 <div class="input-field col s12 l12">
                     <label for="mensagem">Mensagem:</label>
-                    <textarea rows="1" cols="10"></textarea>
+                    <textarea rows="1" cols="10" th:field="*{mensagem}"></textarea>
                 </div>
             </div>
             
@@ -68,10 +68,12 @@
                     </div>
 
                     <div class="col s3 l3">
-                        <a href="#!"  class="modal-action modal-close waves-effect btn botao-padrao fecha-modal">Enviar</a>
+                        <a href="#!"  class="modal-action modal-close waves-effect btn botao-padrao" id="enviarFaleConosco">Enviar</a>
+                        <button type="submit" class="waves-effect btn botao-padrao">Salvar</button>
                     </div>
                 
             </div>
+            <script src="js/faleconosco.js"></script>
         </div>
 	</form>
 	
