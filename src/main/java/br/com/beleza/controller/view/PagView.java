@@ -140,7 +140,8 @@ public class PagView {
 	}
 
 	@RequestMapping("/ajudahome")
-	public String ajudahome() {
+	public String ajudahome(Model model) {
+		model.addAttribute("faleConosco", new FaleConosco());
 		return "ajudahome";
 	}
 
