@@ -90,6 +90,7 @@ public class PagView {
 		Usuario usuario = iusuario.listPerfil(auth.getName());
 		modelAndView.addObject(usuario);
 		model.addAttribute("usuario", usuario);
+		model.addAttribute("faleConosco", new FaleConosco());
 		modelAndView.setViewName("perfil-cliente");
 
 		return modelAndView;
