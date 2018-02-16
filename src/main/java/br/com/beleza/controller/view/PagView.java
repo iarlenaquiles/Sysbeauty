@@ -154,7 +154,8 @@ public class PagView {
 	}
 
 	@RequestMapping("/qualificacao")
-	public String qualificacao() {
+	public String qualificacao(Model model) {
+		model.addAttribute("faleConosco", new FaleConosco());
 		return "qualificacao";
 	}
 
