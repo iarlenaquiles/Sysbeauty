@@ -42,6 +42,7 @@ public class PagView {
 
 	@Autowired
 	private FaleConoscoRepository faleconoscoRepository;
+	
 
 	/////////// Perfil Cliente //////////////
 	@RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
@@ -107,7 +108,8 @@ public class PagView {
 	}
 
 	@GetMapping("/homecliente")
-	public String homecliente() {
+	public String homecliente(Model model) {
+		model.addAttribute("faleConosco", new FaleConosco());
 		return "homecliente";
 	}
 
