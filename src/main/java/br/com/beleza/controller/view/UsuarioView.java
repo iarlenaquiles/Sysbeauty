@@ -25,6 +25,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import br.com.beleza.Repository.IUsuario;
 import br.com.beleza.Repository.LoginRepository;
 import br.com.beleza.Repository.RoleRepository;
+import br.com.beleza.model.FaleConosco;
 import br.com.beleza.model.Login;
 import br.com.beleza.model.Role;
 import br.com.beleza.model.Usuario;
@@ -42,10 +43,10 @@ public class UsuarioView {
 
 	public Usuario usuario = new Usuario();
 
-	@GetMapping(value = "/perfil-cliente")
-	public ModelAndView perfil_cliente(Usuario usuario) {
+	@RequestMapping(value = "/perfil-cliente")
+	public ModelAndView perfil_cliente(Usuario usuario, Model model) {
 		ModelAndView modelAndView = new ModelAndView("/perfil-cliente");
-
+		model.addAttribute("faleConosco", new FaleConosco());
 		// modelAndView.addObject("usuario", new Usuario());
 
 		return modelAndView;
