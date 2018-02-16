@@ -100,8 +100,9 @@ public class PagView {
 		return modelAndView;
 	}
 
-	@RequestMapping("/cadastro")
-	public String cad() {
+	@RequestMapping(value="/cadastro", method = RequestMethod.GET)
+	public String cad(Model model) {
+		model.addAttribute("faleConosco", new FaleConosco());
 		return "cadastro";
 	}
 
