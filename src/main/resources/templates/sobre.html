@@ -116,9 +116,47 @@
           </div>
       </main>
 
-        <div id="modal-fale-conosco" class="modal">
-            <iframe src="FaleConosco.html" class=" iframe-contato"></iframe>
-        </div>
+        <form th:action="@{/FaleConosco}" th:object="${faleConosco}"
+		method="POST">
+
+		<div id="modal-fale-conosco" class="modal contato">
+			<div class="row">
+				<p class="negrito">Deixe sua Mensagem, responderemos em breve
+					pelo e-mail informado.</p>
+
+				<div class="input-field col s6 l6">
+					<label for="nome-fc">Nome Completo</label> <input type="text"
+						id="nome-fc" th:field="*{nome}" />
+				</div>
+				<div class="input-field col s6 l6">
+					<label for="email-fc">E-mail</label> <input type="text"
+						id="email-fc" th:field="*{email}" />
+				</div>
+				<div class="input-field col s12 l12">
+					<label for="mensagem">Mensagem:</label>
+					<textarea rows="1" cols="10" th:field="*{mensagem}"></textarea>
+				</div>
+			</div>
+
+
+			<div class="modal-footer row">
+
+				<div class="col s3 l3 offset-l6 offset-s6">
+					<a href="#!"
+						class="modal-action modal-close waves-effectn btn cancelar-agendamento fecha-modal">Não
+						Enviar</a>
+				</div>
+
+				<div class="col s3 l3">
+					<a href="#!"
+						class="modal-action modal-close waves-effect btn botao-padrao"
+						id="enviarFaleConosco">Enviar</a>
+					<button type="submit" class="waves-effect btn botao-padrao">Salvar</button>
+				</div>
+
+			</div>
+		</div>
+	</form>
         <script src="js/login.js"></script>
     </body>
 
