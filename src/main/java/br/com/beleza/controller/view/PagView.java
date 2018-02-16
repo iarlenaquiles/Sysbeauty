@@ -52,20 +52,23 @@ public class PagView {
 	}
 
 	///////// DIRECIONAMENTO DE PERFIL /////////////
-	@RequestMapping("/default")
-	public String defaultAfterLogin(HttpServletRequest request, HttpSession session) {
+	@RequestMapping(value="/default", method = RequestMethod.GET)
+	public String defaultAfterLogin(HttpServletRequest request, HttpSession session, Model model) {
 		String email = request.getUserPrincipal().getName();
 		String perfil = iusuario.perfil(email);
 		String ADM = "ADMIN";
 		String PROF = "PROF";
 
 		session.setAttribute("usuarioLogado", email);
-
+		
 		if (perfil.equals(ADM)) {
+			model.addAttribute("faleConosco", new FaleConosco());
 			return "Adm-pages/homeadm";
 		} else if (perfil.equals(PROF)) {
+			model.addAttribute("faleConosco", new FaleConosco());
 			return "prof-pages/home-prof";
 		} else {
+			model.addAttribute("faleConosco", new FaleConosco());
 			return "homecliente";
 		}
 	}
@@ -107,7 +110,7 @@ public class PagView {
 		return "cadastro";
 	}
 
-	@GetMapping("/homecliente")
+	@RequestMapping(value="/homecliente", method = RequestMethod.GET)
 	public String homecliente(Model model) {
 		model.addAttribute("faleConosco", new FaleConosco());
 		return "homecliente";
