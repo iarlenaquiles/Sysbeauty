@@ -31,6 +31,12 @@ public class FaleConosco implements Serializable{
 		this.mensagem = mensagem;
 	}
 
+	public FaleConosco(String nome, String email, String mensagem) {
+		this.nome = nome;
+		this.email = email;
+		this.mensagem = mensagem;
+	}
+	
 	public FaleConosco() {
 
 	}
