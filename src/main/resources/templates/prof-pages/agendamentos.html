@@ -1,195 +1,242 @@
 <html ng-app="service">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no">
-        <title>Agendamentos</title>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="../estilos-css/materialize.css">
-        <script src="../js/jquery-3.2.1.js"></script>
-        <script src="../js/materialize.js"></script>
-        
-         <!-- AngularJs -->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
-        <script src="../js/controllerAngular/service.js"></script>
-        <script src="../js/controllerAngular/agendamento-profissional-controller.js"></script>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<title>Agendamentos</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link rel="stylesheet" href="../estilos-css/materialize.css">
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/materialize.js"></script>
 
-        <link rel="stylesheet" href="../estilos-css/css/bootstrap-datepicker.css">
-        <link rel="stylesheet" href="../estilos-css/css/bootstrap-datepicker.standalone.css">
-        <link rel="stylesheet" href="../estilos-css/css/bootstrap-datepicker3.css">
-        <link rel="stylesheet" href="../estilos-css/css/bootstrap-datepicker.standalone3.css">
+<!-- AngularJs -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+<script src="../js/controllerAngular/service.js"></script>
+<script
+	src="../js/controllerAngular/agendamento-profissional-controller.js"></script>
 
-        <script src="../js/js/bootstrap-datepicker.js"></script>
-        <script src="../locales/bootstrap-datepicker.pt-BR.min.js"></script>        
-        <link rel="stylesheet" href="../estilos-css/containers.css">
-        <script src="../js/efeitos.js"></script>
-    </head>
-
-    <body ng-controller="agendamentoProfissional">
-        <nav>
-            <div class="nav-wrapper cor-padrao padding">
-                <a href="home-prof.html" class="brand-logo"><img src="../img/logo.png" width="64px" height="64px" class="responsive-img" alt="logo do site"></a>
-                <a href="#" data-activates="menu-mobile" class="button-collapse">
-                    <i class="material-icons">menu</i>
-                </a>
-
-                <ul id="nav-mobile" class="right hide-on-med-and-down barras-menu-prof">
-                    <li><a href="home-prof.html">Home</a><hr></li>
-                    <li><a href="#!">Perfil</a><hr></li>
-                    <li><a href="chat-prof.html">Chat</a><hr></li>
-                    <li><a href="transacoes-prof.html">Transações</a><hr></li>
-                    <li class="active"><a href="agendamentos.html">Agendamentos</a><hr></li>
-                    <li><a href="planos.html">Planos</a><hr></li>
-                    <li><a href="qualificacoes.html">Qualificações</a><hr></li>
-                    <li><a href="#modal-fale-conosco">Fale Conosco</a><hr></li>
-                    <li><a href="ajuda-prof.html">Ajuda</a><hr></li>
-                    <li><a href="../index.html">Sair</a></li>
-                </ul>
-
-                <ul id="menu-mobile" class="side-nav">
-                    <li><a href="home-prof.html">Home</a></li>
-                    <li><a href="#!">Perfil</a></li>
-                    <li><a href="chat-prof.html">Chat</a></li>
-                    <li><a href="transacoes-prof.html">Transações</a></li>
-                    <li class="active"><a href="agendamentos.html">Agendamentos</a></li>
-                    <li><a href="planos.html">Planos</a></li>
-                    <li><a href="qualificacoes.html">Qualificações</a></li>
-                    <li><a href="#modal-fale-conosco">Fale Conosco</a></li>
-                    <li><a href="ajuda-prof.html">Ajuda</a></li>
-                    <li><a href="../index.html">Sair</a></li>
-                </ul>
-
-            </div>
-        </nav>
-
-        <main class="row pad-transacoes">
-
-            <div class="col l12">
-                <h4>Agendamentos</h4>
-            </div>
-
-            <div class="col s12 m12 l5 trans-usuario">
-                <div class="col s12 m12 l5">
-                    <img src="../img/0-71.png" alt="">
-                </div>
-                <div class="col l6">
-                    <p class="nome">Leticia</p>
-                    <p>30 transações</p>
-                    <p>Totao recebido: R$500,00</p>
-                </div>
-
-                <div class="col s12 m12 l12 ">
-                    <div class="col l12">
-                        <p>Disponível para saque: R$ 433,50</p>
-                    </div>
-                    <div class="col l5 sem-padding margem-bot">
-                        <a class="waves-effect waves-light btn botao-padrao">Sacar Agora</a>
-                    </div>
-                </div>
-                <div class="input-field col s12 m12 l12 form meu-select">
-                    <label for="filtro">Filtrar por Status de pagamento:</label>
-                    <select>
-                        <option value="todos">Todos</option>
-                        <option value="efetuados">Pagamentos Recebidos</option>
-                        <option value="pendentes">Pagamentos pendentes</option>
-                    </select>
-                    
-                </div>
-                <div class="col s12 m12 l12 calendario" id="sandbox-container">
-                    <div class="col s12 m12 l12"></div>
-                </div>
-            </div>
-            <div class="col s12 m12 l5">     			
-    			<div class="row pagamentos">
-    				 <div class="col s12 m12 l9" ng-repeat="atendimento in atendimentos">
-    				 	<p>Cliente: {{ atendimento.cliente }}</p>
-    				 	<p>Dia: {{ atendimento.dia }} </p>
-    				 	<p>Local: {{ atendimento.local }} </p>
-    				 	
-    				 	<div class="col l12 ">
-                            <div class="col l6">
-                                <a class="waves-effect waves-light btn cancelar-agendamento" ng-click="cancelar($index)">Cancelar</a>
-                            </div>
-                            <div class="col l5">
-                                <a class="waves-effect waves-light btn botao-padrao" ng-click="chat($index)">Chat</a>
-                            </div>
-                        </div>
-    				 </div>
-    				 <div class="col l3">
-                    </div>
-    			</div>
-    			
-            </div>
-        </main>
-        <div id="modal-fale-conosco" class="modal">
-            <iframe src="../FaleConosco.html" class=" iframe-contato"></iframe>
-        </div>
-
-        <div id="modal-cancela" class="modal" ng-show="cancelar">
-            <div class="modal-content row">
-                <div class="col l12 cliente-cancelamento">
-                    <div class="col l3">
-                        <img src="../img/0-71.png" alt="">
-                    </div>
-                    <div class="col l9">
-                        <p>Leticia</p>
-                        <p>Nome da rua ,222</p>
-                    </div>
-                </div>
-                <div class="col l12">
-                    <p>Dia xx/xx/xxxx Horário: 10h</p>
-                    <p>Serviços:<br>Serviços1,Serviços2,Serviços3</p>
-                
-                    <p>Valor total: R$:100,00</p>
-                    <p>Deixe uma justificativa para a/o cliente 
-                        propondo uma outra data e horário.
-                        Sabemos que você irá fazer de tudo para não
-                        perder essa oportunidade.
-                    </p>
-                </div>
-                
-                <div class="input-field col s12 l12">
-                    <label for="cancel">Comentário sobre o cancelamento:</label>
-                    <textarea rows="1" cols="10"></textarea>
-                </div>
-            </div>
-            <div class="modal-footer row">
-                <div class="col l5 offset-l3">
-                    <a href="#modal-cancela-confirma" class="modal-action modal-close waves-effect waves-green btn botao-padrao">Confirmar Cancelamento</a>
-                </div>
-            </div>
-        </div>
-
-        <div id="modal-cancela-confirma" class="modal">
-            <div class="modal-content row">
-                <div class="col l12 cliente-cancelamento">
-                    <h3 class="cor-letra3">Confirmar Cancelamento?</h3>
-                </div>
-                
-            </div>
-            <div class="modal-footer row">
-                <div class="col l12 ">
-                    <div class="col l6">
-                        <a class="waves-effect waves-light btn modal-close cancelar-agendamento">Cancelar</a>
-                    </div>
-                    <div class="col l5">
-                        <a class="waves-effect waves-light btn modal-close botao-padrao">Confirmar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+<link rel="stylesheet"
+	href="../estilos-css/css/bootstrap-datepicker.css">
+<link rel="stylesheet"
+	href="../estilos-css/css/bootstrap-datepicker.standalone.css">
+<link rel="stylesheet"
+	href="../estilos-css/css/bootstrap-datepicker3.css">
+<link rel="stylesheet"
+	href="../estilos-css/css/bootstrap-datepicker.standalone3.css">
 
 
-    </body>
+<!--formden.js communicates with FormDen server to validate fields and submit via AJAX -->
+<script type="text/javascript"
+	src="https://formden.com/static/cdn/formden.js"></script>
 
-    <script>
+<!-- Special version of Bootstrap that is isolated to content wrapped in .bootstrap-iso -->
+<link rel="stylesheet"
+	href="https://formden.com/static/cdn/bootstrap-iso.css" />
 
-        $('#sandbox-container').datepicker({
-            format: 'dd/mm/yyyy',
-            language: 'pt-BR'
+<!--Font Awesome (added because you use icons in your prepend/append)-->
+<link rel="stylesheet"
+	href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
 
-        });
-        
-        /*$('.datepicker').datepicker({language: 'pt-BR'});*/
+<script src="../js/js/bootstrap-datepicker.js"></script>
+<script src="../locales/bootstrap-datepicker.pt-BR.min.js"></script>
+<link rel="stylesheet" href="../estilos-css/containers.css">
+<script src="../js/efeitos.js"></script>
+</head>
 
-    </script>
+<body ng-controller="agendamentoProfissional">
+	<nav>
+		<div class="nav-wrapper cor-padrao padding">
+			<a href="home-prof.html" class="brand-logo"><img
+				src="../img/logo.png" width="64px" height="64px"
+				class="responsive-img" alt="logo do site"></a> <a href="#"
+				data-activates="menu-mobile" class="button-collapse"> <i
+				class="material-icons">menu</i>
+			</a>
+
+			<ul id="nav-mobile"
+				class="right hide-on-med-and-down barras-menu-prof">
+				<li><a href="home-prof.html">Home</a>
+				<hr></li>
+				<li><a href="#!">Perfil</a>
+				<hr></li>
+				<li><a href="chat-prof.html">Chat</a>
+				<hr></li>
+				<li><a href="transacoes-prof.html">Transações</a>
+				<hr></li>
+				<li class="active"><a href="agendamentos.html">Agendamentos</a>
+				<hr></li>
+				<li><a href="planos.html">Planos</a>
+				<hr></li>
+				<li><a href="qualificacoes.html">Qualificações</a>
+				<hr></li>
+				<li><a href="#modal-fale-conosco">Fale Conosco</a>
+				<hr></li>
+				<li><a href="ajuda-prof.html">Ajuda</a>
+				<hr></li>
+				<li><a href="../index.html">Sair</a></li>
+			</ul>
+
+			<ul id="menu-mobile" class="side-nav">
+				<li><a href="home-prof.html">Home</a></li>
+				<li><a href="#!">Perfil</a></li>
+				<li><a href="chat-prof.html">Chat</a></li>
+				<li><a href="transacoes-prof.html">Transações</a></li>
+				<li class="active"><a href="agendamentos.html">Agendamentos</a></li>
+				<li><a href="planos.html">Planos</a></li>
+				<li><a href="qualificacoes.html">Qualificações</a></li>
+				<li><a href="#modal-fale-conosco">Fale Conosco</a></li>
+				<li><a href="ajuda-prof.html">Ajuda</a></li>
+				<li><a href="../index.html">Sair</a></li>
+			</ul>
+
+		</div>
+	</nav>
+
+	<main class="row pad-transacoes">
+
+	<div class="col l12">
+		<h4>Agendamentos</h4>
+	</div>
+
+	<div class="col s12 m12 l5 trans-usuario">
+		<div class="col s12 m12 l5">
+			<img src="../img/0-71.png" alt="">
+		</div>
+		<div class="col l6">
+			<p class="nome">Leticia</p>
+			<p>30 transações</p>
+			<p>Totao recebido: R$500,00</p>
+		</div>
+
+		<div class="col s12 m12 l12 ">
+			<div class="col l12">
+				<p>Disponível para saque: R$ 433,50</p>
+			</div>
+			<div class="col l5 sem-padding margem-bot">
+				<a class="waves-effect waves-light btn botao-padrao">Sacar Agora</a>
+			</div>
+		</div>
+		<div class="input-field col s12 m12 l12 form meu-select">
+			<label for="filtro">Filtrar por Status de pagamento:</label> <select>
+				<option value="todos">Todos</option>
+				<option value="efetuados">Pagamentos Recebidos</option>
+				<option value="pendentes">Pagamentos pendentes</option>
+			</select>
+
+		</div>
+		<div class="col s12 m12 l12 calendario" id="sandbox-container">
+			<div class="col s12 m12 l12"></div>
+		</div>
+		
+		<input class="form-control" id="date" name="date" placeholder="DD/MM/YYYY" type="text" ng-model="data"/>
+		 
+	</div>
+	<div class="col s12 m12 l5">
+		<div class="row pagamentos">
+			<div class="col s12 m12 l9" ng-repeat="atendimento in atendimentos | filter: data">
+				<p>Cliente: {{ atendimento.cliente }}</p>
+				<p>Dia: {{ atendimento.dia }}</p>
+				<p>Local: {{ atendimento.local }}</p>
+
+				<div class="col l12 ">
+					<div class="col l6">
+						<a class="waves-effect waves-light btn cancelar-agendamento"
+							ng-click="cancelar($index)">Cancelar</a>
+					</div>
+					<div class="col l5">
+						<a class="waves-effect waves-light btn botao-padrao"
+							ng-click="chat($index)">Chat</a>
+					</div>
+				</div>
+			</div>
+			<div class="col l3"></div>
+		</div>
+
+	</div>
+	</main>
+	<div id="modal-fale-conosco" class="modal">
+		<iframe src="../FaleConosco.html" class=" iframe-contato"></iframe>
+	</div>
+
+	<div id="modal-cancela" class="modal" ng-show="cancelar">
+		<div class="modal-content row">
+			<div class="col l12 cliente-cancelamento">
+				<div class="col l3">
+					<img src="../img/0-71.png" alt="">
+				</div>
+				<div class="col l9">
+					<p>Leticia</p>
+					<p>Nome da rua ,222</p>
+				</div>
+			</div>
+			<div class="col l12">
+				<p>Dia xx/xx/xxxx Horário: 10h</p>
+				<p>
+					Serviços:<br>Serviços1,Serviços2,Serviços3
+				</p>
+
+				<p>Valor total: R$:100,00</p>
+				<p>Deixe uma justificativa para a/o cliente propondo uma outra
+					data e horário. Sabemos que você irá fazer de tudo para não perder
+					essa oportunidade.</p>
+			</div>
+
+			<div class="input-field col s12 l12">
+				<label for="cancel">Comentário sobre o cancelamento:</label>
+				<textarea rows="1" cols="10"></textarea>
+			</div>
+		</div>
+		<div class="modal-footer row">
+			<div class="col l5 offset-l3">
+				<a href="#modal-cancela-confirma"
+					class="modal-action modal-close waves-effect waves-green btn botao-padrao">Confirmar
+					Cancelamento</a>
+			</div>
+		</div>
+	</div>
+
+	<div id="modal-cancela-confirma" class="modal">
+		<div class="modal-content row">
+			<div class="col l12 cliente-cancelamento">
+				<h3 class="cor-letra3">Confirmar Cancelamento?</h3>
+			</div>
+
+		</div>
+		<div class="modal-footer row">
+			<div class="col l12 ">
+				<div class="col l6">
+					<a
+						class="waves-effect waves-light btn modal-close cancelar-agendamento">Cancelar</a>
+				</div>
+				<div class="col l5">
+					<a class="waves-effect waves-light btn modal-close botao-padrao">Confirmar</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+
+<script>
+	$('#sandbox-container').datepicker({
+		format : 'dd/mm/yyyy',
+		language : 'pt-BR'
+
+	});
+	
+	$(document).ready(function(){
+		var date_input=$('input[name="date"]'); //our date input has the name "date"
+		var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+		date_input.datepicker({
+			format: 'dd/mm/yyyy',
+			container: container,
+			todayHighlight: true,
+			autoclose: true,
+		})
+	})
+
+	/*$('.datepicker').datepicker({language: 'pt-BR'});*/
+</script>
 </html>
