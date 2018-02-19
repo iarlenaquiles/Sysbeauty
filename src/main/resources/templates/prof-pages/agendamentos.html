@@ -110,7 +110,7 @@
                                 <a class="waves-effect waves-light btn cancelar-agendamento" ng-click="cancelar($index)">Cancelar</a>
                             </div>
                             <div class="col l5">
-                                <a class="waves-effect waves-light btn botao-padrao" ng-click="chat()">Chat</a>
+                                <a class="waves-effect waves-light btn botao-padrao" ng-click="chat($index)">Chat</a>
                             </div>
                         </div>
     				 </div>
@@ -185,11 +185,7 @@
 
         $('#sandbox-container').datepicker({
             format: 'dd/mm/yyyy',
-            language: 'pt-BR',
-            inline: true,
-            onSelect: function(dateText, inst){
-               alert(dataText); //Mostrando data em uma janela de alerta
-            }
+            language: 'pt-BR'
 
         });
         
