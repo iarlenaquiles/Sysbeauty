@@ -57,23 +57,23 @@
 			<ul id="nav-mobile"
 				class="right hide-on-med-and-down barras-menu-prof">
 				<li><a href="home-prof.html">Home</a>
-				<hr></li>
+					<hr></li>
 				<li><a href="#!">Perfil</a>
-				<hr></li>
+					<hr></li>
 				<li><a href="chat-prof.html">Chat</a>
-				<hr></li>
+					<hr></li>
 				<li><a href="transacoes-prof.html">Transações</a>
-				<hr></li>
+					<hr></li>
 				<li class="active"><a href="agendamentos.html">Agendamentos</a>
-				<hr></li>
+					<hr></li>
 				<li><a href="planos.html">Planos</a>
-				<hr></li>
+					<hr></li>
 				<li><a href="qualificacoes.html">Qualificações</a>
-				<hr></li>
+					<hr></li>
 				<li><a href="#modal-fale-conosco">Fale Conosco</a>
-				<hr></li>
+					<hr></li>
 				<li><a href="ajuda-prof.html">Ajuda</a>
-				<hr></li>
+					<hr></li>
 				<li><a href="../index.html">Sair</a></li>
 			</ul>
 
@@ -128,13 +128,15 @@
 		<div class="col s12 m12 l12 calendario" id="sandbox-container">
 			<div class="col s12 m12 l12"></div>
 		</div>
-		
-		<input class="form-control" id="date" name="date" placeholder="DD/MM/YYYY" type="text" ng-model="data"/>
-		 
+
+		<input class="form-control" id="date" name="date"
+			placeholder="DD/MM/YYYY" type="text" ng-model="data" />
+
 	</div>
 	<div class="col s12 m12 l5">
 		<div class="row pagamentos">
-			<div class="col s12 m12 l9" ng-repeat="atendimento in atendimentos | filter: data">
+			<div class="col s12 m12 l9"
+				ng-repeat="atendimento in atendimentos | filter: data">
 				<p>Cliente: {{ atendimento.cliente }}</p>
 				<p>Dia: {{ atendimento.dia }}</p>
 				<p>Local: {{ atendimento.local }}</p>
@@ -149,9 +151,12 @@
 							ng-click="chat($index)">Chat</a>
 					</div>
 				</div>
+
 			</div>
 			<div class="col l3"></div>
 		</div>
+
+
 
 	</div>
 	</main>
@@ -225,17 +230,19 @@
 		language : 'pt-BR'
 
 	});
-	
-	$(document).ready(function(){
-		var date_input=$('input[name="date"]'); //our date input has the name "date"
-		var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-		date_input.datepicker({
-			format: 'dd/mm/yyyy',
-			container: container,
-			todayHighlight: true,
-			autoclose: true,
-		})
-	})
+
+	$(document).ready(
+			function() {
+				var date_input = $('input[name="date"]'); //our date input has the name "date"
+				var container = $('.bootstrap-iso form').length > 0 ? $(
+						'.bootstrap-iso form').parent() : "body";
+				date_input.datepicker({
+					format : 'dd/mm/yyyy',
+					container : container,
+					todayHighlight : true,
+					autoclose : true,
+				})
+			})
 
 	/*$('.datepicker').datepicker({language: 'pt-BR'});*/
 </script>
