@@ -98,13 +98,14 @@
                     <div class="col s12 m12 l12"></div>
                 </div>
             </div>
-            <div class="col s12 m12 l5"> 
-                <div class="row pagamentos">
-                    <div class="col s12 m12 l9">
-                        <p>Cliente: Mariama</p>
-                        <p>Dia: 15/04/2017</p>
-                        <p>Local: Rua asas lklk,185</p>
-                        <div class="col l12 ">
+            <div class="col s12 m12 l5">     			
+    			<div class="row pagamentos">
+    				 <div class="col s12 m12 l9" ng-repeat="atendimento in atendimentos">
+    				 	<p>Cliente: {{ atendimento.cliente }}</p>
+    				 	<p>Dia: {{ atendimento.dia }} </p>
+    				 	<p>Local: {{ atendimento.local }} </p>
+    				 	
+    				 	<div class="col l12 ">
                             <div class="col l6">
                                 <a href="#modal-cancela" class="waves-effect waves-light btn cancelar-agendamento">Cancelar</a>
                             </div>
@@ -112,10 +113,11 @@
                                 <a href="chat-prof.html" class="waves-effect waves-light btn botao-padrao">Chat</a>
                             </div>
                         </div>
+    				 </div>
+    				 <div class="col l3">
                     </div>
-                    <div class="col l3">
-                    </div>
-                </div>
+    			</div>
+    			
             </div>
         </main>
         <div id="modal-fale-conosco" class="modal">
@@ -181,9 +183,13 @@
 
     <script>
 
-        $('#sandbox-container div').datepicker({
+        $('#sandbox-container').datepicker({
             format: 'dd/mm/yyyy',
             language: 'pt-BR',
+            inline: true,
+            onSelect: function(dateText, inst){
+               alert(dataText); //Mostrando data em uma janela de alerta
+            }
 
         });
         
