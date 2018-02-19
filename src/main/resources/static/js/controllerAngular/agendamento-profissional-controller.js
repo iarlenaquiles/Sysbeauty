@@ -16,8 +16,8 @@ service.controller('agendamentoProfissional', function agendamentoProfissional($
     		}
     	}
 	
-    	$scope.cancelar = function() {
-    		console.log("Cancelar");
+    	$scope.cancelar = function(index) {
+    		$scope.agendamento = $scope.atendimentos[index];
     		$scope.cancelar = true;
     	}
     	
