@@ -178,6 +178,11 @@ public class PagView {
 	public String profhome() {
 		return "prof-pages/home-prof";
 	}
+	
+	@GetMapping("/prof-pages/agendamentos")
+	public String profagendamentos() {
+		return "prof-pages/agendamentos";
+	}
 
 	@GetMapping("/prof-pages/perfil-prof")
 	public String perfilProf() {
