@@ -2,22 +2,22 @@ service.controller('agendamentoProfissional', function agendamentoProfissional($
 	
 		$scope.cancelar = false;
 
-    	$scope.atendimentos = [
+    	$scope.agendamentos = [
         	{cliente: 'Marilene', dia: '19/02/2018', local: 'Rua teste'},
         	{cliente: 'Ivone', dia: '20/02/2018', local: 'Rua Teste'}
         ];
 
     	
-    	function listaAtendimentos($scope) {
+    	function listaAgendamentos($scope) {
     		$scope.fetchProductsList = function() {
-        		$http.get('url').success(function(atendimentos){
-            		$scope.atendimentos = atendimentos;
+        		$http.get('url').success(function(agendamentos){
+            		$scope.agendamentos = agendamentos;
         		});
     		}
     	}
 	
     	$scope.cancelar = function(index) {
-    		$scope.agendamento = $scope.atendimentos[index];
+    		$scope.agendamento = $scope.agendamentos[index];
     		$scope.cancelar = true;
     	}
     	

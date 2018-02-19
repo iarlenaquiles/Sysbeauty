@@ -136,10 +136,10 @@
 	<div class="col s12 m12 l5">
 		<div class="row pagamentos">
 			<div class="col s12 m12 l9"
-				ng-repeat="atendimento in atendimentos | filter: data">
-				<p>Cliente: {{ atendimento.cliente }}</p>
-				<p>Dia: {{ atendimento.dia }}</p>
-				<p>Local: {{ atendimento.local }}</p>
+				ng-repeat="agendamento in agendamentos | filter: data">
+				<p>Cliente: {{ agendamento.cliente }}</p>
+				<p>Dia: {{ agendamento.dia }}</p>
+				<p>Local: {{ agendamento.local }}</p>
 
 				<div class="col l12 ">
 					<div class="col l6">
