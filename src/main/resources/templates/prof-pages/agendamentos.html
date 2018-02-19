@@ -143,8 +143,8 @@
 
 				<div class="col l12 ">
 					<div class="col l6">
-						<a class="waves-effect waves-light btn cancelar-agendamento"
-							ng-click="cancelar(agendamento)">Cancelar</a>
+						<a href="#modal-cancela" class="waves-effect waves-light btn cancelar-agendamento"
+							>Cancelar</a>
 					</div>
 					<div class="col l5">
 						<a class="waves-effect waves-light btn botao-padrao"
@@ -164,6 +164,42 @@
 		<iframe src="../FaleConosco.html" class=" iframe-contato"></iframe>
 	</div>
 
+<div id="modal-cancela" class="modal">
+	<div class="modal-content row">
+		<div class="col l12 cliente-cancelamento">
+			<div class="col l3">
+				<img src="../img/0-71.png" alt="">
+			</div>
+			<div class="col l9">
+				<p>Leticia</p>
+				<p>Nome da rua ,222</p>
+			</div>
+		</div>
+		<div class="col l12">
+			<p>Dia xx/xx/xxxx Horário: 10h</p>
+			<p>
+				Serviços:<br>Serviços1,Serviços2,Serviços3
+			</p>
+
+			<p>Valor total: R$:100,00</p>
+			<p>Deixe uma justificativa para a/o cliente propondo uma outra
+				data e horário. Sabemos que você irá fazer de tudo para não perder
+				essa oportunidade.</p>
+		</div>
+
+		<div class="input-field col s12 l12">
+			<label for="cancel">Comentário sobre o cancelamento:</label>
+			<textarea rows="1" cols="10"></textarea>
+		</div>
+	</div>
+	<div class="modal-footer row">
+		<div class="col l5 offset-l3">
+			<a href="#modal-cancela-confirma"
+				class="modal-action modal-close waves-effect waves-green btn botao-padrao">Confirmar
+				Cancelamento</a>
+		</div>
+	</div>
+</div>
 	<div id="modal-cancela-confirma" class="modal">
 		<div class="modal-content row">
 			<div class="col l12 cliente-cancelamento">
