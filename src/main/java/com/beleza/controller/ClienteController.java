@@ -35,7 +35,7 @@ public class ClienteController {
 		return this.clienteService.salvarCliente(cliente);
 	}
 
-	@PutMapping("/Clientes")
+	@PutMapping("/clientes")
 	public Cliente editar(@RequestBody Cliente cliente) {
 		return this.clienteService.salvarCliente(cliente);
 	}
