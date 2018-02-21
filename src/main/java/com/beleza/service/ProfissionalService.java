@@ -1,0 +1,33 @@
+package com.beleza.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.beleza.model.Profissional;
+import com.beleza.repository.ProfissionalRepository;
+
+@Service
+public class ProfissionalService {
+	
+	@Autowired
+	ProfissionalRepository profissionalRepository;
+	
+	public List<Profissional> listaProfissionais() {
+		return profissionalRepository.findAll();
+	}
+	
+	public Profissional salvarProfissional(Profissional pro) {
+		return profissionalRepository.save(pro);
+	}
+	
+	public void deleteProfissional(Integer id) {
+		profissionalRepository.delete(id);
+	}
+	
+	public Profissional getById(Integer id) {
+		return profissionalRepository.findOne(id);
+	}
+
+}
