@@ -6,4 +6,5 @@ import com.beleza.model.Perfil;
 
 public interface PerfilRepository extends JpaRepository<Perfil, Integer>{
 
+	Perfil findByNome(String role);
 }
