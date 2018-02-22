@@ -39,6 +39,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory().withClient("mobile").authorizedGrantTypes("password", "authorization_code", "refresh_token")
 				.scopes("read", "write").refreshTokenValiditySeconds(20000).accessTokenValiditySeconds(20000)
+				.resourceIds("restservice")
 				.secret("123");
 	}
 	
