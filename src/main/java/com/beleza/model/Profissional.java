@@ -51,12 +51,15 @@ public class Profissional implements Serializable {
 
 	private String celular;
 
+	private String status;
+
 	@OneToMany(mappedBy = "profissional", targetEntity = Servico.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Servico> servicos;
 
 	public Profissional(Integer id, String nome, String foto, String cpf, String email, String comoDescobriu,
 			Atendimento atendimento, String cep, String cidade, String estado, String endereco, int numero,
-			String telefone, String celular, List<Servico> servicos) {
+			String telefone, String celular, String status, List<Servico> servicos) {
+		super();
 		this.id = id;
 		this.nome = nome;
 		this.foto = foto;
@@ -71,6 +74,7 @@ public class Profissional implements Serializable {
 		this.numero = numero;
 		this.telefone = telefone;
 		this.celular = celular;
+		this.status = status;
 		this.servicos = servicos;
 	}
 
@@ -196,6 +200,14 @@ public class Profissional implements Serializable {
 
 	public void setAtendimento(Atendimento atendimento) {
 		this.atendimento = atendimento;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 }
