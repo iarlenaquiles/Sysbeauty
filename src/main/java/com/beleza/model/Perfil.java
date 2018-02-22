@@ -7,8 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.security.core.GrantedAuthority;
+
 @Entity
-public class Perfil implements Serializable {
+public class Perfil implements Serializable, GrantedAuthority {
 
 	/**
 	 * 
@@ -44,6 +46,11 @@ public class Perfil implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	@Override
+	public String getAuthority() {
+		return nome;
 	}
 
 }
