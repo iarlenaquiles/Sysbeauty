@@ -27,6 +27,10 @@ public class Perfil implements Serializable, GrantedAuthority {
 
 	}
 
+	public Perfil(String nome) {
+		this.nome = nome;
+	}
+	
 	public Perfil(Integer id, String nome) {
 		this.id = id;
 		this.nome = nome;
