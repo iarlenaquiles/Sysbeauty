@@ -1,6 +1,7 @@
 package com.beleza.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,9 +26,9 @@ public class Usuario implements Serializable {
 	private String senha;
 
 	@OneToOne
-	private Perfil perfil;
+	private List<Perfil> perfil;
 
-	public Usuario(Integer id, String email, String senha, Perfil perfil) {
+	public Usuario(Integer id, String email, String senha, List<Perfil> perfil) {
 		this.id = id;
 		this.email = email;
 		this.senha = senha;
@@ -36,6 +37,12 @@ public class Usuario implements Serializable {
 
 	public Usuario() {
 
+	}
+	
+	public Usuario(Usuario usuario) {
+		this.email = usuario.getEmail();
+		this.perfil = usuario.getPerfil();
+		this.senha = usuario.getSenha();
 	}
 
 	public Integer getId() {
@@ -62,11 +69,11 @@ public class Usuario implements Serializable {
 		this.senha = senha;
 	}
 
-	public Perfil getPerfil() {
+	public List<Perfil> getPerfil() {
 		return perfil;
 	}
 
-	public void setPerfil(Perfil perfil) {
+	public void setPerfil(List<Perfil> perfil) {
 		this.perfil = perfil;
 	}
 
