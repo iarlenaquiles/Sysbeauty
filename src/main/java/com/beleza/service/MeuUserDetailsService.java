@@ -13,12 +13,8 @@ import com.beleza.repository.UsuarioRepository;
 @Service
 public class MeuUserDetailsService implements UserDetailsService {
 
-	private UsuarioRepository usuarioRepository;
-
 	@Autowired
-	public MeuUserDetailsService(UsuarioRepository usuarioRepository) {
-		this.usuarioRepository = usuarioRepository;
-	}
+	private UsuarioRepository usuarioRepository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
