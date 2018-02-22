@@ -6,6 +6,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.beleza.config.MyUserDetails;
+import com.beleza.model.Usuario;
 import com.beleza.repository.UsuarioRepository;
 
 @Service
@@ -20,7 +22,13 @@ public class MeuUserDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		return null;
+		Usuario usuario = usuarioRepository.findByEmail(username);
+		
+		if (usuario == null) {
+			throw new UsernameNotFoundException("Usuário ou senha inválidos");
+		}
+		
+		return new MyUserDetails(usuario);
 	}
 
 }
