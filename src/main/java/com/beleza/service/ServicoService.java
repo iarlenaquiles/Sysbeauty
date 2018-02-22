@@ -12,7 +12,7 @@ import com.beleza.repository.ServicoRepository;
 public class ServicoService {
 
 	@Autowired
-	ServicoRepository servicoRepository;
+	private ServicoRepository servicoRepository;
 	
 	public List<Servico> listaServicos() {
 		return servicoRepository.findAll();

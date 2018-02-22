@@ -12,7 +12,7 @@ import com.beleza.repository.CancelamentoRepository;
 public class CancelamentoService {
 
 	@Autowired
-	CancelamentoRepository cancelamentoRepository;
+	private CancelamentoRepository cancelamentoRepository;
 	
 	public List<Cancelamento> listaCancelamentos() {
 		return cancelamentoRepository.findAll();

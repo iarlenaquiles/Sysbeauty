@@ -12,7 +12,7 @@ import com.beleza.repository.ProfissionalRepository;
 public class ProfissionalService {
 	
 	@Autowired
-	ProfissionalRepository profissionalRepository;
+	private ProfissionalRepository profissionalRepository;
 	
 	public List<Profissional> listaProfissionais() {
 		return profissionalRepository.findAll();

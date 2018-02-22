@@ -12,7 +12,7 @@ import com.beleza.repository.PromocaoRepository;
 public class PromocaoService {
 
 	@Autowired
-	PromocaoRepository promocaoRepository;
+	private PromocaoRepository promocaoRepository;
 	
 	public List<Promocao> listaPromocao() {
 		return promocaoRepository.findAll();

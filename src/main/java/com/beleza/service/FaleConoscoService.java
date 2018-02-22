@@ -12,7 +12,7 @@ import com.beleza.repository.FaleConoscoRepository;
 public class FaleConoscoService {
 
 	@Autowired
-	FaleConoscoRepository faleRepository;
+	private FaleConoscoRepository faleRepository;
 	
 	public List<FaleConosco> listaFale() {
 		return faleRepository.findAll();

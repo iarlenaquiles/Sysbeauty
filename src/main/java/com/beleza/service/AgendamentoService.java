@@ -12,7 +12,7 @@ import com.beleza.repository.AgendamentoRepository;
 public class AgendamentoService {
 
 	@Autowired
-	AgendamentoRepository agendamentoRepository;
+	private AgendamentoRepository agendamentoRepository;
 	
 	public List<Agendamento> listaAgendamentos() {
 		return agendamentoRepository.findAll();
