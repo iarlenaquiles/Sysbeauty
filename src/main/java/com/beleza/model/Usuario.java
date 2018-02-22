@@ -1,9 +1,10 @@
 package com.beleza.model;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,12 +25,19 @@ public class Usuario implements Serializable {
 	private String email;
 
 	private String senha;
-	
-	@ManyToMany
-	private Set<Perfil> perfil;
 
-	public Usuario(Integer id, String email, String senha, Set<Perfil> perfil) {
+	@ManyToMany(fetch = FetchType.EAGER)
+	private List<Perfil> perfil;
+
+	public Usuario(Integer id, String email, String senha, List<Perfil> perfil) {
 		this.id = id;
+		this.email = email;
+		this.senha = senha;
+		this.perfil = perfil;
+	}
+
+	public Usuario(String email, String senha, List<Perfil> perfil) {
+		super();
 		this.email = email;
 		this.senha = senha;
 		this.perfil = perfil;
@@ -69,11 +77,11 @@ public class Usuario implements Serializable {
 		this.senha = senha;
 	}
 
-	public Set<Perfil> getPerfil() {
+	public List<Perfil> getPerfil() {
 		return perfil;
 	}
 
-	public void setPerfil(Set<Perfil> perfil) {
+	public void setPerfil(List<Perfil> perfil) {
 		this.perfil = perfil;
 	}
 
