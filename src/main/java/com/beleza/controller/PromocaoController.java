@@ -30,7 +30,7 @@ public class PromocaoController {
 		return this.promocaoService.getById(id);
 	}
 
-	@PostMapping("/clientes")
+	@PostMapping("/promocoes")
 	public Promocao salvar(@RequestBody Promocao promocao) {
 		return this.promocaoService.salvarPromocao(promocao);
 	}
