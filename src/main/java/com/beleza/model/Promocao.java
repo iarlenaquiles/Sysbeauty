@@ -2,12 +2,13 @@ package com.beleza.model;
 
 import java.io.Serializable;
 
-import javax.persistence.FetchType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class Promocao implements Serializable {
 
 	/**
@@ -21,7 +22,7 @@ public class Promocao implements Serializable {
 
 	private Double valor;
 
-	@ManyToOne (fetch = FetchType.EAGER)
+	@ManyToOne
 	private Servico servico;
 
 	public Promocao(Integer id, Double valor, Servico servico) {
