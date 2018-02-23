@@ -28,12 +28,12 @@ public class Portfolio implements Serializable {
 	private String descricao;
 
 	@ManyToOne
-	private Selo selos;
+	private List<Selo> selos;
 
 	@ManyToOne
 	private Qualificacao qualificacao;
 
-	public Portfolio(Integer id, String vídeo, List<String> fotos, String descricao, Selo selos,
+	public Portfolio(Integer id, String vídeo, List<String> fotos, String descricao, List<Selo> selos,
 			Qualificacao qualificacao) {
 		this.id = id;
 		this.vídeo = vídeo;
@@ -75,11 +75,11 @@ public class Portfolio implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public Selo getSelos() {
+	public List<Selo> getSelos() {
 		return selos;
 	}
 
-	public void setSelos(Selo selos) {
+	public void setSelos(List<Selo> selos) {
 		this.selos = selos;
 	}
 
