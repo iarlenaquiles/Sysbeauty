@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 public class Pacote implements Serializable {
@@ -21,6 +22,9 @@ public class Pacote implements Serializable {
 
 	@ManyToOne
 	private List<Servico> servicos;
+	
+	@ManyToMany
+	private Profissional profissional;
 
 	public Pacote(Integer id, List<Servico> servicos) {
 		super();
