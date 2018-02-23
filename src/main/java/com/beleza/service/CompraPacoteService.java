@@ -14,7 +14,7 @@ public class CompraPacoteService {
 	@Autowired
 	private CompraPacoteRepository compraRepository;
 	
-	public List<ComprarPacote> listaClientes() {
+	public List<ComprarPacote> listaCompras() {
 		return compraRepository.findAll();
 	}
 	
