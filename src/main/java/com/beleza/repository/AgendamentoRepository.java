@@ -7,5 +7,5 @@ import com.beleza.model.Agendamento;
 
 @Repository
 public interface AgendamentoRepository extends JpaRepository<Agendamento, Integer> {
-
+	
 }
