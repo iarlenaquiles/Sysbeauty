@@ -22,13 +22,16 @@ public class Qualificacao implements Serializable {
 
 	@OneToMany
 	private Profissional profissional;
+	
+	private int nota;
 
 	private String comentario;
 
-	public Qualificacao(Integer id, Profissional profissional, String comentario) {
+	public Qualificacao(Integer id, Profissional profissional, String comentario, int nota) {
 		this.id = id;
 		this.profissional = profissional;
 		this.comentario = comentario;
+		this.nota = nota;
 	}
 
 	public Integer getId() {
@@ -53,6 +56,14 @@ public class Qualificacao implements Serializable {
 
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
+	}
+	
+	public int getNota() {
+		return nota;
+	}
+	
+	public void setNota(int nota) {
+		this.nota = nota;
 	}
 
 }
