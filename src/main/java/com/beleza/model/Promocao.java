@@ -26,7 +26,6 @@ public class Promocao implements Serializable {
 	private Servico servico;
 
 	public Promocao(Integer id, Double valor, Servico servico) {
-		super();
 		this.id = id;
 		this.valor = valor;
 		this.servico = servico;
