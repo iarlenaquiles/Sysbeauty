@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Portfolio implements Serializable {
@@ -24,7 +25,8 @@ public class Portfolio implements Serializable {
 
 	private String vídeo;
 
-	private List<String> fotos;
+	@OneToMany
+	private List<Fotos> fotos;
 
 	private String descricao;
 
@@ -34,7 +36,7 @@ public class Portfolio implements Serializable {
 	@ManyToOne
 	private Qualificacao qualificacao;
 
-	public Portfolio(Integer id, String vídeo, List<String> fotos, String descricao, List<Selo> selos,
+	public Portfolio(Integer id, String vídeo, List<Fotos> fotos, String descricao, List<Selo> selos,
 			Qualificacao qualificacao) {
 		this.id = id;
 		this.vídeo = vídeo;
@@ -60,11 +62,11 @@ public class Portfolio implements Serializable {
 		this.vídeo = vídeo;
 	}
 
-	public List<String> getFotos() {
+	public List<Fotos> getFotos() {
 		return fotos;
 	}
 
-	public void setFotos(List<String> fotos) {
+	public void setFotos(List<Fotos> fotos) {
 		this.fotos = fotos;
 	}
 
