@@ -32,6 +32,14 @@ public class NotificacaoController {
 
 	@PostMapping("/notificacoes")
 	public Notificacao salvar(@RequestBody Notificacao notificacao) {
+		if (notificacao.getTipo().getDescricao() == "PROFISSIONAIS") {
+			System.out.println("Enviar push para o profissional");
+		} else if (notificacao.getTipo().getDescricao() == "CLIENTES"){
+			System.out.println("Enviar push para o cliente");
+		} else {
+			System.out.println("Enviar push para ambos");
+		}
+		
 		return this.notificacaoService.salvarNotificacao(notificacao);
 	}
 
