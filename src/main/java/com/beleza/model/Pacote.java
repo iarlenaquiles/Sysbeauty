@@ -22,14 +22,13 @@ public class Pacote implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@ManyToOne
+	@ManyToMany
 	private List<Servico> servicos;
 	
-	@ManyToMany
+	@ManyToOne
 	private Profissional profissional;
 
 	public Pacote(Integer id, List<Servico> servicos) {
-		super();
 		this.id = id;
 		this.servicos = servicos;
 	}
