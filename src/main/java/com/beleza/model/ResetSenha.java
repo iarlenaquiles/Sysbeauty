@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -22,7 +24,8 @@ public class ResetSenha implements Serializable {
 
 	private String token;
 
-	@OneToOne
+	@OneToOne(targetEntity = Usuario.class, fetch = FetchType.EAGER)
+	@JoinColumn(nullable = false, name = "usuario_id")
 	private Usuario usuario;
 
 	private Date data_expiracao;
