@@ -3,6 +3,7 @@ package com.beleza.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -22,13 +23,14 @@ public class Usuario implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@Column(unique = true)
 	private String email;
 
 	@JsonIgnore
