@@ -1,5 +1,6 @@
 package com.beleza.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -7,7 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class ResetSenha {
+public class ResetSenha implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private static final int EXPIRACAO = 60 * 24;
 
