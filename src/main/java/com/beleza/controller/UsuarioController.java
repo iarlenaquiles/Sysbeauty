@@ -49,7 +49,7 @@ public class UsuarioController {
 	}
 
 	@PostMapping("/usuarios/reset")
-	public String resetSenha(@RequestBody String email) {
+	public String resetSenha(@RequestParam("email") String email) {
 		Usuario usuario = this.usuarioService.getByEmail(email);
 
 		if (usuario == null) {
