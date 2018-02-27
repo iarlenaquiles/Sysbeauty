@@ -19,7 +19,7 @@ public class ResetSenha implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private static final int EXPIRACAO = 60 * 24;
+	private static final int EXPIRACAO = 60 * 24; 
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
