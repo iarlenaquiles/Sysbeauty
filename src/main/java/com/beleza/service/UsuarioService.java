@@ -29,4 +29,8 @@ public class UsuarioService {
 	public Usuario getById(Integer id) {
 		return usuarioRepository.findOne(id);
 	}
+	
+	public Usuario getByEmail(String email) {
+		return usuarioRepository.findByEmail(email);
+	}
 }
