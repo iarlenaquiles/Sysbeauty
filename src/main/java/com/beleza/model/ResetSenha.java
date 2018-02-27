@@ -1,0 +1,63 @@
+package com.beleza.model;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
+public class ResetSenha {
+
+	private static final int EXPIRACAO = 60 * 24;
+
+	@Id
+	private Integer id;
+
+	private String token;
+
+	@OneToOne
+	private Usuario usuario;
+
+	private Date data_expiracao;
+
+	public ResetSenha(Integer id, String token, Usuario usuario, Date data_expiracao) {
+		this.id = id;
+		this.token = token;
+		this.usuario = usuario;
+		this.data_expiracao = data_expiracao;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public Date getData_expiracao() {
+		return data_expiracao;
+	}
+
+	public void setData_expiracao(Date data_expiracao) {
+		this.data_expiracao = data_expiracao;
+	}
+
+}
