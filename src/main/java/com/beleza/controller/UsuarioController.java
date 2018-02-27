@@ -19,50 +19,60 @@ import com.beleza.service.UsuarioService;
 
 @RestController
 public class UsuarioController {
-	
+
 	@Autowired
 	private UsuarioService usuarioService;
-	
+
 	@GetMapping("/usuarios")
 	public List<Usuario> listar() {
 		return this.usuarioService.listaUsuario();
 	}
-	
+
 	@GetMapping("/usuarios/{id}")
 	public Usuario getById(@PathVariable Integer id) {
 		return this.usuarioService.getById(id);
 	}
-	
+
 	@PostMapping("/usuarios")
 	public Usuario salvar(@RequestBody Usuario usuario) {
 		return this.usuarioService.salvarUsuario(usuario);
 	}
-	
+
 	@PutMapping("/usuarios")
 	public Usuario editar(@RequestBody Usuario usuario) {
 		return this.usuarioService.salvarUsuario(usuario);
 	}
-	
+
 	@DeleteMapping("/usuarios/{id}")
 	public void deletar(@PathVariable Integer id) {
 		this.usuarioService.deletarUsuario(id);
 	}
-	
+
 	@PostMapping("/usuarios/reset")
-	public String resetSenha(@RequestParam("email") String email) {
+	public String resetSenha(@RequestBody String email) {
 		Usuario usuario = this.usuarioService.getByEmail(email);
-		
+
 		if (usuario == null) {
 			throw new UsernameNotFoundException(email);
 		}
-		
+
 		String token = UUID.randomUUID().toString();
 		this.usuarioService.createResetSenhaUsuario(usuario, token);
-		
-		//Criar mailsender
+
+		// Criar mailsender
 		return "Email enviado";
 	}
+
+	@GetMapping("/usuarios/mudarsenha")
+	public String mudarSenha(@RequestParam("id") Integer id, @RequestParam("token") String token) {
+
+		String resultado = this.usuarioService.validarResetSenha(id, token);
+		return resultado;
+	}
 	
-	
+	@PostMapping("/usuarios/novasenha")
+	public Usuario salvarNovaSenha(@PathVariable Usuario usuario) {
+		return this.usuarioService.salvarUsuario(usuario);
+	}
 
 }
