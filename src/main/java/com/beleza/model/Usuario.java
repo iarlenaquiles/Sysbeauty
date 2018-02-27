@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 @Entity
 public class Usuario implements Serializable {
 
@@ -17,6 +20,8 @@ public class Usuario implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,10 +42,10 @@ public class Usuario implements Serializable {
 	}
 
 	public Usuario(String email, String senha, List<Perfil> perfil) {
-		super();
 		this.email = email;
 		this.senha = senha;
 		this.perfil = perfil;
+		setSenha(senha);
 	}
 
 	public Usuario() {
@@ -74,7 +79,7 @@ public class Usuario implements Serializable {
 	}
 
 	public void setSenha(String senha) {
-		this.senha = senha;
+		this.senha = PASSWORD_ENCODER.encode(senha);
 	}
 
 	public List<Perfil> getPerfil() {
