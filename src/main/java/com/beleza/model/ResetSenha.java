@@ -19,7 +19,7 @@ public class ResetSenha implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private static final int EXPIRACAO = 60 * 24; 
+	private static final int EXPIRACAO = 60 * 24;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,9 +40,10 @@ public class ResetSenha implements Serializable {
 		this.data_expiracao = data_expiracao;
 	}
 
-	public ResetSenha(String token, Usuario usuario) {
+	public ResetSenha(String token, Usuario usuario, Date data_expiracao) {
 		this.token = token;
 		this.usuario = usuario;
+		this.data_expiracao = data_expiracao;
 	}
 
 	public Integer getId() {
