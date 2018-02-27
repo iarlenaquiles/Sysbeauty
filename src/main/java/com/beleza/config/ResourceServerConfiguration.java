@@ -17,7 +17,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		http.logout().invalidateHttpSession(true).clearAuthentication(true).and().authorizeRequests()
+		http.logout().logoutUrl("/oauth/logout").invalidateHttpSession(true).clearAuthentication(true).and().authorizeRequests()
 				.antMatchers("/clientes/**").hasRole("CLIENTE").antMatchers("/profissionais/**").hasRole("PROFISSIONAL")
 				.antMatchers("/portal/**").hasRole("MODERADOR").anyRequest().permitAll();
 	}
