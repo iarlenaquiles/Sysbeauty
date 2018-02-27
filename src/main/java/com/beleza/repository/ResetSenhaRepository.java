@@ -6,4 +6,6 @@ import com.beleza.model.ResetSenha;
 
 public interface ResetSenhaRepository extends JpaRepository<ResetSenha, Integer>{
 
+	ResetSenha findByToken(String token);
+
 }
