@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Usuario implements Serializable {
 
@@ -29,6 +31,7 @@ public class Usuario implements Serializable {
 
 	private String email;
 
+	@JsonIgnore
 	private String senha;
 
 	@ManyToMany(fetch = FetchType.EAGER)
