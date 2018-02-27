@@ -1,5 +1,6 @@
 package com.beleza.service;
 
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class UsuarioService {
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
-	
+
 	@Autowired
 	private ResetSenhaRepository resetRepository;
 
@@ -42,5 +43,21 @@ public class UsuarioService {
 	public void createResetSenhaUsuario(Usuario usuario, String token) {
 		ResetSenha myToken = new ResetSenha(token, usuario);
 		resetRepository.save(myToken);
+	}
+
+	public String validarResetSenha(Integer id, String token) {
+		ResetSenha reset = resetRepository.findByToken(token);
+
+		if ((reset == null) || (reset.getUsuario().getId() != id)) {
+			return "Token inválido";
+		}
+
+		Calendar cal = Calendar.getInstance();
+		if ((reset.getData_expiracao().getTime() - cal.getTime().getTime()) <= 0) {
+			return "Token expirado";
+		}
+		
+		return "ok";
+		
 	}
 }
