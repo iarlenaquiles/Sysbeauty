@@ -34,6 +34,11 @@ public class ResetSenha implements Serializable {
 		this.data_expiracao = data_expiracao;
 	}
 
+	public ResetSenha(String token, Usuario usuario) {
+		this.token = token;
+		this.usuario = usuario;
+	}
+
 	public Integer getId() {
 		return id;
 	}
