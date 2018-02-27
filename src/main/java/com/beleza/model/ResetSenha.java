@@ -27,7 +27,7 @@ public class ResetSenha implements Serializable {
 
 	private String token;
 
-	@OneToOne(targetEntity = Usuario.class, fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(nullable = false, name = "usuario_id")
 	private Usuario usuario;
 
