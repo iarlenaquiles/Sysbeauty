@@ -4,20 +4,24 @@ import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.beleza.model.Usuario;
 
-public class MyUserDetails extends Usuario implements UserDetails{
+public class MyUserDetails extends Usuario implements UserDetails {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
+	public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
+
 	public MyUserDetails(Usuario usuario) {
 		super(usuario);
 	}
-	
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return getPerfil();
