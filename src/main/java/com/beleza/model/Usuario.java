@@ -95,4 +95,9 @@ public class Usuario implements Serializable {
 		this.perfil = perfil;
 	}
 
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", email=" + email + ", senha=" + senha + ", perfil=" + perfil + "]";
+	}
+
 }
