@@ -52,27 +52,23 @@ public class UsuarioController {
 	public String resetSenha(@RequestParam("email") String email) {
 		Usuario usuario = this.usuarioService.getByEmail(email);
 
-		if (usuario == null) {
-			throw new UsernameNotFoundException(email);
-		}
-
 		String token = UUID.randomUUID().toString();
+		System.out.println("Token: " + token);
 		this.usuarioService.createResetSenhaUsuario(usuario, token);
 
 		// Criar mailsender
 		return "Email enviado";
 	}
 
-	@GetMapping("/usuarios/mudarsenha")
-	public String mudarSenha(@RequestParam("id") Integer id, @RequestParam("token") String token) {
+	@PostMapping("/usuarios/mudarsenha/{token}")
+	public Usuario mudarSenha(@PathVariable String token, @RequestBody Usuario usuario) {
+		//String token = "9631e11b-58c4-41b9-9370-8ea75f2df122";
 
-		String resultado = this.usuarioService.validarResetSenha(id, token);
-		return resultado;
-	}
-	
-	@PostMapping("/usuarios/novasenha")
-	public Usuario salvarNovaSenha(@PathVariable Usuario usuario) {
-		return this.usuarioService.salvarUsuario(usuario);
+		if (this.usuarioService.validarResetSenha(usuario.getId(), token)) {
+			return this.usuarioService.salvarUsuario(usuario);
+		}
+
+		return null;
 	}
 
 }
