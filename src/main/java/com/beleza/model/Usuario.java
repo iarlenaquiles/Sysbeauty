@@ -33,7 +33,6 @@ public class Usuario implements Serializable {
 	@Column(unique = true)
 	private String email;
 
-	@JsonIgnore
 	private String senha;
 
 	@ManyToMany(fetch = FetchType.EAGER)
