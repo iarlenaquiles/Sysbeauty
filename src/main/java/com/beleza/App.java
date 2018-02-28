@@ -25,6 +25,7 @@ public class App {
 		config.addAllowedMethod("PUT");
 		config.addAllowedMethod("POST");
 		config.addAllowedMethod("DELETE");
+		config.addAllowedMethod("OPTIONS");
 		source.registerCorsConfiguration("/**", config);
 
 		return new CorsFilter(source);
