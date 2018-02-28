@@ -44,7 +44,7 @@ public class UsuarioService {
 	public void createResetSenhaUsuario(Usuario usuario, String token) {
 		Date data_expiracao = new Date();
 		data_expiracao.getTime();
-		data_expiracao.setDate(data_expiracao.getDate() + 1);
+		data_expiracao.setMinutes(data_expiracao.getMinutes() + 5);
 
 		ResetSenha myToken = new ResetSenha(token, usuario, data_expiracao);
 		resetRepository.save(myToken);
