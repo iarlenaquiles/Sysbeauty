@@ -46,6 +46,10 @@ public class ResetSenha implements Serializable {
 		this.data_expiracao = data_expiracao;
 	}
 
+	public ResetSenha() {
+
+	}
+
 	public Integer getId() {
 		return id;
 	}
