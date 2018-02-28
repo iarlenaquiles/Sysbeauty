@@ -3,9 +3,12 @@ package com.beleza.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Moderador implements Serializable {
@@ -24,6 +27,10 @@ public class Moderador implements Serializable {
 	private String email;
 
 	private boolean status;
+
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(nullable = false, name = "usuario_id")
+	private Usuario usuario;
 
 	public Moderador(Integer id, String nome, String email, boolean status) {
 		this.id = id;
@@ -62,6 +69,14 @@ public class Moderador implements Serializable {
 
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 }

@@ -3,9 +3,12 @@ package com.beleza.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Cliente implements Serializable {
@@ -43,6 +46,10 @@ public class Cliente implements Serializable {
 
 	private String celular;
 
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(nullable = false, name = "usuario_id")
+	private Usuario usuario;
+
 	public Cliente(Integer id, String nome, String foto, String cpf, String email, String comoDescobriu, String cep,
 			String cidade, String estado, String endereco, int numero, String telefone, String celular) {
 		this.id = id;
@@ -59,9 +66,9 @@ public class Cliente implements Serializable {
 		this.telefone = telefone;
 		this.celular = celular;
 	}
-	
+
 	public Cliente() {
-		
+
 	}
 
 	public Integer getId() {
@@ -166,6 +173,14 @@ public class Cliente implements Serializable {
 
 	public void setCelular(String celular) {
 		this.celular = celular;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 }

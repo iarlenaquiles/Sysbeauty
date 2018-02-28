@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -59,6 +60,10 @@ public class Profissional implements Serializable {
 
 	@OneToOne
 	private Portfolio portfolio;
+
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(nullable = false, name = "usuario_id")
+	private Usuario usuario;
 
 	public Profissional(Integer id, String nome, String foto, String cpf, String email, String comoDescobriu,
 			Atendimento atendimento, String cep, String cidade, String estado, String endereco, int numero,
@@ -220,6 +225,14 @@ public class Profissional implements Serializable {
 
 	public void setPortfolio(Portfolio portfolio) {
 		this.portfolio = portfolio;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 }
