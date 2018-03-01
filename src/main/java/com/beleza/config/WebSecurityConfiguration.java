@@ -40,7 +40,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(WebSecurity security) throws Exception {
-		security.ignoring().antMatchers(HttpMethod.GET, "/public/**");
+		security.ignoring().antMatchers(HttpMethod.OPTIONS, "/**")
+		.antMatchers(HttpMethod.GET, "/public/**");
 	}
 
 	@Autowired

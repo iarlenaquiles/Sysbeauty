@@ -16,19 +16,18 @@ public class App {
 
 	@Bean
 	public CorsFilter corsFilter() {
-		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		CorsConfiguration config = new CorsConfiguration();
-		config.setAllowCredentials(true);
-		config.addAllowedOrigin("*");
-		config.addAllowedHeader("*");
-		config.addAllowedMethod("GET");
-		config.addAllowedMethod("PUT");
-		config.addAllowedMethod("POST");
-		config.addAllowedMethod("DELETE");
-		config.addAllowedMethod("OPTIONS");
-		source.registerCorsConfiguration("/**", config);
-
-		return new CorsFilter(source);
+		 UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+	        CorsConfiguration config = new CorsConfiguration();
+	        config.setAllowCredentials(true); 
+	        config.addAllowedOrigin("*");
+	        config.addAllowedHeader("*");
+	        config.addAllowedMethod("GET");
+	        config.addAllowedMethod("PUT");
+	        config.addAllowedMethod("POST");
+	        config.addAllowedMethod("OPTIONS");
+	        config.addAllowedMethod("DELETE");
+	        source.registerCorsConfiguration("/**", config);
+	        return new CorsFilter(source);
 
 	}
 }
