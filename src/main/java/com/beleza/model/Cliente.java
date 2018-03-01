@@ -111,12 +111,12 @@ public class Cliente implements Serializable {
 		this.email = email;
 	}
 
-	public String getComoDescobriu() {
+	public String getDescobriu() {
 		return descobriu;
 	}
 
-	public void setComoDescobriu(String comoDescobriu) {
-		this.descobriu = comoDescobriu;
+	public void setDescobriu(String descobriu) {
+		this.descobriu = descobriu;
 	}
 
 	public String getCep() {
