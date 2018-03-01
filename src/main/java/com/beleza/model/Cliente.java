@@ -30,7 +30,7 @@ public class Cliente implements Serializable {
 
 	private String email;
 
-	private String comoDescobriu;
+	private String descobriu;
 
 	private String cep;
 
@@ -50,14 +50,14 @@ public class Cliente implements Serializable {
 	@JoinColumn(nullable = false, name = "usuario_id")
 	private Usuario usuario;
 
-	public Cliente(Integer id, String nome, String foto, String cpf, String email, String comoDescobriu, String cep,
+	public Cliente(Integer id, String nome, String foto, String cpf, String email, String descobriu, String cep,
 			String cidade, String estado, String endereco, int numero, String telefone, String celular) {
 		this.id = id;
 		this.nome = nome;
 		this.foto = foto;
 		this.cpf = cpf;
 		this.email = email;
-		this.comoDescobriu = comoDescobriu;
+		this.descobriu = descobriu;
 		this.cep = cep;
 		this.cidade = cidade;
 		this.estado = estado;
@@ -112,11 +112,11 @@ public class Cliente implements Serializable {
 	}
 
 	public String getComoDescobriu() {
-		return comoDescobriu;
+		return descobriu;
 	}
 
 	public void setComoDescobriu(String comoDescobriu) {
-		this.comoDescobriu = comoDescobriu;
+		this.descobriu = comoDescobriu;
 	}
 
 	public String getCep() {
