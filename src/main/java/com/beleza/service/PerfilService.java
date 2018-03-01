@@ -29,5 +29,9 @@ public class PerfilService {
 	public Perfil getById(Integer id) {
 		return perfilRepository.findOne(id);
 	}
+	
+	public Perfil getByNome(String nome){
+		return perfilRepository.findByNome(nome);		
+	}
 
 }
