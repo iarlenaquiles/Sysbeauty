@@ -30,7 +30,7 @@ public class Perfil implements Serializable, GrantedAuthority {
 	public Perfil(String nome) {
 		this.nome = nome;
 	}
-	
+
 	public Perfil(Integer id, String nome) {
 		this.id = id;
 		this.nome = nome;
@@ -55,6 +55,11 @@ public class Perfil implements Serializable, GrantedAuthority {
 	@Override
 	public String getAuthority() {
 		return nome;
+	}
+
+	@Override
+	public String toString() {
+		return "Perfil [id=" + id + ", nome=" + nome + "]";
 	}
 
 }
