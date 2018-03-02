@@ -1,5 +1,6 @@
 package com.beleza.controller;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.UUID;
 
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.beleza.model.Usuario;
@@ -69,6 +71,14 @@ public class UsuarioController {
 		}
 
 		return null;
+	}
+	
+	@GetMapping("/usuarios/logado")
+	@ResponseBody
+	public Usuario usuarioLogado(Principal principal) {
+		Usuario usuario = this.usuarioService.getByEmail(principal.getName());
+		usuario.setSenha("");
+		return usuario;
 	}
 
 }
