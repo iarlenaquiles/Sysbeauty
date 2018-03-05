@@ -5,6 +5,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.beleza.model.Usuario;
@@ -17,6 +18,7 @@ public class ResetSenhaController {
 	private UsuarioService usuarioService;
 	
 	@PostMapping("/public/resetsenha")
+	@ResponseBody
 	public String resetSenha(@RequestParam("email") String email) {
 		Usuario usuario = this.usuarioService.getByEmail(email);
 		System.out.println("Email:"+email);
