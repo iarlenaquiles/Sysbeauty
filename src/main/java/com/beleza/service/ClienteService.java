@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.beleza.model.Cliente;
+import com.beleza.model.Usuario;
 import com.beleza.repository.ClienteRepository;
 
 @Service
@@ -28,6 +29,10 @@ public class ClienteService {
 	
 	public Cliente getById(Integer id) {
 		return clienteRepository.findOne(id);
+	}
+	
+	public Cliente getByUsuario(Usuario usuario) {
+		return clienteRepository.getByUsuario(usuario);
 	}
 
 }
