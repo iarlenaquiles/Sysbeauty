@@ -1,5 +1,6 @@
 package com.beleza.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +13,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.beleza.model.Cliente;
+import com.beleza.model.Usuario;
 import com.beleza.service.ClienteService;
+import com.beleza.service.UsuarioService;
 
 @RestController
 public class ClienteController {
 
 	@Autowired
-	ClienteService clienteService;
+	private ClienteService clienteService;
+	
+	@Autowired
+	private UsuarioService usuarioService;
 
 	@GetMapping("/clientes")
 	public List<Cliente> listar() {
@@ -43,6 +49,13 @@ public class ClienteController {
 	@DeleteMapping("/clientes/{id}")
 	public void deletar(@PathVariable Integer id) {
 		this.clienteService.deleteCliente(id);
+	}
+	
+	@GetMapping("/clientes/logado")
+	public Cliente getClienteLogado(Principal principal) {
+		Usuario usuario = this.usuarioService.getByEmail(principal.getName());
+		
+		return this.clienteService.getByUsuario(usuario);
 	}
 
 }
