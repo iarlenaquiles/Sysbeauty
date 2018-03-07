@@ -25,6 +25,10 @@ public class Ajuda implements Serializable {
 		this.pergunta = pergunta;
 		this.resposta = resposta;
 	}
+	
+	public Ajuda() {
+		
+	}
 
 	public Integer getId() {
 		return id;
