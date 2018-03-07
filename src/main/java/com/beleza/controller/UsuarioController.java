@@ -77,7 +77,6 @@ public class UsuarioController {
 	@ResponseBody
 	public Usuario usuarioLogado(Principal principal) {
 		Usuario usuario = this.usuarioService.getByEmail(principal.getName());
-		usuario.setSenha("");
 		return usuario;
 	}
 
