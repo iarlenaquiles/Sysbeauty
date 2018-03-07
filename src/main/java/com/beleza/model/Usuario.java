@@ -14,8 +14,6 @@ import javax.persistence.ManyToMany;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 public class Usuario implements Serializable {
 
@@ -38,6 +36,10 @@ public class Usuario implements Serializable {
 	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Perfil> perfil;
 
+	private boolean permitirNotificacao;
+
+	private boolean naoVerAviso;
+
 	public Usuario(Integer id, String email, String senha, List<Perfil> perfil) {
 		this.id = id;
 		this.email = email;
@@ -49,7 +51,8 @@ public class Usuario implements Serializable {
 		this.email = email;
 		this.senha = senha;
 		this.perfil = perfil;
-		setSenha(senha);
+		//setSenha(senha);
+		this.senha = senha;
 	}
 
 	public Usuario() {
@@ -83,7 +86,8 @@ public class Usuario implements Serializable {
 	}
 
 	public void setSenha(String senha) {
-		this.senha = PASSWORD_ENCODER.encode(senha);
+		//this.senha = PASSWORD_ENCODER.encode(senha);
+		this.senha = senha;
 	}
 
 	public List<Perfil> getPerfil() {
@@ -92,6 +96,22 @@ public class Usuario implements Serializable {
 
 	public void setPerfil(List<Perfil> perfil) {
 		this.perfil = perfil;
+	}
+
+	public boolean isPermitirNotificacao() {
+		return permitirNotificacao;
+	}
+
+	public void setPermitirNotificacao(boolean permitirNotificacao) {
+		this.permitirNotificacao = permitirNotificacao;
+	}
+
+	public boolean isNaoVerAviso() {
+		return naoVerAviso;
+	}
+
+	public void setNaoVerAviso(boolean naoVerAviso) {
+		this.naoVerAviso = naoVerAviso;
 	}
 
 	@Override
