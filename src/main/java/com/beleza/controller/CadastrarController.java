@@ -34,9 +34,15 @@ public class CadastrarController {
 	
 	@PostMapping("/public/cadastrarcliente")
 	public Cliente salvarCliente(@RequestBody Cliente cliente) {
-		Perfil perfil = perfilService.getByNome("ROLE_CLIENTE");
+		List<Perfil> perfis = perfilService.listaPerfil();
 		
+		if (perfis.isEmpty()) {
+			perfilService.salvarPerfil(new Perfil("ROLE_CLIENTE"));
+		}
+		
+		Perfil perfil = perfilService.getByNome("ROLE_CLIENTE");
 		List<Perfil> perfiluser = new ArrayList<>();
+		
 		perfiluser.add(perfil);
 		
 		Usuario usuario = cliente.getUsuario();
