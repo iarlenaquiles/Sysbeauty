@@ -38,6 +38,8 @@ public class CadastrarController {
 		
 		if (perfis.isEmpty()) {
 			perfilService.salvarPerfil(new Perfil("ROLE_CLIENTE"));
+			perfilService.salvarPerfil(new Perfil("ROLE_PROFISSIONAL"));
+			perfilService.salvarPerfil(new Perfil("ROLE_MODERADOR"));
 		}
 		
 		Perfil perfil = perfilService.getByNome("ROLE_CLIENTE");
