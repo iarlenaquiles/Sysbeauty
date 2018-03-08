@@ -24,22 +24,22 @@ public class AjudaController {
 		return this.ajudaService.listaAjudas();
 	}
 
-	@GetMapping("/ajuda/{id}")
+	@GetMapping("/ajudas/{id}")
 	public Ajuda getById(@PathVariable Integer id) {
 		return this.ajudaService.getById(id);
 	}
 
-	@PostMapping("/ajuda")
+	@PostMapping("/ajudas")
 	public Ajuda salvar(@RequestBody Ajuda ajuda) {
 		return this.ajudaService.salvarAjuda(ajuda);
 	}
 
-	@PutMapping("/ajuda")
+	@PutMapping("/ajudas")
 	public Ajuda editar(@RequestBody Ajuda ajuda) {
 		return this.ajudaService.salvarAjuda(ajuda);
 	}
 
-	@DeleteMapping("/ajuda/{id}")
+	@DeleteMapping("/ajudas/{id}")
 	public void deletar(@PathVariable Integer id) {
 		this.ajudaService.deleteAjuda(id);
 	}
