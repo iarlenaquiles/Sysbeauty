@@ -3,11 +3,9 @@ package com.beleza.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Servico implements Serializable {
@@ -25,14 +23,14 @@ public class Servico implements Serializable {
 
 	private Double valor;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Profissional profissional;
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	private Profissional profissional;
 
 	public Servico(Integer id, String nome_servico, Double valor, Profissional profissional) {
 		this.id = id;
 		this.nome_servico = nome_servico;
 		this.valor = valor;
-		this.profissional = profissional;
+		//this.profissional = profissional;
 	}
 
 	public Servico() {
@@ -63,12 +61,12 @@ public class Servico implements Serializable {
 		this.valor = valor;
 	}
 
-	public Profissional getProfissional() {
-		return profissional;
-	}
-
-	public void setProfissional(Profissional profissional) {
-		this.profissional = profissional;
-	}
+//	public Profissional getProfissional() {
+//		return profissional;
+//	}
+//
+//	public void setProfissional(Profissional profissional) {
+//		this.profissional = profissional;
+//	}
 
 }

@@ -3,17 +3,13 @@ package com.beleza.model;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-
-import com.beleza.model.Servico;
 
 @Entity
 public class Profissional implements Serializable {
@@ -55,8 +51,8 @@ public class Profissional implements Serializable {
 
 	private String status;
 
-	@OneToMany(mappedBy = "profissional", targetEntity = Servico.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Servico> servicos;
+//	@OneToMany(mappedBy = "profissional", targetEntity = Servico.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	private List<Servico> servicos;
 
 	@OneToOne
 	private Portfolio portfolio;
@@ -84,7 +80,7 @@ public class Profissional implements Serializable {
 		this.telefone = telefone;
 		this.celular = celular;
 		this.status = status;
-		this.servicos = servicos;
+		//this.servicos = servicos;
 	}
 
 	public Profissional() {
@@ -195,13 +191,13 @@ public class Profissional implements Serializable {
 		this.celular = celular;
 	}
 
-	public List<Servico> getServicos() {
-		return servicos;
-	}
-
-	public void setServicos(List<Servico> servicos) {
-		this.servicos = servicos;
-	}
+//	public List<Servico> getServicos() {
+//		return servicos;
+//	}
+//
+//	public void setServicos(List<Servico> servicos) {
+//		this.servicos = servicos;
+//	}
 
 	public Atendimento getAtendimento() {
 		return atendimento;
