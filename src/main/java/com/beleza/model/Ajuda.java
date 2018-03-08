@@ -3,6 +3,8 @@ package com.beleza.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -14,6 +16,7 @@ public class Ajuda implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	private String pergunta;
@@ -25,11 +28,11 @@ public class Ajuda implements Serializable {
 		this.pergunta = pergunta;
 		this.resposta = resposta;
 	}
-	
+
 	public Ajuda() {
-		
+
 	}
-	
+
 	public Ajuda(String pergunta, String resposta) {
 		this.pergunta = pergunta;
 		this.resposta = resposta;
