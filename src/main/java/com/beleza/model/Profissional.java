@@ -31,7 +31,7 @@ public class Profissional implements Serializable {
 
 	private String email;
 
-	private String comoDescobriu;
+	private String descobriu;
 
 	private Atendimento atendimento;
 
@@ -49,28 +49,29 @@ public class Profissional implements Serializable {
 
 	private String celular;
 
-	private String status;
+	private boolean status;
 
-//	@OneToMany(mappedBy = "profissional", targetEntity = Servico.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//	private List<Servico> servicos;
+	// @OneToMany(mappedBy = "profissional", targetEntity = Servico.class, fetch
+	// = FetchType.LAZY, cascade = CascadeType.ALL)
+	// private List<Servico> servicos;
 
 	@OneToOne
+	@JoinColumn(nullable = true) 
 	private Portfolio portfolio;
 
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(nullable = false, name = "usuario_id")
 	private Usuario usuario;
 
-	public Profissional(Integer id, String nome, String foto, String cpf, String email, String comoDescobriu,
+	public Profissional(Integer id, String nome, String foto, String cpf, String email, String descobriu,
 			Atendimento atendimento, String cep, String cidade, String estado, String endereco, int numero,
-			String telefone, String celular, String status, List<Servico> servicos) {
-		super();
+			String telefone, String celular, boolean status, List<Servico> servicos) {
 		this.id = id;
 		this.nome = nome;
 		this.foto = foto;
 		this.cpf = cpf;
 		this.email = email;
-		this.comoDescobriu = comoDescobriu;
+		this.descobriu = descobriu;
 		this.atendimento = atendimento;
 		this.cep = cep;
 		this.cidade = cidade;
@@ -80,7 +81,7 @@ public class Profissional implements Serializable {
 		this.telefone = telefone;
 		this.celular = celular;
 		this.status = status;
-		//this.servicos = servicos;
+		// this.servicos = servicos;
 	}
 
 	public Profissional() {
@@ -127,12 +128,12 @@ public class Profissional implements Serializable {
 		this.email = email;
 	}
 
-	public String getComoDescobriu() {
-		return comoDescobriu;
+	public String getDescobriu() {
+		return descobriu;
 	}
 
-	public void setComoDescobriu(String comoDescobriu) {
-		this.comoDescobriu = comoDescobriu;
+	public void setComoDescobriu(String descobriu) {
+		this.descobriu = descobriu;
 	}
 
 	public String getCep() {
@@ -191,13 +192,13 @@ public class Profissional implements Serializable {
 		this.celular = celular;
 	}
 
-//	public List<Servico> getServicos() {
-//		return servicos;
-//	}
-//
-//	public void setServicos(List<Servico> servicos) {
-//		this.servicos = servicos;
-//	}
+	// public List<Servico> getServicos() {
+	// return servicos;
+	// }
+	//
+	// public void setServicos(List<Servico> servicos) {
+	// this.servicos = servicos;
+	// }
 
 	public Atendimento getAtendimento() {
 		return atendimento;
@@ -207,11 +208,11 @@ public class Profissional implements Serializable {
 		this.atendimento = atendimento;
 	}
 
-	public String getStatus() {
+	public boolean getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(boolean status) {
 		this.status = status;
 	}
 
