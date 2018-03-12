@@ -57,11 +57,26 @@ public class CadastrarController {
 	}
 	
 	@PostMapping("/public/cadastrarprofissional")
-	public Profissional salvarProfissional() {
+	public Profissional salvarProfissional(@RequestBody Profissional profissional) {
+		List<Perfil> perfis = perfilService.listaPerfil();
+		
+		if (perfis.isEmpty()) {
+			perfilService.salvarPerfil(new Perfil("ROLE_CLIENTE"));
+			perfilService.salvarPerfil(new Perfil("ROLE_PROFISSIONAL"));
+			perfilService.salvarPerfil(new Perfil("ROLE_MODERADOR"));
+		}
+		
 		Perfil perfil = perfilService.getByNome("ROLE_PROFISSIONAL");
 		List<Perfil> perfiluser = new ArrayList<>();
+		
 		perfiluser.add(perfil);
 		
-		return null;
+		Usuario usuario = profissional.getUsuario();
+		usuario.setPerfil(perfiluser);
+		usuarioService.salvarUsuario(usuario);
+		
+		profissional.setUsuario(usuario);
+		
+		return this.profissionalService.salvarProfissional(profissional);
 	}
 }
