@@ -40,6 +40,8 @@ public class Usuario implements Serializable {
 
 	private boolean naoVerAviso;
 
+	private boolean status;
+
 	public Usuario(Integer id, String email, String senha, List<Perfil> perfil) {
 		this.id = id;
 		this.email = email;
@@ -51,7 +53,7 @@ public class Usuario implements Serializable {
 		this.email = email;
 		this.senha = senha;
 		this.perfil = perfil;
-		//setSenha(senha);
+		// setSenha(senha);
 		this.senha = senha;
 	}
 
@@ -86,7 +88,7 @@ public class Usuario implements Serializable {
 	}
 
 	public void setSenha(String senha) {
-		//this.senha = PASSWORD_ENCODER.encode(senha);
+		// this.senha = PASSWORD_ENCODER.encode(senha);
 		this.senha = senha;
 	}
 
@@ -112,6 +114,14 @@ public class Usuario implements Serializable {
 
 	public void setNaoVerAviso(boolean naoVerAviso) {
 		this.naoVerAviso = naoVerAviso;
+	}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 
 	@Override

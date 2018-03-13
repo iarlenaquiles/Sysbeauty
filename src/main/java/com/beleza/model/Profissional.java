@@ -49,8 +49,6 @@ public class Profissional implements Serializable {
 
 	private String celular;
 
-	private boolean status;
-
 	// @OneToMany(mappedBy = "profissional", targetEntity = Servico.class, fetch
 	// = FetchType.LAZY, cascade = CascadeType.ALL)
 	// private List<Servico> servicos;
@@ -65,7 +63,7 @@ public class Profissional implements Serializable {
 
 	public Profissional(Integer id, String nome, String foto, String cpf, String email, String descobriu,
 			Atendimento atendimento, String cep, String cidade, String estado, String endereco, int numero,
-			String telefone, String celular, boolean status, List<Servico> servicos) {
+			String telefone, String celular, List<Servico> servicos) {
 		this.id = id;
 		this.nome = nome;
 		this.foto = foto;
@@ -80,7 +78,6 @@ public class Profissional implements Serializable {
 		this.numero = numero;
 		this.telefone = telefone;
 		this.celular = celular;
-		this.status = status;
 		// this.servicos = servicos;
 	}
 
@@ -206,14 +203,6 @@ public class Profissional implements Serializable {
 
 	public void setAtendimento(Atendimento atendimento) {
 		this.atendimento = atendimento;
-	}
-
-	public boolean getStatus() {
-		return status;
-	}
-
-	public void setStatus(boolean status) {
-		this.status = status;
 	}
 
 	public Portfolio getPortfolio() {
