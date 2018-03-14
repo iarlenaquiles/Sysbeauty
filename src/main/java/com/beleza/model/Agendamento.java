@@ -52,6 +52,10 @@ public class Agendamento implements Serializable {
 		this.servico = servico;
 	}
 
+	public Agendamento() {
+
+	}
+
 	public Integer getId() {
 		return id;
 	}
