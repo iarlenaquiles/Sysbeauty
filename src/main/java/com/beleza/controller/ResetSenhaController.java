@@ -19,7 +19,7 @@ public class ResetSenhaController {
 	@PostMapping(value = "/public/resetsenha")
 	public boolean resetSenha(@RequestParam("email") String email) {
 		Usuario usuario = this.usuarioService.getByEmail(email);
-		System.out.println("Email:" + email);
+		
 		String token = UUID.randomUUID().toString();
 		if (usuario != null) {
 			this.usuarioService.createResetSenhaUsuario(usuario, token);
