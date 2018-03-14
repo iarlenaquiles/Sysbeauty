@@ -42,6 +42,8 @@ public class Usuario implements Serializable {
 
 	private boolean status;
 
+	private boolean avisoCadastroAprovado;
+
 	public Usuario(Integer id, String email, String senha, List<Perfil> perfil) {
 		this.id = id;
 		this.email = email;
@@ -122,6 +124,14 @@ public class Usuario implements Serializable {
 
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+
+	public boolean isAvisoCadastroAprovado() {
+		return avisoCadastroAprovado;
+	}
+
+	public void setAvisoCadastroAprovado(boolean avisoCadastroAprovado) {
+		this.avisoCadastroAprovado = avisoCadastroAprovado;
 	}
 
 	@Override
