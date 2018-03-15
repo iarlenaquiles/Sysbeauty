@@ -26,6 +26,10 @@ public class Fotos implements Serializable {
 		this.nome = nome;
 	}
 
+	public Fotos() {
+
+	}
+
 	public Integer getId() {
 		return id;
 	}
