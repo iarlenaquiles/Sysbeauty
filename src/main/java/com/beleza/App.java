@@ -1,5 +1,7 @@
 package com.beleza;
 
+import java.io.File;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -8,6 +10,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+
+import com.beleza.service.UploadService;
 
 @SpringBootApplication
 public class App extends SpringBootServletInitializer{
@@ -18,6 +22,9 @@ public class App extends SpringBootServletInitializer{
     }
 	
 	public static void main(String[] args) {
+		new File(UploadService.uploadingdirclientes).mkdirs();
+		new File(UploadService.uploadingdirprofissionais).mkdirs();
+		new File(UploadService.uploadingdirportfolio).mkdirs();
 		SpringApplication.run(App.class, args);
 	}
 
