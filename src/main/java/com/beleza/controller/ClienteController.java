@@ -67,7 +67,7 @@ public class ClienteController {
 		return this.clienteService.getByUsuario(usuario);
 	}
 
-	@PostMapping("/clientes/upload")
+	@PostMapping("/public/upload")
 	public String upload(@RequestParam("foto") MultipartFile[] foto) throws IllegalStateException, IOException {
 		return this.uploadService.uploadCliente(foto);
 	}
