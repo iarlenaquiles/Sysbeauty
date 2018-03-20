@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.beleza.model.Profissional;
+import com.beleza.model.Usuario;
 import com.beleza.repository.ProfissionalRepository;
 
 @Service
@@ -28,6 +29,10 @@ public class ProfissionalService {
 	
 	public Profissional getById(Integer id) {
 		return profissionalRepository.findOne(id);
+	}
+	
+	public Profissional getByUsuario(Usuario usuario) {
+		return profissionalRepository.getByUsuario(usuario);
 	}
 
 }
