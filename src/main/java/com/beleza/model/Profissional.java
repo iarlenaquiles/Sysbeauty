@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -49,12 +50,15 @@ public class Profissional implements Serializable {
 
 	private String celular;
 
+	@ManyToMany
+	private List<Servico> servicos;
+
 	// @OneToMany(mappedBy = "profissional", targetEntity = Servico.class, fetch
 	// = FetchType.LAZY, cascade = CascadeType.ALL)
 	// private List<Servico> servicos;
 
 	@OneToOne
-	@JoinColumn(nullable = true) 
+	@JoinColumn(nullable = true)
 	private Portfolio portfolio;
 
 	@OneToOne(fetch = FetchType.EAGER)
@@ -189,13 +193,13 @@ public class Profissional implements Serializable {
 		this.celular = celular;
 	}
 
-	// public List<Servico> getServicos() {
-	// return servicos;
-	// }
-	//
-	// public void setServicos(List<Servico> servicos) {
-	// this.servicos = servicos;
-	// }
+	public List<Servico> getServicos() {
+		return servicos;
+	}
+
+	public void setServicos(List<Servico> servicos) {
+		this.servicos = servicos;
+	}
 
 	public Atendimento getAtendimento() {
 		return atendimento;
@@ -219,6 +223,15 @@ public class Profissional implements Serializable {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	@Override
+	public String toString() {
+		return "Profissional [id=" + id + ", nome=" + nome + ", foto=" + foto + ", cpf=" + cpf + ", email=" + email
+				+ ", descobriu=" + descobriu + ", atendimento=" + atendimento + ", cep=" + cep + ", cidade=" + cidade
+				+ ", estado=" + estado + ", endereco=" + endereco + ", numero=" + numero + ", telefone=" + telefone
+				+ ", celular=" + celular + ", servicos=" + servicos + ", portfolio=" + portfolio + ", usuario="
+				+ usuario + "]";
 	}
 
 }
