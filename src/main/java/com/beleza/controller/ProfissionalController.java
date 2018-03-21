@@ -20,7 +20,7 @@ import com.beleza.service.UsuarioService;
 @RestController
 public class ProfissionalController {
 	@Autowired
-	ProfissionalService profissionalService;
+	private ProfissionalService profissionalService;
 
 	@Autowired
 	private UsuarioService usuarioService;
