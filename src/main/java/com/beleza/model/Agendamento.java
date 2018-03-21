@@ -10,6 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Agendamento implements Serializable {
@@ -23,6 +27,8 @@ public class Agendamento implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@JsonFormat(pattern="dd/MM/yyyy", timezone="EST")
 	private Date data_agendamento;
 
 	private String horario;
