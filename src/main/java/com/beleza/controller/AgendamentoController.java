@@ -44,4 +44,9 @@ public class AgendamentoController {
 	public void deletar(@PathVariable Integer id) {
 		this.agendamentoService.deleteAgendamento(id);
 	}
+	
+	@GetMapping("/agendamentos/{id}/profissional")
+	public List<Agendamento> getByProfissional(@PathVariable Integer id){
+		return this.agendamentoService.getByProfissional(id);
+	}
 }
