@@ -28,7 +28,7 @@ public class Agendamento implements Serializable {
 	private Integer id;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@JsonFormat(pattern="dd/MM/yyyy", timezone="EST")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date data_agendamento;
 
 	private String horario;
