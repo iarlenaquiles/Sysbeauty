@@ -82,7 +82,7 @@ public class Profissional implements Serializable {
 		this.numero = numero;
 		this.telefone = telefone;
 		this.celular = celular;
-		// this.servicos = servicos;
+		this.servicos = servicos;
 	}
 
 	public Profissional() {
