@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -53,9 +54,8 @@ public class Profissional implements Serializable {
 	@ManyToMany
 	private List<Servico> servicos;
 
-	// @OneToMany(mappedBy = "profissional", targetEntity = Servico.class, fetch
-	// = FetchType.LAZY, cascade = CascadeType.ALL)
-	// private List<Servico> servicos;
+	@ManyToOne
+	private Plano plano;
 
 	@OneToOne
 	@JoinColumn(nullable = true)
@@ -67,7 +67,7 @@ public class Profissional implements Serializable {
 
 	public Profissional(Integer id, String nome, String foto, String cpf, String email, String descobriu,
 			Atendimento atendimento, String cep, String cidade, String estado, String endereco, int numero,
-			String telefone, String celular, List<Servico> servicos) {
+			String telefone, String celular, List<Servico> servicos, Plano plano) {
 		this.id = id;
 		this.nome = nome;
 		this.foto = foto;
@@ -83,6 +83,7 @@ public class Profissional implements Serializable {
 		this.telefone = telefone;
 		this.celular = celular;
 		this.servicos = servicos;
+		this.plano = plano;
 	}
 
 	public Profissional() {
@@ -225,13 +226,21 @@ public class Profissional implements Serializable {
 		this.usuario = usuario;
 	}
 
+	public Plano getPlano() {
+		return plano;
+	}
+
+	public void setPlano(Plano plano) {
+		this.plano = plano;
+	}
+
 	@Override
 	public String toString() {
 		return "Profissional [id=" + id + ", nome=" + nome + ", foto=" + foto + ", cpf=" + cpf + ", email=" + email
 				+ ", descobriu=" + descobriu + ", atendimento=" + atendimento + ", cep=" + cep + ", cidade=" + cidade
 				+ ", estado=" + estado + ", endereco=" + endereco + ", numero=" + numero + ", telefone=" + telefone
-				+ ", celular=" + celular + ", servicos=" + servicos + ", portfolio=" + portfolio + ", usuario="
-				+ usuario + "]";
+				+ ", celular=" + celular + ", servicos=" + servicos + ", plano=" + plano + ", portfolio=" + portfolio
+				+ ", usuario=" + usuario + "]";
 	}
 
 }
