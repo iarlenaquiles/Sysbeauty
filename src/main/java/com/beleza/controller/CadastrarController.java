@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.beleza.model.Cliente;
 import com.beleza.model.Perfil;
+import com.beleza.model.Plano;
 import com.beleza.model.Profissional;
 import com.beleza.model.Servico;
 import com.beleza.model.Usuario;
 import com.beleza.service.ClienteService;
 import com.beleza.service.PerfilService;
+import com.beleza.service.PlanoService;
 import com.beleza.service.ProfissionalService;
 import com.beleza.service.ServicoService;
 import com.beleza.service.UsuarioService;
@@ -36,6 +38,9 @@ public class CadastrarController {
 	
 	@Autowired
 	ServicoService servicoService;
+	
+	@Autowired
+	PlanoService planoService;
 
 	@PostMapping("/public/cadastrarcliente")
 	public Cliente salvarCliente(@RequestBody Cliente cliente) {
@@ -64,12 +69,11 @@ public class CadastrarController {
 	@PostMapping("/public/cadastrarprofissional")
 	public Profissional salvarProfissional(@RequestBody Profissional profissional) {
 
-		System.out.println(profissional.toString());
 		List<Servico> servicos = new ArrayList<Servico>();
 		
 		for (Servico s : profissional.getServicos()) {
-			Servico serv = servicoService.salvarServico(s);
-			servicos.add(serv);			
+			Servico servico = servicoService.salvarServico(s);
+			servicos.add(servico);			
 		}
 		
 		List<Perfil> perfis = perfilService.listaPerfil();
@@ -88,7 +92,10 @@ public class CadastrarController {
 		Usuario usuario = profissional.getUsuario();
 		usuario.setPerfil(perfiluser);
 		usuarioService.salvarUsuario(usuario);
+		
+		Plano plano = planoService.getById(1);
 
+		profissional.setPlano(plano);
 		profissional.setUsuario(usuario);
 		profissional.setServicos(servicos);
 
