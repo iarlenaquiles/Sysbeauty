@@ -29,6 +29,10 @@ public class Plano implements Serializable {
 		Descricao = descricao;
 	}
 
+	public Plano() {
+
+	}
+
 	public Integer getId() {
 		return id;
 	}
