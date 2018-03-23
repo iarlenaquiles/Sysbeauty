@@ -35,7 +35,7 @@ public class Agendamento implements Serializable {
 
 	private Atendimento atendimento;
 
-	private int status;
+	private StatusAgendamento status;
 
 	@ManyToOne
 	private Profissional profissional;
@@ -46,8 +46,8 @@ public class Agendamento implements Serializable {
 	@ManyToMany
 	private Set<Servico> servico;
 
-	public Agendamento(Integer id, Date data_agendamento, String horario, Atendimento atendimento, int status,
-			Profissional profissional, Cliente cliente, Set<Servico> servico) {
+	public Agendamento(Integer id, Date data_agendamento, String horario, Atendimento atendimento,
+			StatusAgendamento status, Profissional profissional, Cliente cliente, Set<Servico> servico) {
 		this.id = id;
 		this.data_agendamento = data_agendamento;
 		this.horario = horario;
@@ -94,11 +94,11 @@ public class Agendamento implements Serializable {
 		this.atendimento = atendimento;
 	}
 
-	public int getStatus() {
+	public StatusAgendamento getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(StatusAgendamento status) {
 		this.status = status;
 	}
 
