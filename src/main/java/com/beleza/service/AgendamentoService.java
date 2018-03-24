@@ -34,4 +34,8 @@ public class AgendamentoService {
 	public List<Agendamento> getByProfissional(Profissional profissional) {
 		return agendamentoRepository.getByProfissional(profissional);
 	}
+	
+	public Integer getQuantidadeAgendamentosFinalizados(Integer idProfissional) {
+		return agendamentoRepository.quantidadeAgendamentosFinalizados(idProfissional);
+	}
 }
