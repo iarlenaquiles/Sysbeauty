@@ -35,6 +35,11 @@ public class AgendamentoController {
 	public List<Agendamento> listar() {
 		return this.agendamentoService.listaAgendamentos();
 	}
+	
+	@GetMapping("/agendamentos/{id}/finalizados")
+	public Integer getQtd(@PathVariable Integer id) {
+		return this.agendamentoService.getQuantidadeAgendamentosFinalizados(id);
+	}
 
 	@GetMapping("/agendamentos/{id}")
 	public Agendamento getById(@PathVariable Integer id) {
@@ -63,4 +68,6 @@ public class AgendamentoController {
 		
 		return this.agendamentoService.getByProfissional(profissional);
 	}
+	
+	
 }
