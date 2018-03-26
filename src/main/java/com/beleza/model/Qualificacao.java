@@ -22,14 +22,18 @@ public class Qualificacao implements Serializable {
 
 	@ManyToOne
 	private Profissional profissional;
-	
+
+	@ManyToOne
+	private Cliente cliente;
+
 	private int nota;
 
 	private String comentario;
 
-	public Qualificacao(Integer id, Profissional profissional, String comentario, int nota) {
+	public Qualificacao(Integer id, Profissional profissional, Cliente cliente, String comentario, int nota) {
 		this.id = id;
 		this.profissional = profissional;
+		this.cliente = cliente;
 		this.comentario = comentario;
 		this.nota = nota;
 	}
@@ -50,6 +54,14 @@ public class Qualificacao implements Serializable {
 		this.profissional = profissional;
 	}
 
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
 	public String getComentario() {
 		return comentario;
 	}
@@ -57,11 +69,11 @@ public class Qualificacao implements Serializable {
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
-	
+
 	public int getNota() {
 		return nota;
 	}
-	
+
 	public void setNota(int nota) {
 		this.nota = nota;
 	}
