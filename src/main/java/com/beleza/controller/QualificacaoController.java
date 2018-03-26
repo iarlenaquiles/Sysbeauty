@@ -14,20 +14,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.beleza.model.Qualificacao;
 import com.beleza.service.QualificacaoService;
 
-@RestController 
+@RestController
 public class QualificacaoController {
-	
+
 	@Autowired
 	QualificacaoService qualificacaoService;
 
 	@GetMapping("/qualificacoes")
 	public List<Qualificacao> listar() {
 		return this.qualificacaoService.listaQualificacoes();
-	}
-
-	@GetMapping("/qualificacoes/{id}")
-	public Qualificacao getById(@PathVariable Integer id) {
-		return this.qualificacaoService.getById(id);
 	}
 
 	@PostMapping("/qualificacoes")
@@ -40,9 +35,23 @@ public class QualificacaoController {
 		return this.qualificacaoService.salvarQualificacao(qualificacao);
 	}
 
+	@GetMapping("/qualificacoes/{id}/profissional")
+	public List<Qualificacao> getQualificacoesByProfissional(@PathVariable Integer id){
+		return this.qualificacaoService.getByProfissional(id);
+	}
+	
+	@GetMapping("/qualificacoes/{id}/cliente")
+	public List<Qualificacao> getQualificacoesByCliente(@PathVariable Integer id){
+		return this.qualificacaoService.getByCliente(id);
+	}
+	
 	@DeleteMapping("/qualificacoes/{id}")
 	public void deletar(@PathVariable Integer id) {
 		this.qualificacaoService.deleteQualificacao(id);
 	}
 
+	@GetMapping("/qualificacoes/{id}")
+	public Qualificacao getById(@PathVariable Integer id) {
+		return this.qualificacaoService.getById(id);
+	}
 }
