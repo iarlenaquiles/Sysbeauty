@@ -37,6 +37,10 @@ public class Qualificacao implements Serializable {
 		this.comentario = comentario;
 		this.nota = nota;
 	}
+	
+	public Qualificacao() {
+		
+	}
 
 	public Integer getId() {
 		return id;
