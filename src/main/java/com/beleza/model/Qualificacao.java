@@ -30,16 +30,20 @@ public class Qualificacao implements Serializable {
 
 	private String comentario;
 
-	public Qualificacao(Integer id, Profissional profissional, Cliente cliente, String comentario, int nota) {
+	private StatusQualificacao status;
+
+	public Qualificacao(Integer id, Profissional profissional, Cliente cliente, String comentario, int nota,
+			StatusQualificacao status) {
 		this.id = id;
 		this.profissional = profissional;
 		this.cliente = cliente;
 		this.comentario = comentario;
 		this.nota = nota;
+		this.status = status;
 	}
-	
+
 	public Qualificacao() {
-		
+
 	}
 
 	public Integer getId() {
@@ -80,6 +84,14 @@ public class Qualificacao implements Serializable {
 
 	public void setNota(int nota) {
 		this.nota = nota;
+	}
+
+	public StatusQualificacao getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusQualificacao status) {
+		this.status = status;
 	}
 
 }
