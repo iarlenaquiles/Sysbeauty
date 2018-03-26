@@ -5,8 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.beleza.model.Cliente;
-import com.beleza.model.Profissional;
 import com.beleza.model.Qualificacao;
 import com.beleza.repository.QualificacaoRepository;
 
@@ -32,11 +30,11 @@ public class QualificacaoService {
 		return qualificacaoRepository.findOne(id);
 	}
 	
-	public List<Qualificacao> getByProfissional(Profissional profissional){
-		return qualificacaoRepository.getByProfissional(profissional);
+	public List<Qualificacao> getByProfissional(Integer id){
+		return qualificacaoRepository.getByProfissional(id);
 	}
 
-	public List<Qualificacao> getByCliente(Cliente cliente){
-		return qualificacaoRepository.getByCliente(cliente);
+	public List<Qualificacao> getByCliente(Integer id){
+		return qualificacaoRepository.getByCliente(id);
 	}
 }
