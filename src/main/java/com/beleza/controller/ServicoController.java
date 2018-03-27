@@ -36,7 +36,7 @@ public class ServicoController {
 	
 	@GetMapping("/servicos/{id}/profissional")
 	public List<Servico> getServicosByProfissional(@PathVariable Integer id) {
-		return null;
+		return this.servicoService.getServicosByProfissional(id);
 	}
 
 	@DeleteMapping("/servicos/{id}")

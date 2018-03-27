@@ -29,4 +29,8 @@ public class ServicoService {
 	public Servico getById(Integer id) {
 		return servicoRepository.findOne(id);
 	}
+	
+	public List<Servico> getServicosByProfissional(Integer id) {
+		return servicoRepository.getServicosByProfissional(id);
+	}
 }
