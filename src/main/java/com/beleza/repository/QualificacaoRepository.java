@@ -12,7 +12,7 @@ public interface QualificacaoRepository extends JpaRepository<Qualificacao, Inte
 	@Query(value = "SELECT qualificacao.* FROM qualificacao left join agendamento on agendamento.id = qualificacao.agendamento_id left join profissional on profissional.id = agendamento.profissional_id where profissional.id = ?1", nativeQuery = true)
 	List<Qualificacao> getByProfissional(Integer id);
 
-	@Query(value = "SELECT qualificacao.* FROM cliente left join qualificacao on qualificacao.cliente_id = cliente.id left join profissional on profissional.id = qualificacao.profissional_id where cliente.id = ?1", nativeQuery=true)
+	@Query(value = "SELECT qualificacao.* FROM qualificacao left join agendamento on agendamento.id = qualificacao.agendamento_id left join cliente on cliente.id = agendamento.cliente_id where cliente.id = ?1", nativeQuery=true)
 	List<Qualificacao> getByCliente(Integer id);
 
 }
