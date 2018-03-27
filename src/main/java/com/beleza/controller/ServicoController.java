@@ -24,11 +24,6 @@ public class ServicoController {
 		return this.servicoService.listaServicos();
 	}
 
-	@GetMapping("/servicos/{id}")
-	public Servico getById(@PathVariable Integer id) {
-		return this.servicoService.getById(id);
-	}
-
 	@PostMapping("/servicos")
 	public Servico salvar(@RequestBody Servico servico) {
 		return this.servicoService.salvarServico(servico);
@@ -38,9 +33,19 @@ public class ServicoController {
 	public Servico editar(@RequestBody Servico servico) {
 		return this.servicoService.salvarServico(servico);
 	}
+	
+	@GetMapping("/servicos/{id}/profissional")
+	public List<Servico> getServicosByProfissional(@PathVariable Integer id) {
+		return null;
+	}
 
 	@DeleteMapping("/servicos/{id}")
 	public void deletar(@PathVariable Integer id) {
 		this.servicoService.deleteServico(id);
+	}
+	
+	@GetMapping("/servicos/{id}")
+	public Servico getById(@PathVariable Integer id) {
+		return this.servicoService.getById(id);
 	}
 }
