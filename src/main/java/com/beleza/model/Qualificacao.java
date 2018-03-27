@@ -3,10 +3,11 @@ package com.beleza.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Qualificacao implements Serializable {
@@ -20,11 +21,8 @@ public class Qualificacao implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@ManyToOne
-	private Profissional profissional;
-
-	@ManyToOne
-	private Cliente cliente;
+	@OneToOne(fetch = FetchType.EAGER)
+	private Agendamento agendamento;
 
 	private int nota;
 
@@ -32,11 +30,9 @@ public class Qualificacao implements Serializable {
 
 	private StatusQualificacao status;
 
-	public Qualificacao(Integer id, Profissional profissional, Cliente cliente, String comentario, int nota,
-			StatusQualificacao status) {
+	public Qualificacao(Integer id, Agendamento agendamento, String comentario, int nota, StatusQualificacao status) {
 		this.id = id;
-		this.profissional = profissional;
-		this.cliente = cliente;
+		this.agendamento = agendamento;
 		this.comentario = comentario;
 		this.nota = nota;
 		this.status = status;
@@ -54,20 +50,12 @@ public class Qualificacao implements Serializable {
 		this.id = id;
 	}
 
-	public Profissional getProfissional() {
-		return profissional;
+	public Agendamento getAgendamento() {
+		return agendamento;
 	}
 
-	public void setProfissional(Profissional profissional) {
-		this.profissional = profissional;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setAgendamento(Agendamento agendamento) {
+		this.agendamento = agendamento;
 	}
 
 	public String getComentario() {
