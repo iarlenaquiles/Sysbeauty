@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import com.beleza.model.Qualificacao;
 
 public interface QualificacaoRepository extends JpaRepository<Qualificacao, Integer> {
-
-	@Query(value = "SELECT qualificacao.* FROM profissional left join qualificacao on qualificacao.profissional_id = profissional.id left join cliente on cliente.id = qualificacao.cliente_id where profissional.id = ?1", nativeQuery = true)
+	
+	@Query(value = "SELECT qualificacao.* FROM qualificacao left join agendamento on agendamento.id = qualificacao.agendamento_id left join profissional on profissional.id = agendamento.profissional_id where profissional.id = ?1", nativeQuery = true)
 	List<Qualificacao> getByProfissional(Integer id);
 
 	@Query(value = "SELECT qualificacao.* FROM cliente left join qualificacao on qualificacao.cliente_id = cliente.id left join profissional on profissional.id = qualificacao.profissional_id where cliente.id = ?1", nativeQuery=true)
