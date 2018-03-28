@@ -25,16 +25,20 @@ public class Promocao implements Serializable {
 	@ManyToOne
 	private Servico servico;
 
-	public Promocao(Integer id, Double valor, Servico servico) {
+	@ManyToOne
+	private Profissional profissional;
+
+	public Promocao(Integer id, Double valor, Servico servico, Profissional profissional) {
 		this.id = id;
 		this.valor = valor;
 		this.servico = servico;
+		this.profissional = profissional;
 	}
 
 	public Promocao() {
-		
+
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -57,6 +61,14 @@ public class Promocao implements Serializable {
 
 	public void setServico(Servico servico) {
 		this.servico = servico;
+	}
+
+	public Profissional getProfissional() {
+		return profissional;
+	}
+
+	public void setProfissional(Profissional profissional) {
+		this.profissional = profissional;
 	}
 
 }
