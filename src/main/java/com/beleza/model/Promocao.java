@@ -31,6 +31,10 @@ public class Promocao implements Serializable {
 		this.servico = servico;
 	}
 
+	public Promocao() {
+		
+	}
+	
 	public Integer getId() {
 		return id;
 	}
