@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.beleza.model.Evento;
 import com.beleza.model.Profissional;
 import com.beleza.model.Usuario;
+import com.beleza.service.EventoService;
 import com.beleza.service.ProfissionalService;
 import com.beleza.service.UsuarioService;
 
@@ -24,6 +26,9 @@ public class ProfissionalController {
 
 	@Autowired
 	private UsuarioService usuarioService;
+	
+	@Autowired
+	private EventoService eventoService;
 	
 	@GetMapping("/profissionais")
 	public List<Profissional> listar() {
@@ -55,5 +60,10 @@ public class ProfissionalController {
 		Usuario usuario = this.usuarioService.getByEmail(principal.getName());
 
 		return this.profissionalService.getByUsuario(usuario);
+	}
+	
+	@PostMapping("/profissionais/eventos")
+	public Evento salvarEvento(@RequestBody Evento evento) {
+		return this.eventoService.salvarEvento(evento);
 	}
 }
