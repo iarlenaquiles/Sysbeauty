@@ -32,17 +32,21 @@ public class Evento implements Serializable {
 	@ManyToOne
 	private Servico servico;
 
+	@ManyToOne
+	private Profissional profissional;
+
 	private Double perco;
 
 	private String observacao;
 
-	public Evento(Integer id, Cliente cliente, Date inicio, Date termino, Servico servico, Double perco,
-			String observacao) {
+	public Evento(Integer id, Cliente cliente, Date inicio, Date termino, Servico servico, Profissional profissional,
+			Double perco, String observacao) {
 		this.id = id;
 		this.cliente = cliente;
 		this.inicio = inicio;
 		this.termino = termino;
 		this.servico = servico;
+		this.profissional = profissional;
 		this.perco = perco;
 		this.observacao = observacao;
 	}
@@ -89,6 +93,14 @@ public class Evento implements Serializable {
 
 	public void setServico(Servico servico) {
 		this.servico = servico;
+	}
+
+	public Profissional getProfissional() {
+		return profissional;
+	}
+
+	public void setProfissional(Profissional profissional) {
+		this.profissional = profissional;
 	}
 
 	public Double getPerco() {
