@@ -35,19 +35,19 @@ public class Evento implements Serializable {
 	@ManyToOne
 	private Profissional profissional;
 
-	private Double perco;
+	private Double preco;
 
 	private String observacao;
 
 	public Evento(Integer id, Cliente cliente, Date inicio, Date termino, Servico servico, Profissional profissional,
-			Double perco, String observacao) {
+			Double preco, String observacao) {
 		this.id = id;
 		this.cliente = cliente;
 		this.inicio = inicio;
 		this.termino = termino;
 		this.servico = servico;
 		this.profissional = profissional;
-		this.perco = perco;
+		this.preco = preco;
 		this.observacao = observacao;
 	}
 
@@ -103,12 +103,12 @@ public class Evento implements Serializable {
 		this.profissional = profissional;
 	}
 
-	public Double getPerco() {
-		return perco;
+	public Double getPreco() {
+		return preco;
 	}
 
-	public void setPerco(Double perco) {
-		this.perco = perco;
+	public void setPreco(Double preco) {
+		this.preco = preco;
 	}
 
 	public String getObservacao() {
