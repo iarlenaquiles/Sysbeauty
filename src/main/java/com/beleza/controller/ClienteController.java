@@ -71,5 +71,10 @@ public class ClienteController {
 	public String upload(@RequestParam("foto") MultipartFile[] foto) throws IllegalStateException, IOException {
 		return this.uploadService.uploadCliente(foto);
 	}
+	
+	@GetMapping("/clientes/quantidade")
+	public long getQuantidadeCadastros() {
+		return this.clienteService.getQuantidadeCadastros();
+	}
 
 }
