@@ -24,21 +24,19 @@ public class Moderador implements Serializable {
 
 	private String nome;
 
-	private String email;
-
-	private boolean status;
-
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(nullable = false, name = "usuario_id")
 	private Usuario usuario;
 
-	public Moderador(Integer id, String nome, String email, boolean status) {
+	public Moderador(Integer id, String nome) { 
 		this.id = id;
 		this.nome = nome;
-		this.email = email;
-		this.status = status;
 	}
 
+	public Moderador() {
+		
+	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -53,22 +51,6 @@ public class Moderador implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public boolean isStatus() {
-		return status;
-	}
-
-	public void setStatus(boolean status) {
-		this.status = status;
 	}
 
 	public Usuario getUsuario() {
