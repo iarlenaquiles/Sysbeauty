@@ -68,7 +68,7 @@ public class ProfissionalController {
 	}
 	
 	@GetMapping("/profissionais/quantidade")
-	public int getQuantidadeCadastros() {
-		return (int) this.profissionalService.getQuantidadeCadastros();
+	public long getQuantidadeCadastros() {
+		return this.profissionalService.getQuantidadeCadastros();
 	}
 }
