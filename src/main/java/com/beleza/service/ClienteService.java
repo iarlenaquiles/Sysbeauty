@@ -35,4 +35,7 @@ public class ClienteService {
 		return clienteRepository.getByUsuario(usuario);
 	}
 
+	public long getQuantidadeCadastros() {
+		return clienteRepository.count();
+	}
 }
