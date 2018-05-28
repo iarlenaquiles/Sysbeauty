@@ -34,5 +34,9 @@ public class ProfissionalService {
 	public Profissional getByUsuario(Usuario usuario) {
 		return profissionalRepository.getByUsuario(usuario);
 	}
+	
+	public long getQuantidadeCadastros() {
+		return profissionalRepository.count();
+	}
 
 }
