@@ -66,4 +66,9 @@ public class ProfissionalController {
 	public Evento salvarEvento(@RequestBody Evento evento) {
 		return this.eventoService.salvarEvento(evento);
 	}
+	
+	@GetMapping("/profissionais/quantidade")
+	public int getQuantidadeCadastros() {
+		return (int) this.profissionalService.getQuantidadeCadastros();
+	}
 }
