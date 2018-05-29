@@ -38,4 +38,8 @@ public class ClienteService {
 	public long getQuantidadeCadastros() {
 		return clienteRepository.count();
 	}
+	
+	public List<Cliente> getByNome(String nome) {
+		return clienteRepository.getByNome(nome);
+	}
 }
