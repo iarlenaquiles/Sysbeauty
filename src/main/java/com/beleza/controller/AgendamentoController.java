@@ -69,10 +69,13 @@ public class AgendamentoController {
 		return this.agendamentoService.getByProfissional(profissional);
 	}
 	
-	@GetMapping("/agendamentos/quantidade")
+	@GetMapping("/agendamentos/quantidade/finalizados")
 	public Integer getQuantidadeAgendamentosFinalizados() {
 		return this.agendamentoService.getQuantidadeAgendamentosFinalizados();
 	}
 	
-	
+	@GetMapping("/agendamentos/quantidade/solicitados")
+	public Integer getQuantidadeAgendamentosSolicitados() {
+		return this.agendamentoService.getQuantidadeAgendamentosSolicitados();
+	}
 }
