@@ -39,4 +39,7 @@ public class ProfissionalService {
 		return profissionalRepository.count();
 	}
 
+	public List<Profissional> getByUsuarioStatusFalse() {
+		return profissionalRepository.getByUsuarioStatusFalse();
+	}
 }

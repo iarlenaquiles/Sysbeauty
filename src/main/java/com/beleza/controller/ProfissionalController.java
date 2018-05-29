@@ -71,4 +71,9 @@ public class ProfissionalController {
 	public long getQuantidadeCadastros() {
 		return this.profissionalService.getQuantidadeCadastros();
 	}
+	
+	@GetMapping("/profissionais/inativos")
+	public List<Profissional> getByUsuarioStatusFalse() {
+		return this.profissionalService.getByUsuarioStatusFalse();
+	}
 }
