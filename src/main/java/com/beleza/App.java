@@ -1,9 +1,9 @@
 package com.beleza;
 
-import java.io.File;
 import java.util.TimeZone;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,6 +19,9 @@ import com.beleza.service.UploadService;
 @SpringBootApplication
 public class App extends SpringBootServletInitializer {
 
+	@Resource
+	UploadService uploadService;
+	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(App.class);
@@ -30,9 +33,6 @@ public class App extends SpringBootServletInitializer {
 	}
 
 	public static void main(String[] args) {
-		new File(UploadService.uploadingdirclientes).mkdirs();
-		new File(UploadService.uploadingdirprofissionais).mkdirs();
-		new File(UploadService.uploadingdirportfolio).mkdirs();
 		SpringApplication.run(App.class, args);
 	}
 
@@ -52,4 +52,9 @@ public class App extends SpringBootServletInitializer {
 		return new CorsFilter(source);
 
 	}
+	
+	@Bean
+    public UploadService uploadService() {
+        return new UploadService("upload");
+    }
 }
