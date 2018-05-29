@@ -18,6 +18,8 @@ import com.beleza.model.Usuario;
 import com.beleza.service.MederadorService;
 import com.beleza.service.PerfilService;
 import com.beleza.service.UsuarioService;
+import com.beleza.util.Constants;
+import com.beleza.util.FileUtil;
 
 @RestController
 public class ModeradorController {
@@ -59,6 +61,13 @@ public class ModeradorController {
 		Usuario usuario = moderador.getUsuario();
 		usuario.setPerfil(perfiluser);
 		usuarioService.salvarUsuario(usuario);
+		
+		if (moderador.getFotoData() != null) {
+			String base64 = moderador.getFotoData();
+			FileUtil.saveFile(moderador.getFoto(), base64, Constants.BASE_UPLOAD);
+			moderador.setFoto(Constants.BASE + moderador.getFoto());
+		}
+		
 		return this.moderadorService.salvarModerador(moderador);
 	}
 
