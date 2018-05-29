@@ -77,4 +77,9 @@ public class ProfissionalController {
 	public List<Profissional> getByUsuarioStatusFalse() {
 		return this.profissionalService.getByUsuarioStatusFalse();
 	}
+	
+	@GetMapping("/profissionais/nome/{nome}")
+	public List<Profissional> getByNome(@PathVariable String nome) {
+		return this.profissionalService.getByNomeLike(nome);
+	}
 }
