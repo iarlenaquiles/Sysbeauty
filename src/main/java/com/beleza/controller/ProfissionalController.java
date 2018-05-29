@@ -47,6 +47,7 @@ public class ProfissionalController {
 
 	@PutMapping("/profissionais")
 	public Profissional editar(@RequestBody Profissional pro) {
+		this.usuarioService.salvarUsuario(pro.getUsuario());
 		return this.profissionalService.salvarProfissional(pro);
 	}
 
