@@ -15,4 +15,5 @@ public interface ProfissionalRepository extends JpaRepository<Profissional, Inte
 	
 	List<Profissional> getByUsuarioStatusFalse();
 	
+	Profissional getByNome(String nome);
 }
