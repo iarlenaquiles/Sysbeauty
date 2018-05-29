@@ -15,4 +15,7 @@ public interface AgendamentoRepository extends JpaRepository<Agendamento, Intege
 
 	@Query(value = "SELECT count(*) FROM agendamento left join profissional on profissional.id = agendamento.profissional_id where profissional.id= ?1 and agendamento.status = 2", nativeQuery = true)
 	Integer quantidadeAgendamentosFinalizados(Integer idProfissional);
+
+	@Query(value = "SELECT count(*) FROM agendamento where status = 2", nativeQuery = true)
+	Integer getQuantidadeAgendamentosFinalizados();
 }
