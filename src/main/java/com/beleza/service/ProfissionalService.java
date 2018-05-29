@@ -42,4 +42,8 @@ public class ProfissionalService {
 	public List<Profissional> getByUsuarioStatusFalse() {
 		return profissionalRepository.getByUsuarioStatusFalse();
 	}
+	
+	public List<Profissional> getByNomeLike(String nome) {
+		return profissionalRepository.getByNome(nome);
+	}
 }
