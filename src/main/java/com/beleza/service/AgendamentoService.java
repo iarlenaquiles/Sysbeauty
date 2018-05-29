@@ -38,4 +38,8 @@ public class AgendamentoService {
 	public Integer getQuantidadeAgendamentosFinalizados(Integer idProfissional) {
 		return agendamentoRepository.quantidadeAgendamentosFinalizados(idProfissional);
 	}
+	
+	public Integer getQuantidadeAgendamentosFinalizados() {
+		return agendamentoRepository.getQuantidadeAgendamentosFinalizados();
+	}
 }
