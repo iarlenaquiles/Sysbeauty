@@ -1,51 +1,55 @@
 package com.beleza.service;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-
-import com.beleza.model.Fotos;
+import org.springframework.util.FileCopyUtils;
 
 @Service
 public class UploadService {
 
-	public static final String uploadingdirclientes = System.getProperty("user.dir") + "/fotos_clientes/";
-	public static final String uploadingdirprofissionais = System.getProperty("user.dir") + "/fotos_profissionais/";
-	public static final String uploadingdirportfolio = System.getProperty("user.dir") + "/portfolio";
-
-	public String uploadCliente(MultipartFile[] fotos) throws IllegalStateException, IOException {
-		File file = null;
-		for (MultipartFile uploadedFile : fotos) {
-			file = new File(uploadingdirclientes + uploadedFile.getOriginalFilename());
-			uploadedFile.transferTo(file);
-		}
-		return file.toString();
+	private final Path rootLocation;
+	
+	public UploadService(@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection") String root) {
+		this.rootLocation = init(root);
 	}
-
-	public String uploadProfissional(MultipartFile[] fotos) throws IllegalStateException, IOException {
-		File file = null;
-		for (MultipartFile uploadedFile : fotos) {
-			file = new File(uploadingdirprofissionais + uploadedFile.getOriginalFilename());
-			uploadedFile.transferTo(file);
+	
+	public Path init(String root) {
+		if (!Files.exists(Paths.get(root), LinkOption.NOFOLLOW_LINKS)) {
+			try {
+				Files.createDirectories(Paths.get(root));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
-		return file.toString();
+		return Paths.get(root);
 	}
+	
+	public Path load(String filename) {
+		return rootLocation.resolve(filename);
+	}
+	
+	public byte[] loadAsBytes(String filename) {
+		File file = load(filename).toFile();
 
-	public List<Fotos> uploadPortfolio(MultipartFile[] fotos) throws IllegalStateException, IOException {
-		Fotos foto;
-		List<Fotos> fotosProfissional = new ArrayList<>();
-		
-		for (MultipartFile uploadedFile : fotos) {
-			foto = new Fotos();
-			File file = new File(uploadingdirportfolio + uploadedFile.getOriginalFilename());
-			uploadedFile.transferTo(file);
-			foto.setNome(file.toString());
+		try {
+			InputStream stream = new FileInputStream(file);
+			return FileCopyUtils.copyToByteArray(stream);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
 		}
-		
-		return fotosProfissional;
+	}
+	
+	public String getPath(String filename) {
+		File file = load(filename).toFile();
+		return file.getAbsolutePath();
 	}
 }
