@@ -1,6 +1,7 @@
 package com.beleza.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -12,6 +13,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Profissional implements Serializable {
@@ -51,6 +56,10 @@ public class Profissional implements Serializable {
 
 	private String celular;
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private Date dataCadastro;
+
 	@ManyToMany
 	private List<Servico> servicos;
 
@@ -67,7 +76,7 @@ public class Profissional implements Serializable {
 
 	public Profissional(Integer id, String nome, String foto, String cpf, String email, String descobriu,
 			Atendimento atendimento, String cep, String cidade, String estado, String endereco, int numero,
-			String telefone, String celular, List<Servico> servicos, Plano plano) {
+			String telefone, String celular, List<Servico> servicos, Plano plano, Date dataCadastro) {
 		this.id = id;
 		this.nome = nome;
 		this.foto = foto;
@@ -84,6 +93,7 @@ public class Profissional implements Serializable {
 		this.celular = celular;
 		this.servicos = servicos;
 		this.plano = plano;
+		this.dataCadastro = dataCadastro;
 	}
 
 	public Profissional() {
@@ -232,6 +242,18 @@ public class Profissional implements Serializable {
 
 	public void setPlano(Plano plano) {
 		this.plano = plano;
+	}
+
+	public Date getDataCadastro() {
+		return dataCadastro;
+	}
+
+	public void setDataCadastro(Date dataCadastro) {
+		this.dataCadastro = dataCadastro;
+	}
+
+	public void setDescobriu(String descobriu) {
+		this.descobriu = descobriu;
 	}
 
 	@Override
