@@ -76,5 +76,10 @@ public class ClienteController {
 	public long getQuantidadeCadastros() {
 		return this.clienteService.getQuantidadeCadastros();
 	}
+	
+	@GetMapping("/clientes/nome/{nome}")
+	public List<Cliente> getByNome(@PathVariable String nome) {
+		return this.clienteService.getByNome(nome);
+	}
 
 }
