@@ -84,7 +84,7 @@ public class ProfissionalController {
 		return this.profissionalService.getByNomeLike(nome);
 	}
 	
-	@GetMapping("/profissionais/editado/editado")
+	@GetMapping("/profissionais/editado")
 	public List<Profissional> getByEditado() {
 		return this.profissionalService.getByEditado(StatusProfissional.EDITADO);
 	}
