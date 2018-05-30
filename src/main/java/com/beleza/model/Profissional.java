@@ -60,6 +60,10 @@ public class Profissional implements Serializable {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private Date dataEdicao;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date dataCadastro;
 
 	@ManyToMany
@@ -79,7 +83,7 @@ public class Profissional implements Serializable {
 	public Profissional(Integer id, String nome, String foto, String cpf, String email, String descobriu,
 			Atendimento atendimento, String cep, String cidade, String estado, String endereco, int numero,
 			String telefone, String celular, List<Servico> servicos, Plano plano, Date dataCadastro,
-			StatusProfissional status) {
+			StatusProfissional status, Date dataEdicao) {
 		this.id = id;
 		this.nome = nome;
 		this.foto = foto;
@@ -98,6 +102,7 @@ public class Profissional implements Serializable {
 		this.plano = plano;
 		this.dataCadastro = dataCadastro;
 		this.status = status;
+		this.dataEdicao = dataEdicao;
 	}
 
 	public Profissional() {
@@ -267,7 +272,15 @@ public class Profissional implements Serializable {
 	public void setStatus(StatusProfissional status) {
 		this.status = status;
 	}
-	
+
+	public Date getDataEdicao() {
+		return dataEdicao;
+	}
+
+	public void setDataEdicao(Date dataEdicao) {
+		this.dataEdicao = dataEdicao;
+	}
+
 	@Override
 	public String toString() {
 		return "Profissional [id=" + id + ", nome=" + nome + ", foto=" + foto + ", cpf=" + cpf + ", email=" + email
