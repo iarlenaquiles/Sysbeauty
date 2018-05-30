@@ -56,6 +56,8 @@ public class Profissional implements Serializable {
 
 	private String celular;
 
+	private boolean editado;
+
 	@Temporal(TemporalType.TIMESTAMP)
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date dataCadastro;
@@ -76,7 +78,7 @@ public class Profissional implements Serializable {
 
 	public Profissional(Integer id, String nome, String foto, String cpf, String email, String descobriu,
 			Atendimento atendimento, String cep, String cidade, String estado, String endereco, int numero,
-			String telefone, String celular, List<Servico> servicos, Plano plano, Date dataCadastro) {
+			String telefone, String celular, List<Servico> servicos, Plano plano, Date dataCadastro, boolean editado) {
 		this.id = id;
 		this.nome = nome;
 		this.foto = foto;
@@ -94,6 +96,7 @@ public class Profissional implements Serializable {
 		this.servicos = servicos;
 		this.plano = plano;
 		this.dataCadastro = dataCadastro;
+		this.editado = editado;
 	}
 
 	public Profissional() {
@@ -254,6 +257,14 @@ public class Profissional implements Serializable {
 
 	public void setDescobriu(String descobriu) {
 		this.descobriu = descobriu;
+	}
+
+	public boolean isEditado() {
+		return editado;
+	}
+
+	public void setEditado(boolean editado) {
+		this.editado = editado;
 	}
 
 	@Override
