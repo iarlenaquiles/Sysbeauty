@@ -36,6 +36,10 @@ public class Banner implements Serializable {
 		this.dataInserido = dataInserido;
 		this.tipo = tipo;
 	}
+	
+	public Banner() {
+		
+	}
 
 	public Integer getId() {
 		return id;
