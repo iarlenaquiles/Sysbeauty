@@ -18,4 +18,6 @@ public interface ProfissionalRepository extends JpaRepository<Profissional, Inte
 
 	@Query(value = "SELECT * FROM profissional WHERE nome LIKE ?1%", nativeQuery = true)
 	List<Profissional> getByNome(String nome);
+	
+	List<Profissional> getByEditadoTrue();
 }
