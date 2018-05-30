@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.beleza.model.Evento;
 import com.beleza.model.Profissional;
+import com.beleza.model.StatusProfissional;
 import com.beleza.model.Usuario;
 import com.beleza.service.EventoService;
 import com.beleza.service.ProfissionalService;
@@ -81,5 +82,15 @@ public class ProfissionalController {
 	@GetMapping("/profissionais/nome/{nome}")
 	public List<Profissional> getByNome(@PathVariable String nome) {
 		return this.profissionalService.getByNomeLike(nome);
+	}
+	
+	@GetMapping("/profissionais/editado/editado")
+	public List<Profissional> getByEditado() {
+		return this.profissionalService.getByEditado(StatusProfissional.EDITADO);
+	}
+	
+	@GetMapping("/profissionais/editado/aprovado")
+	public List<Profissional> getByEditadoAprovado() {
+		return this.profissionalService.getByEditado(StatusProfissional.APROVADO);
 	}
 }
