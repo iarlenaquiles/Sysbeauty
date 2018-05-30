@@ -20,4 +20,6 @@ public interface ProfissionalRepository extends JpaRepository<Profissional, Inte
 	List<Profissional> getByNome(String nome);
 	
 	List<Profissional> getByEditadoTrue();
+	
+	List<Profissional> getByEditadoFalse();
 }
