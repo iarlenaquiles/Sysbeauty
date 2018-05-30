@@ -11,30 +11,30 @@ import com.beleza.repository.ProfissionalRepository;
 
 @Service
 public class ProfissionalService {
-	
+
 	@Autowired
 	private ProfissionalRepository profissionalRepository;
-	
+
 	public List<Profissional> listaProfissionais() {
 		return profissionalRepository.findAll();
 	}
-	
+
 	public Profissional salvarProfissional(Profissional pro) {
 		return profissionalRepository.save(pro);
 	}
-	
+
 	public void deleteProfissional(Integer id) {
 		profissionalRepository.delete(id);
 	}
-	
+
 	public Profissional getById(Integer id) {
 		return profissionalRepository.findOne(id);
 	}
-	
+
 	public Profissional getByUsuario(Usuario usuario) {
 		return profissionalRepository.getByUsuario(usuario);
 	}
-	
+
 	public long getQuantidadeCadastros() {
 		return profissionalRepository.count();
 	}
@@ -42,8 +42,16 @@ public class ProfissionalService {
 	public List<Profissional> getByUsuarioStatusFalse() {
 		return profissionalRepository.getByUsuarioStatusFalse();
 	}
-	
+
 	public List<Profissional> getByNomeLike(String nome) {
 		return profissionalRepository.getByNome(nome);
+	}
+
+	public List<Profissional> getByEditadoTrue() {
+		return profissionalRepository.getByEditadoTrue();
+	}
+
+	public List<Profissional> getByEditadoFalse() {
+		return profissionalRepository.getByEditadoFalse();
 	}
 }
