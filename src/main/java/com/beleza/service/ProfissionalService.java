@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.beleza.model.Profissional;
+import com.beleza.model.StatusProfissional;
 import com.beleza.model.Usuario;
 import com.beleza.repository.ProfissionalRepository;
 
@@ -47,11 +48,7 @@ public class ProfissionalService {
 		return profissionalRepository.getByNome(nome);
 	}
 
-	public List<Profissional> getByEditadoTrue() {
-		return profissionalRepository.getByEditadoTrue();
-	}
-
-	public List<Profissional> getByEditadoFalse() {
-		return profissionalRepository.getByEditadoFalse();
+	public List<Profissional> getByEditado(StatusProfissional status) {
+		return profissionalRepository.getByStatus(status);
 	}
 }
