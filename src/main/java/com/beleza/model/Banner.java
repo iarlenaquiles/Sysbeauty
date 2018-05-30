@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
 public class Banner implements Serializable {
@@ -20,6 +21,9 @@ public class Banner implements Serializable {
 	private String nome;
 
 	private String imagem;
+
+	@Transient
+	private String imagemData;
 
 	private Date dataInserido;
 
@@ -55,6 +59,14 @@ public class Banner implements Serializable {
 
 	public void setImagem(String imagem) {
 		this.imagem = imagem;
+	}
+
+	public String getImagemData() {
+		return imagemData;
+	}
+
+	public void setImagemData(String imagemData) {
+		this.imagemData = imagemData;
 	}
 
 	public Date getDataInserido() {
