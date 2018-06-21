@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Cliente implements Serializable {
@@ -45,6 +46,9 @@ public class Cliente implements Serializable {
 	private String telefone;
 
 	private String celular;
+
+	@Transient
+	private String hashComprador;
 
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(nullable = false, name = "usuario_id")
@@ -181,6 +185,14 @@ public class Cliente implements Serializable {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public String getHashComprador() {
+		return hashComprador;
+	}
+
+	public void setHashComprador(String hashComprador) {
+		this.hashComprador = hashComprador;
 	}
 
 }
