@@ -50,6 +50,9 @@ public class Cliente implements Serializable {
 	@Transient
 	private String hashComprador;
 
+	@Transient
+	private String hashCard;
+
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(nullable = false, name = "usuario_id")
 	private Usuario usuario;
@@ -193,6 +196,14 @@ public class Cliente implements Serializable {
 
 	public void setHashComprador(String hashComprador) {
 		this.hashComprador = hashComprador;
+	}
+
+	public String getHashCard() {
+		return hashCard;
+	}
+
+	public void setHashCard(String hashCard) {
+		this.hashCard = hashCard;
 	}
 
 }
