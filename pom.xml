@@ -66,6 +66,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-freemarker</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>br.com.uol.pagseguro</groupId>
+			<artifactId>pagseguro-api</artifactId>
+			<version>4.1.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
