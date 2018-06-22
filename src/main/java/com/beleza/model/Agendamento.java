@@ -45,6 +45,8 @@ public class Agendamento implements Serializable {
 
 	@ManyToMany
 	private Set<Servico> servico;
+	
+	private Double total;
 
 	public Agendamento(Integer id, Date data_agendamento, String horario, Atendimento atendimento,
 			StatusAgendamento status, Profissional profissional, Cliente cliente, Set<Servico> servico) {
@@ -126,4 +128,13 @@ public class Agendamento implements Serializable {
 		this.servico = servico;
 	}
 
+	public void setTotal(Set<Servico> servico) {
+		for(Servico s: servico) {
+			this.total += s.getValor();
+		}
+	}
+	
+	public Double getTotal() {
+		return total;
+	}
 }
