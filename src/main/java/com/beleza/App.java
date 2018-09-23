@@ -22,6 +22,10 @@ public class App extends SpringBootServletInitializer {
 	@Resource
 	UploadService uploadService;
 	
+	public static void main(String[] args) {
+		SpringApplication.run(App.class, args);
+	}
+	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(App.class);
@@ -32,9 +36,6 @@ public class App extends SpringBootServletInitializer {
 		TimeZone.setDefault(TimeZone.getTimeZone("UTC-3"));
 	}
 
-	public static void main(String[] args) {
-		SpringApplication.run(App.class, args);
-	}
 
 	@Bean
 	public CorsFilter corsFilter() {
