@@ -1,2 +1,2 @@
 # Sysbeauty
-Sistema para o gerenciamento da beleza.
+API do Sistema para o gerenciamento da beleza.
