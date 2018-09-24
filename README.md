@@ -1,3 +1,2 @@
 # Sysbeauty
-Sistema....
-jjjjjjjjjjjjjjjjjj
+Sistema para o gerenciamento da beleza.
