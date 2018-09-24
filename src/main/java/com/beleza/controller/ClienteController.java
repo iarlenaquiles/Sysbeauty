@@ -26,7 +26,7 @@ public class ClienteController {
 	@Autowired
 	private UsuarioService usuarioService;
 
-	@GetMapping("/clientes")
+	@GetMapping("/cliente")
 	public List<Cliente> listar() {
 		return this.clienteService.listaClientes();
 	}
