@@ -20,17 +20,23 @@ node{
         }
     }
 
-    stage("SonarQube Quality Gate") { 
-           def qg = waitForQualityGate() 
-           if (qg.status != 'OK') {
-             error "Pipeline aborted due to quality gate failure: ${qg.status}"
-           } else {
-              echo "Pipeline quality gate: ${qg.status}" 
-           }
+}
+
+ stage("Code Quality Gate") {
+        steps {
+            container('default') {
+                echo "Waiting for sonar results..."
+                script {
+                    def qg = waitForQualityGate()
+                    if (qg.status != 'OK') {
+                        error "Pipeline aborted due to quality gate failure: ${qg.status}"
+                    }
+                }
+            }
+        }
     }
 
     stage('Deploy-Package') {
       sh "mvn deploy"
     }
 
-}
