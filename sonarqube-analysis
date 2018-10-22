@@ -9,7 +9,7 @@ node{
     stage("build & SonarQube analysis") {
           node {
               withSonarQubeEnv('SonarQube') {
-                 sh 'mvn clean package sonar:sonar'
+                 sh 'mvn verify'
               }    
           }
       }
