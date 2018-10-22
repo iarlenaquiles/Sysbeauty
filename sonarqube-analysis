@@ -20,9 +20,7 @@ node{
         }
     }
 
-}
-
- stage("Code Quality Gate") {
+    stage("Code Quality Gate") {
         steps {
             container('default') {
                 echo "Waiting for sonar results..."
@@ -36,7 +34,7 @@ node{
         }
     }
 
-    stage('Deploy-Package') {
+stage('Deploy-Package') {
       sh "mvn deploy"
     }
-
+}
