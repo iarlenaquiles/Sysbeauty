@@ -3,14 +3,11 @@ node{
      git 'https://github.com/iarlenaquiles/Sysbeauty'
    }
    stage('Compile-Package'){
-      // Get maven home path
-      def mvnHome =  tool name: 'maven-3', type: 'maven'   
       sh "mvn package"
    }
    
    stage('SonarQube Analysis') {
-        def mvnHome =  tool name: 'maven-3', type: 'maven'
-        withSonarQubeEnv('sonarqube') { 
+        withSonarQubeEnv('SonarQube') { 
           sh "mvn sonar:sonar"
         }
     }
