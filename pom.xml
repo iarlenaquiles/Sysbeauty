@@ -98,21 +98,9 @@
 			<properties>
 				<sonar.host.url>http://localhost:9000</sonar.host.url>
 			</properties>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.jacoco</groupId>
-						<artifactId>jacoco-maven-plugin</artifactId>
-					</plugin>
-					<plugin>
-						<groupId>org.sonarsource.scanner.maven</groupId>
-						<artifactId>sonar-maven-plugin</artifactId>
-					</plugin>
-				</plugins>
-			</build>
 		</profile>
 	</profiles>
-	
+
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -131,7 +119,7 @@
 				<plugin>
 					<groupId>org.sonarsource.scanner.maven</groupId>
 					<artifactId>sonar-maven-plugin</artifactId>
-					<version>3.3.0.603</version>
+					<version>3.4.0.905</version>
 					<executions>
 						<execution>
 							<phase>verify</phase>
@@ -191,6 +179,14 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
