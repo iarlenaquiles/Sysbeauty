@@ -8,7 +8,7 @@ node{
    
     stage('SonarQube Analysis') {
         withSonarQubeEnv('SonarQube') { 
-          sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.603:sonar ' + 
+          sh 'mvn sonar:sonar ' + 
           '-f pom.xml ' +
           '-Dsonar.projectKey=disque:beleza ' +
           '-Dsonar.login=4eeaf5ec10fa7ae732d51b84d7b9274719311ac6 ' +
@@ -23,12 +23,8 @@ node{
     stage("SonarQube Quality Gate") { 
         timeout(time: 1, unit: 'HOURS') { 
            def qg = waitForQualityGate() 
-           if (qg.status == 'ERROR') {
+           if (qg.status "= 'OK') {
              error "Pipeline aborted due to quality gate failure: ${qg.status}"
-           }
-
-           if (qg.status == 'SUCCESS') {
-             success "Pipeline to quality gate ok: ${qg.status}"
            }
         }
     }
