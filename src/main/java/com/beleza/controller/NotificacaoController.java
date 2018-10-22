@@ -43,57 +43,11 @@ public class NotificacaoController {
 		return this.notificacaoService.getById(id);
 	}
 
-	@PostMapping("/notificacoes")
-	public Notificacao salvar(@RequestBody Notificacao notificacao) {
-		if (notificacao.getTipo().getDescricao() == "PROFISSIONAIS") {
-			this.send(notificacao, TOPIC_PROFISSIONAL);
-		} else if (notificacao.getTipo().getDescricao() == "CLIENTES"){
-			this.send(notificacao, TOPIC_CLIENTE);
-		} else {
-			this.send(notificacao, TOPIC_AMBOS);
-		}
-		
-		return this.notificacaoService.salvarNotificacao(notificacao);
-	}
-
 	@PutMapping("/notificacoes")
 	public Notificacao editar(@RequestBody Notificacao notificacao) {
 		return this.notificacaoService.salvarNotificacao(notificacao);
 	}
 
-	@DeleteMapping("/notificacoes/{id}")
-	public void deletar(@PathVariable Integer id) {
-		this.notificacaoService.deleteNotificacao(id);
-	}
-	
-	public ResponseEntity<String> send(Notificacao notificacao, String topico) throws JSONException {
 
-		JSONObject body = new JSONObject();
-		body.put("to", "/topics/" + topico);
-		body.put("priority", "high");
-
-		JSONObject notification = new JSONObject();
-		notification.put("title", "Disque beleza");
-		notification.put("body", notificacao.getMensagem());
-
-		body.put("notification", notification);
-
-		HttpEntity<String> request = new HttpEntity<>(body.toString());
-
-		CompletableFuture<String> pushNotification = notificacaoService.send(request);
-		CompletableFuture.allOf(pushNotification).join();
-
-		try {
-			String firebaseResponse = pushNotification.get();
-			
-			return new ResponseEntity<>(firebaseResponse, HttpStatus.OK);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			e.printStackTrace();
-		}
-
-		return new ResponseEntity<>("Push Notification ERROR!", HttpStatus.BAD_REQUEST);
-	}
 
 }
