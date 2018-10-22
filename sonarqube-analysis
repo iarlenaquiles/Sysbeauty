@@ -12,4 +12,8 @@ node{
         }
     }
 
+    stage('Deploy-Package') {
+      sh "mvn deploy"
+    }
+
 }
