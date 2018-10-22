@@ -71,8 +71,48 @@
 			<artifactId>pagseguro-api</artifactId>
 			<version>4.1.1</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/sonar-maven-plugin -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.codehaus.mojo</groupId> -->
+		<!-- <artifactId>sonar-maven-plugin</artifactId> -->
+		<!-- <version>3.4.0.905</version> -->
+		<!-- <type>pom</type> -->
+		<!-- </dependency> -->
 	</dependencies>
 
+	<!-- <profiles> -->
+	<!-- <profile> -->
+	<!-- <id>sonar</id> -->
+	<!-- <activation> -->
+	<!-- <activeByDefault>true</activeByDefault> -->
+	<!-- </activation> -->
+	<!-- <properties> -->
+	<!-- <sonar.host.url> http://localhost:9000 </sonar.host.url> -->
+	<!-- </properties> -->
+	<!-- </profile> -->
+	<!-- </profiles> -->
+	<profiles>
+		<profile>
+			<id>sonar</id>
+			<properties>
+				<sonar.host.url>http://localhost:9000</sonar.host.url>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+					</plugin>
+					<plugin>
+						<groupId>org.sonarsource.scanner.maven</groupId>
+						<artifactId>sonar-maven-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -84,6 +124,49 @@
 						<execution>
 							<id>default-deploy</id>
 							<phase>none</phase>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
+					<groupId>org.sonarsource.scanner.maven</groupId>
+					<artifactId>sonar-maven-plugin</artifactId>
+					<version>3.3.0.603</version>
+					<executions>
+						<execution>
+							<phase>verify</phase>
+							<goals>
+								<goal>sonar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.jacoco</groupId>
+					<artifactId>jacoco-maven-plugin</artifactId>
+					<version>0.7.9</version>
+					<configuration>
+						<append>true</append>
+					</configuration>
+					<executions>
+						<execution>
+							<id>prepare-agent</id>
+							<goals>
+								<goal>prepare-agent</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>prepare-agent-integration</id>
+							<goals>
+								<goal>prepare-agent-integration</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>jacoco-site</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>report</goal>
+							</goals>
 						</execution>
 					</executions>
 				</plugin>
