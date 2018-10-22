@@ -6,9 +6,28 @@ node{
       sh "mvn package"
    }
    
-   stage('SonarQube Analysis') {
+    stage('SonarQube Analysis') {
         withSonarQubeEnv('SonarQube') { 
-          sh "mvn sonar:sonar"
+          sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.603:sonar ' + 
+          '-f all/pom.xml ' +
+          '-Dsonar.projectKey=disque:beleza ' +
+          '-Dsonar.login=4eeaf5ec10fa7ae732d51b84d7b9274719311ac6 ' +
+          '-Dsonar.language=java ' +
+          '-Dsonar.sources=. ' +
+          '-Dsonar.tests=. ' +
+          '-Dsonar.test.inclusions=**/*Test*/** ' +
+          '-Dsonar.exclusions=**/*Test*/**'
+        }
+    }
+
+    stage("SonarQube Quality Gate") { 
+        timeout(time: 10, unit: 'MINUTES') { 
+           def qg = waitForQualityGate() 
+           if (qg.status != 'OK') {
+             error "Pipeline aborted due to quality gate failure: ${qg.status}"
+           } else {
+              echo "Pipeline quality gate: ${qg.status}" 
+           }
         }
     }
 
