@@ -8,11 +8,14 @@ import org.junit.jupiter.api.Test;
 import com.beleza.model.Cliente;
 import com.beleza.model.Perfil;
 import com.beleza.model.Usuario;
+import com.beleza.service.ClienteService;
 
 class ClientTest {
 
 	@Test
 	void test() {
+		ClienteService clienteService = new ClienteService();
+		//List<Cliente> clientes = clienteService.listaClientes();
 		Perfil p = new Perfil("ROLE_ADMIN");
 		List<Perfil> meuPerfil = new ArrayList<>();
 		meuPerfil.add(p);
@@ -24,7 +27,7 @@ class ClientTest {
 
 		assertEquals(user1.getEmail(), "iarlen@gmail.com");
 		assertEquals("ROLE_ADMIN", user1.getPerfil().get(0).getNome());
-		assert (cli1 == null);
+		assert (cli1 != null);
 	}
 
 }
