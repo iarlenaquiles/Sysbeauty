@@ -95,7 +95,7 @@ public class Usuario implements Serializable {
 	}
 
 	public List<Perfil> getPerfil() {
-		return perfil;
+		return perfil
 	}
 
 	public void setPerfil(List<Perfil> perfil) {
