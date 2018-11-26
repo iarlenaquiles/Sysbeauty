@@ -27,7 +27,7 @@ class ClientTest {
 
 		assertEquals(user1.getEmail(), "iarlen@gmail.com");
 		assertEquals("ROLE_ADMIN", user1.getPerfil().get(0).getNome());
-		assert (cli1 != null);
+		assert (cli1 == null);
 	}
 
 }
