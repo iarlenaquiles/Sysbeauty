@@ -7,7 +7,7 @@ services:
     ports:
       - '8081:8080'
     environment:
-      - "SPRING_PROFILES_ACTIVE=container"
+      - "SPRING_PROFILES_ACTIVE=docker"
     volumes: 
       - ./target/beleza-0.0.1-SNAPSHOT.war:/usr/local/tomcat/webapps/beleza.war
     networks:

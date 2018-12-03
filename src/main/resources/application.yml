@@ -10,7 +10,7 @@ spring:
 
 ---
 spring:
-  profiles: container
+  profiles: docker
   datasource:
     url: jdbc:mysql://mysql:3306/belezadb
     username: root
